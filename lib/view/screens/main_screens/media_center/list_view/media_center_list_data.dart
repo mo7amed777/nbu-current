@@ -19,7 +19,7 @@ class MediaCenterListData {
 
   static List<MediaCenterListData> MediaCenterList = <MediaCenterListData>[
     MediaCenterListData(
-      imagePath: 'assets/media_center/news.jpg',
+      imagePath: 'assets/images/media_center/news.jpg',
       titleTxt: 'NBU News',
       subTxt: 'Arar, Saudi Arabia',
       dist: 2.0,
@@ -28,7 +28,7 @@ class MediaCenterListData {
       perNight: 180,
     ),
     MediaCenterListData(
-      imagePath: 'assets/media_center/events.jpg',
+      imagePath: 'assets/images/media_center/events.jpg',
       titleTxt: 'Events',
       subTxt: 'Arar, Saudi Arabia',
       dist: 4.0,
@@ -37,7 +37,7 @@ class MediaCenterListData {
       perNight: 200,
     ),
     MediaCenterListData(
-      imagePath: 'assets/media_center/announcements.jpg',
+      imagePath: 'assets/images/media_center/announcements.jpg',
       titleTxt: 'Announcements',
       subTxt: 'Arar, Saudi Arabia',
       dist: 3.0,
@@ -46,7 +46,7 @@ class MediaCenterListData {
       perNight: 60,
     ),
     MediaCenterListData(
-      imagePath: 'assets/media_center/photos.png',
+      imagePath: 'assets/images/media_center/photos.png',
       titleTxt: 'Photos',
       subTxt: 'Arar, Saudi Arabia',
       dist: 7.0,
@@ -55,7 +55,7 @@ class MediaCenterListData {
       perNight: 170,
     ),
     MediaCenterListData(
-      imagePath: 'assets/media_center/video.jpg',
+      imagePath: 'assets/images/media_center/video.jpg',
       titleTxt: 'Videos',
       subTxt: 'Arar, Saudi Arabia',
       dist: 2.0,

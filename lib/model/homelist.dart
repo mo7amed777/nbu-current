@@ -1,12 +1,13 @@
-import 'package:northern_border_university/view/screens/darwer_screens/about%20US.dart';
-import 'package:northern_border_university/view/screens/main_screens/administration/administrations.dart';
-import 'package:northern_border_university/view/screens/main_screens/colleges/colleges_screen.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main Menu/Administration/Administration.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/About%20the%20University/AboutTheUniversity.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Colleges/Colleges.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Magazine/Magazine.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Media%20Center/MediaCenter.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Media%20Center/News/News.dart';
 import '../controller/themes/app_theme.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../view/screens/main_screens/magazine/magazine_screen.dart';
-import '../view/screens/main_screens/media_center/media_center_screen.dart';
 import '../view/screens/splash/introduction_animation_screen.dart';
 
 class HomeList {
@@ -22,39 +23,40 @@ class HomeList {
   Color color;
   static List<HomeList> homeList = [
     HomeList(
-      imagePath: 'assets/introduction_animation/Administration.jpg',
+      imagePath: 'assets/images/introduction_animation/Administration.jpg',
       title: 'Administration',
       color: HexColor("003255"),
       callback: () async {
         try {
-          Get.to(Administrations());
+          Get.to(Administration());
         } catch (e) {
           print(e);
         }
       },
     ),
     HomeList(
-      imagePath: 'assets/media_center/Media_Centre.jpg',
+      imagePath: 'assets/images/media_center/Media_Centre.jpg',
       title: 'Media Centre',
       color: HexColor("052751"),
       callback: () {
-        Get.to(MediaCenterHomeScreen());
+        Get.to(News());
+        // Get.to(MediaCenter());
       },
     ),
     HomeList(
-      imagePath: 'assets/colleges/colleges.jpg',
+      imagePath: 'assets/images/colleges/colleges.jpg',
       title: 'Colleges',
       color: HexColor("146564"),
       callback: () {
-        Get.to(FitnessAppHomeScreen());
+        Get.to(Colleges());
       },
     ),
     HomeList(
-      imagePath: 'assets/magazine/magazine.jpg',
+      imagePath: 'assets/images/magazine/magazine.jpg',
       title: 'Magazine',
       color: HexColor("2C2C2C"),
       callback: () {
-        Get.to(DesignCourseHomeScreen());
+        Get.to(Magazine());
       },
     ),
     HomeList(
@@ -70,10 +72,10 @@ class HomeList {
     ),
     HomeList(
       imagePath: 'assets/images/about_us.jpg',
-      title: 'About US',
+      title: 'About The University',
       color: HexColor("010F18"),
       callback: () {
-        Get.to(AboutUS());
+        Get.to(AboutTheUniversity());
       },
     ),
     //

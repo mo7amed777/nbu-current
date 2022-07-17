@@ -17,7 +17,7 @@ class MealsListData {
 
   static List<MealsListData> tabIconsList = <MealsListData>[
     MealsListData(
-      imagePath: 'assets/colleges/runner.png',
+      imagePath: 'assets/images/colleges/runner.png',
       titleTxt: 'Arar',
       kacl: 525,
       meals: <String>['Faculty,', 'Section,', 'More'],
@@ -25,7 +25,7 @@ class MealsListData {
       endColor: '#FFB295',
     ),
     MealsListData(
-      imagePath: 'assets/colleges/area1.png',
+      imagePath: 'assets/images/colleges/area1.png',
       titleTxt: 'Rafhaa',
       kacl: 602,
       meals: <String>['Faculty,', 'Section,', 'More'],
@@ -33,7 +33,7 @@ class MealsListData {
       endColor: '#5C5EDD',
     ),
     MealsListData(
-      imagePath: 'assets/colleges/runner.png',
+      imagePath: 'assets/images/colleges/runner.png',
       titleTxt: 'Turaif',
       kacl: 0,
       meals: <String>['Faculty,', 'Section,', 'More'],
@@ -41,7 +41,7 @@ class MealsListData {
       endColor: '#FF5287',
     ),
     MealsListData(
-      imagePath: 'assets/colleges/area1.png',
+      imagePath: 'assets/images/colleges/area1.png',
       titleTxt: 'Uweqilya',
       kacl: 0,
       meals: <String>['Faculty,', 'Section,', 'More'],

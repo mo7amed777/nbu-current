@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Administration/UniversityPresident.dart';
 import 'package:northern_border_university/view/screens/main_screens/administration/The%20University%20President.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
@@ -15,14 +16,14 @@ class Administrations extends StatefulWidget {
 
 class _AdministrationsState extends State<Administrations> {
   Map<String, String> items = {
-    'The President': 'assets/magazine/webInterFace.png',
-    'The Resume': 'assets/magazine/webInterFace.png',
-    'President Office': 'assets/magazine/interFace3.png',
-    'Vice-President': 'assets/magazine/interFace3.png',
-    'Deanship\'s': 'assets/magazine/webInterFace.png',
-    'Centers': 'assets/magazine/webInterFace.png',
-    'Administrations': 'assets/magazine/interFace3.png',
-    'Faculty Members': 'assets/magazine/interFace3.png',
+    'The President': 'assets/images/magazine/webInterFace.png',
+    'The Resume': 'assets/images/magazine/webInterFace.png',
+    'President Office': 'assets/images/magazine/interFace3.png',
+    'Vice-President': 'assets/images/magazine/interFace3.png',
+    'Deanship\'s': 'assets/images/magazine/webInterFace.png',
+    'Centers': 'assets/images/magazine/webInterFace.png',
+    'Administrations': 'assets/images/magazine/interFace3.png',
+    'Faculty Members': 'assets/images/magazine/interFace3.png',
   };
   bool multiple = true;
   @override
@@ -143,9 +144,9 @@ class _AdministrationsState extends State<Administrations> {
         break;
       case 'The Resume':
         imgURL = await article.getItemImageURL(article.items[1]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[1]));
+        Get.to(UniversityPresident());
+        // Get.to(TheUniversityPresident(
+        //     article: article, imgURL: imgURL, item: article.items[1]));
         break;
       case 'President Office':
         imgURL = await article.getItemImageURL(article.items[2]);

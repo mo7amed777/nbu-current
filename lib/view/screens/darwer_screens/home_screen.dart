@@ -203,5 +203,5 @@ class HomeListView extends StatelessWidget {
 /**
  * appBar and drawer widgets in all screens 
  * fix UI in all files one by one (All Files)
- * rename all files and classes with correct name also assets folders and files
+ * rename all files and classes with correct name also assets/images folders and files
  */

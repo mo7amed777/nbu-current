@@ -99,7 +99,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                   width: 28,
                                                   height: 28,
                                                   child: Image.asset(
-                                                      "assets/colleges/eaten.png"),
+                                                      "assets/images/colleges/eaten.png"),
                                                 ),
                                                 Padding(
                                                   padding:
@@ -198,7 +198,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                   width: 28,
                                                   height: 28,
                                                   child: Image.asset(
-                                                      "assets/colleges/burned.png"),
+                                                      "assets/images/colleges/burned.png"),
                                                 ),
                                                 Padding(
                                                   padding:

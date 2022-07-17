@@ -1,5 +1,9 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/About%20the%20University/ContactUS.dart';
+import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Contact%20US/DoYouNeedHelp.dart';
 
 class AboutUS extends StatefulWidget {
   @override
@@ -24,7 +28,8 @@ class _AboutUSState extends State<AboutUS> {
             children: <Widget>[
               Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top * 3,
+                    top: MediaQuery.of(context).size.height * 0.1,
+                    bottom: MediaQuery.of(context).size.height * 0.05,
                     left: 16,
                     right: 16),
                 child: Image.asset('assets/images/about_template.jpg'),
@@ -40,12 +45,14 @@ class _AboutUSState extends State<AboutUS> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(top: 16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
                 child: const Text(
                   "Northern Border University (NBU) is located in Arar, Saudi Arabia. It was founded in 2007.[1][2] It contains 16 colleges: 9 in Arar, 4 in Rafha, 2 in Turayf, and 1 in Al Uwayqilah.[3] It has a variety of majors in multiple levels, including bachelor's and master's degrees",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
+                    height: 1.5,
                   ),
                 ),
               ),
@@ -71,28 +78,27 @@ class _AboutUSState extends State<AboutUS> {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            //method here for functionality
-                            print('Share Action.');
+                            Get.to(ContactUS());
                           },
                           child: Center(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.explore,
-                                  color: Colors.white,
-                                  size: 22,
-                                ),
+                              children: const <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.all(4.0),
+                                  padding: EdgeInsets.all(4.0),
                                   child: Text(
-                                    'Explore...',
+                                    'Contact US',
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white,
                                     ),
                                   ),
+                                ),
+                                Icon(
+                                  Icons.phone_enabled,
+                                  color: Colors.white,
+                                  size: 22,
                                 ),
                               ],
                             ),

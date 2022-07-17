@@ -176,7 +176,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                           width: 24,
                                           height: 24,
                                           child: Image.asset(
-                                              'assets/colleges/bell.png'),
+                                              'assets/images/colleges/bell.png'),
                                         ),
                                         Flexible(
                                           child: Text(

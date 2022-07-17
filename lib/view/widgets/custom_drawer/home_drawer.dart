@@ -43,7 +43,7 @@ class HomeDrawerState extends State<HomeDrawer> {
       DrawerList(
         index: DrawerIndex.FeedBack,
         labelName: 'FeedBack',
-        isAssetsImage: true,
+        isassetsImage: true,
         imageName: 'assets/images/supportIcon.png',
       ),
       DrawerList(
@@ -58,7 +58,7 @@ class HomeDrawerState extends State<HomeDrawer> {
       ),
       DrawerList(
         index: DrawerIndex.About,
-        labelName: 'About Us',
+        labelName: 'Contact Us',
         icon: Icon(Icons.info),
       ),
       DrawerList(
@@ -224,7 +224,7 @@ class HomeDrawerState extends State<HomeDrawer> {
                   const Padding(
                     padding: EdgeInsets.all(4.0),
                   ),
-                  listData.isAssetsImage
+                  listData.isassetsImage
                       ? SizedBox(
                           width: 24,
                           height: 24,
@@ -310,7 +310,7 @@ enum DrawerIndex {
 
 class DrawerList {
   DrawerList({
-    this.isAssetsImage = false,
+    this.isassetsImage = false,
     this.labelName = '',
     this.icon,
     this.index,
@@ -319,7 +319,7 @@ class DrawerList {
 
   String labelName;
   Icon? icon;
-  bool isAssetsImage;
+  bool isassetsImage;
   String imageName;
   DrawerIndex? index;
 }

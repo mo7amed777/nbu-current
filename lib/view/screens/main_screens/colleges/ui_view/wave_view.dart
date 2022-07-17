@@ -243,7 +243,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
               children: <Widget>[
                 AspectRatio(
                   aspectRatio: 1,
-                  child: Image.asset("assets/colleges/bottle.png"),
+                  child: Image.asset("assets/images/colleges/bottle.png"),
                 ),
               ],
             )

@@ -235,7 +235,7 @@ class MediaCenterHomeScreenState extends State<MediaCenterHomeScreen>
                       // setState(() {
                       //   isDatePopupOpen = true;
                       // });
-                      showDemoDialog(context: context);
+                      shownorthern_border_universityDialog(context: context);
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(
@@ -503,7 +503,7 @@ class MediaCenterHomeScreenState extends State<MediaCenterHomeScreen>
     );
   }
 
-  void showDemoDialog({BuildContext? context}) {
+  void shownorthern_border_universityDialog({BuildContext? context}) {
     showDialog<dynamic>(
       context: context!,
       builder: (BuildContext context) => CalendarPopupView(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
-import 'package:northern_border_university/controller/themes/magazine_theme.dart';
 
 class Appbar extends StatefulWidget {
   const Appbar({
@@ -30,9 +29,10 @@ class _AppbarState extends State<Appbar> {
           Expanded(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 4),
+                padding: const EdgeInsets.only(top: 4, left: 16, right: 4.0),
                 child: Text(
                   widget.title,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 22,
                     color: AppTheme.darkText,
