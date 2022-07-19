@@ -2,8 +2,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/About%20the%20University/ContactUS.dart';
-import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Contact%20US/DoYouNeedHelp.dart';
+import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/ContactUS.dart';
+import 'package:northern_border_university/view/screens/main_screens/Contact%20US/DoYouNeedHelp.dart';
 
 class AboutUS extends StatefulWidget {
   @override
@@ -32,7 +32,7 @@ class _AboutUSState extends State<AboutUS> {
                     bottom: MediaQuery.of(context).size.height * 0.05,
                     left: 16,
                     right: 16),
-                child: Image.asset('assets/images/about_template.jpg'),
+                child: Image.asset('assets/images/media/about_template.jpg'),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 8),

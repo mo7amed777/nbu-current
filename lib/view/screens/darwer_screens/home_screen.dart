@@ -1,28 +1,27 @@
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:northern_border_university/model/homelist.dart';
+import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/list_view/media_center_list_view.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
+class Home extends StatefulWidget {
   @override
-  MyHomePageState createState() => MyHomePageState();
+  HomeState createState() => HomeState();
 }
 
-class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
-  List<HomeList> homeList = HomeList.homeList;
+class HomeState extends State<Home> with TickerProviderStateMixin {
   AnimationController? animationController;
-  bool multiple = true;
+  List<HomeList> homeList = HomeList.homeList;
+
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 2000), vsync: this);
+        duration: const Duration(milliseconds: 1000), vsync: this);
     super.initState();
   }
 
   Future<bool> getData() async {
-    await Future<dynamic>.delayed(const Duration(milliseconds: 0));
+    await Future<dynamic>.delayed(const Duration(milliseconds: 200));
     return true;
   }
 
@@ -34,174 +33,67 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppTheme.white,
-      body: FutureBuilder<bool>(
-        future: getData(),
-        builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-          if (!snapshot.hasData) {
-            return const SizedBox();
-          } else {
-            return Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+    return Theme(
+      data: MediaCenterAppTheme.buildLightTheme(),
+      child: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              onTap: () {
+                FocusScope.of(context).requestFocus(FocusNode());
+              },
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Appbar(
-                      title: 'HOME',
-                      icon: multiple ? Icons.dashboard : Icons.view_agenda,
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).padding.top + 6),
+                    child: Appbar(
+                      title: 'Home',
                       onSearch: () {},
-                      onIconPressed: () {
-                        setState(() {
-                          multiple = !multiple;
-                        });
-                      }),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
+                      icon: Icons.more_vert,
+                      view: true,
+                      onIconPressed: () {},
+                    ),
                   ),
                   Expanded(
-                    child: FutureBuilder<bool>(
-                      future: getData(),
-                      builder:
-                          (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                        if (!snapshot.hasData) {
-                          return const SizedBox();
-                        } else {
-                          return GridView(
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: multiple ? 2 : 1,
-                              mainAxisSpacing: 16.0,
-                              crossAxisSpacing: 16.0,
-                              childAspectRatio: 1,
-                            ),
-                            padding: const EdgeInsets.only(
-                                top: 0, left: 12, right: 12),
-                            physics: const BouncingScrollPhysics(),
-                            scrollDirection: Axis.vertical,
-                            children: List<Widget>.generate(
-                              homeList.length,
-                              (int index) {
-                                final int count = homeList.length;
-                                final Animation<double> animation =
-                                    Tween<double>(begin: 0.0, end: 1.0).animate(
-                                  CurvedAnimation(
+                    child: ListView.builder(
+                      itemCount: homeList.length,
+                      padding: const EdgeInsets.only(top: 8),
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (BuildContext context, int index) {
+                        final int count =
+                            homeList.length > 10 ? 10 : homeList.length;
+                        final Animation<double> animation =
+                            Tween<double>(begin: 0.0, end: 1.0).animate(
+                                CurvedAnimation(
                                     parent: animationController!,
                                     curve: Interval((1 / count) * index, 1.0,
-                                        curve: Curves.fastOutSlowIn),
-                                  ),
-                                );
-                                animationController?.forward();
-                                return HomeListView(
-                                  animation: animation,
-                                  multible: multiple,
-                                  color: homeList[index].color,
-                                  animationController: animationController,
-                                  listData: homeList[index],
-                                  callBack: () => homeList[index].callback(),
-                                );
-                              },
-                            ),
-                          );
-                        }
+                                        curve: Curves.fastOutSlowIn)));
+                        animationController?.forward();
+                        return MediaCenterListView(
+                          data: {
+                            'title': homeList[index].title,
+                            'subTxt': homeList[index].subTxt,
+                            'imagePath': homeList[index].imagePath,
+                            'callback': homeList[index].callback,
+                            'icon': homeList[index].icon,
+                          },
+                          animation: animation,
+                          animationController: animationController!,
+                        );
                       },
                     ),
                   ),
                 ],
               ),
-            );
-          }
-        },
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
-class HomeListView extends StatelessWidget {
-  const HomeListView(
-      {Key? key,
-      this.listData,
-      this.callBack,
-      this.multible = true,
-      this.animationController,
-      this.color = AppTheme.white,
-      this.animation})
-      : super(key: key);
-
-  final HomeList? listData;
-  final Function? callBack;
-  final AnimationController? animationController;
-  final Animation<double>? animation;
-  final Color color;
-  final bool multible;
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: animationController!,
-      builder: (BuildContext context, Widget? child) {
-        return FadeTransition(
-          opacity: animation!,
-          child: Transform(
-            transform: Matrix4.translationValues(
-                0.0, 50 * (1.0 - animation!.value), 0.0),
-            child: AspectRatio(
-              aspectRatio: 1.5,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(4.0)),
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: <Widget>[
-                    Positioned.fill(
-                      child: Image.asset(
-                        listData!.imagePath,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        splashColor: Colors.grey.withOpacity(0.2),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(4.0)),
-                        onTap: () {
-                          callBack!();
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(multible ? 2.0 : 6.0),
-                        color: color,
-                        child: Text(
-                          listData!.title,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: AppTheme.white,
-                            fontSize: multible ? 16 : 20,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-}
-
-
-
-//===============================================================================//
-/**
- * appBar and drawer widgets in all screens 
- * fix UI in all files one by one (All Files)
- * rename all files and classes with correct name also assets/images folders and files
- */

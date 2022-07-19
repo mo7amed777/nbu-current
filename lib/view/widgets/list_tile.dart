@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../controller/themes/app_theme.dart';
+
 class MyListTile extends StatelessWidget {
   final String title, subtitle;
 
@@ -18,7 +20,7 @@ class MyListTile extends StatelessWidget {
           child: Text(title,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.green[800],
+                  color: AppTheme.lightText,
                   fontSize: 16)),
         ),
         subtitle: Text(

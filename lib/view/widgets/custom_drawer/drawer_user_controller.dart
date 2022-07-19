@@ -157,7 +157,7 @@ class DrawerUserControllerState extends State<DrawerUserController>
                       // this just menu and arrow icon animation
                       Padding(
                         padding: EdgeInsets.only(
-                            top: MediaQuery.of(context).padding.top + 8,
+                            top: MediaQuery.of(context).padding.top + 6,
                             left: 8),
                         child: SizedBox(
                           width: AppBar().preferredSize.height - 8,

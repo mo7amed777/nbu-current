@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:northern_border_university/view/screens/main_screens/media_center/media_center_screen.dart';
+import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/media_center_screen.dart';
 import 'package:northern_border_university/view/screens/splash/introduction_animation_screen.dart';
 import 'controller/themes/app_theme.dart';
 
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const IntroductionAnimationScreen(),
       routes: {
-        '/media_center': (p0) => MediaCenterHomeScreen(),
+        '/media_center': (p0) => MediaCenter(),
       },
     );
   }

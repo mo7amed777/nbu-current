@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../controller/themes/app_theme.dart';
+
 class ListItems extends StatelessWidget {
   final String title, subtitle;
   final List<String> items;
@@ -24,7 +26,7 @@ class ListItems extends StatelessWidget {
               Text(title,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.green[800],
+                      color: AppTheme.lightText,
                       fontSize: 16)),
               subtitle == ''
                   ? Container()
@@ -55,7 +57,7 @@ class ListItems extends StatelessWidget {
                     icon,
                     size: 6,
                   )
-                : Icon(icon, size: 18, color: Colors.green[800]),
+                : Icon(icon, size: 18, color: AppTheme.lightText),
             SizedBox(width: 6),
             Flexible(
               child: Text(

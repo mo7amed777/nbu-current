@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../controller/themes/app_theme.dart';
+
 class InputField extends StatelessWidget {
   final TextEditingController controller;
   final bool secured;
@@ -27,11 +29,11 @@ class InputField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(
-              color: Colors.green[800]!,
+              color: AppTheme.lightText,
             )),
         label: Text(
           label,
-          style: TextStyle(color: Colors.green[800], fontSize: 18),
+          style: TextStyle(color: AppTheme.lightText, fontSize: 18),
         ),
         prefixIcon: prefex ?? Container(),
         suffixIcon: suffix ??

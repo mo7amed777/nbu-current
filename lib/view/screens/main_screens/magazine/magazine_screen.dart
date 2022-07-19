@@ -6,12 +6,12 @@ import 'package:northern_border_university/view/screens/main_screens/magazine/ma
 import 'package:northern_border_university/view/screens/main_screens/magazine/popular_course_list_view.dart';
 import 'package:flutter/material.dart';
 
-class DesignCourseHomeScreen extends StatefulWidget {
+class Magazine extends StatefulWidget {
   @override
-  _DesignCourseHomeScreenState createState() => _DesignCourseHomeScreenState();
+  _MagazineState createState() => _MagazineState();
 }
 
-class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
+class _MagazineState extends State<Magazine> {
   CategoryType categoryType = CategoryType.ui;
 
   @override

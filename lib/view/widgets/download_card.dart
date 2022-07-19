@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../controller/themes/app_theme.dart';
+
 class DownloadCard extends StatelessWidget {
   final String title;
   final Function download;
@@ -12,7 +14,7 @@ class DownloadCard extends StatelessWidget {
       margin: EdgeInsets.all(4.0),
       child: ListTile(
         trailing: IconButton(
-          icon: Icon(Icons.file_download, color: Colors.green[800]),
+          icon: Icon(Icons.file_download, color: AppTheme.lightText),
           onPressed: () => download(),
         ),
         title: Padding(
@@ -22,7 +24,7 @@ class DownloadCard extends StatelessWidget {
               softWrap: false,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.green[800],
+                  color: AppTheme.lightText,
                   fontSize: 16)),
         ),
       ),

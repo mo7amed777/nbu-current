@@ -1,13 +1,11 @@
-import 'package:northern_border_university/view/screens/main_screens/Main Menu/Administration/Administration.dart';
-import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/About%20the%20University/AboutTheUniversity.dart';
-import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Colleges/Colleges.dart';
-import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Magazine/Magazine.dart';
-import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Media%20Center/MediaCenter.dart';
-import 'package:northern_border_university/view/screens/main_screens/Main%20Menu/Media%20Center/News/News.dart';
-import '../controller/themes/app_theme.dart';
-import '../main.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/AboutTheUniversity.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/Administration.dart';
+import 'package:northern_border_university/view/screens/main_screens/Colleges/Colleges.dart';
 import 'package:get/get.dart';
+import '../view/screens/main_screens/Magazine/magazine_screen.dart';
+import '../view/screens/main_screens/Media Center/media_center/media_center_screen.dart';
 import '../view/screens/splash/introduction_animation_screen.dart';
 
 class HomeList {
@@ -15,17 +13,20 @@ class HomeList {
     required this.callback,
     this.imagePath = '',
     this.title = '',
-    this.color = AppTheme.white,
+    this.subTxt = '',
+    this.icon = FontAwesomeIcons.university,
   });
   Function callback;
   String imagePath;
   String title;
-  Color color;
+  String subTxt;
+  IconData icon;
   static List<HomeList> homeList = [
     HomeList(
       imagePath: 'assets/images/introduction_animation/Administration.jpg',
       title: 'Administration',
-      color: HexColor("003255"),
+      subTxt: 'Administration & Management Stuff',
+      icon: FontAwesomeIcons.users,
       callback: () async {
         try {
           Get.to(Administration());
@@ -37,16 +38,16 @@ class HomeList {
     HomeList(
       imagePath: 'assets/images/media_center/Media_Centre.jpg',
       title: 'Media Centre',
-      color: HexColor("052751"),
+      subTxt: 'Videos, Photos and Other',
+      icon: FontAwesomeIcons.video,
       callback: () {
-        Get.to(News());
-        // Get.to(MediaCenter());
+        Get.to(MediaCenter());
       },
     ),
     HomeList(
       imagePath: 'assets/images/colleges/colleges.jpg',
       title: 'Colleges',
-      color: HexColor("146564"),
+      subTxt: 'Arar, Rafha and other',
       callback: () {
         Get.to(Colleges());
       },
@@ -54,15 +55,17 @@ class HomeList {
     HomeList(
       imagePath: 'assets/images/magazine/magazine.jpg',
       title: 'Magazine',
-      color: HexColor("2C2C2C"),
+      subTxt: 'Science and Humanites Journals',
+      icon: FontAwesomeIcons.journalWhills,
       callback: () {
         Get.to(Magazine());
       },
     ),
     HomeList(
-      imagePath: 'assets/images/services.png',
+      imagePath: 'assets/images/media/services.png',
       title: 'E-Services',
-      color: HexColor("003865"),
+      subTxt: 'The University whole stuff services',
+      icon: FontAwesomeIcons.servicestack,
       callback: () {
         Get.to(IntroductionAnimationScreen(
           pageNumber: 0.8,
@@ -71,9 +74,10 @@ class HomeList {
       },
     ),
     HomeList(
-      imagePath: 'assets/images/about_us.jpg',
+      imagePath: 'assets/images/media/about_us.jpg',
       title: 'About The University',
-      color: HexColor("010F18"),
+      subTxt: 'Locaton, Contact Info and other',
+      icon: FontAwesomeIcons.infoCircle,
       callback: () {
         Get.to(AboutTheUniversity());
       },

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../controller/themes/app_theme.dart';
+
 class MyButton extends StatelessWidget {
   final Function callback;
   final String label;
@@ -14,7 +16,7 @@ class MyButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           alignment: Alignment.center,
           animationDuration: Duration(milliseconds: 700),
-          backgroundColor: Colors.green[800],
+          backgroundColor: AppTheme.lightText,
           elevation: 10,
           primary: Colors.white,
           textStyle: TextStyle(

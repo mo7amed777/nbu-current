@@ -23,7 +23,7 @@ class NavigationHomeScreenState extends State<NavigationHomeScreen> {
   @override
   void initState() {
     drawerIndex = DrawerIndex.HOME;
-    screenView = const MyHomePage();
+    screenView = Home();
     super.initState();
   }
 
@@ -57,7 +57,7 @@ class NavigationHomeScreenState extends State<NavigationHomeScreen> {
       switch (drawerIndex) {
         case DrawerIndex.HOME:
           setState(() {
-            screenView = const MyHomePage();
+            screenView = Home();
           });
           break;
         case DrawerIndex.Help:
