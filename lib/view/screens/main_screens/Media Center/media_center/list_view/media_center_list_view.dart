@@ -60,53 +60,47 @@ class MediaCenterListView extends StatelessWidget {
                             Container(
                               color: MediaCenterAppTheme.buildLightTheme()
                                   .backgroundColor,
-                              child: Expanded(
-                                child: Container(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16, top: 8, bottom: 8),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 16, top: 8, bottom: 8),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      data["title"],
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 22,
+                                      ),
+                                    ),
+                                    Row(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          data["title"],
-                                          textAlign: TextAlign.left,
+                                          data["subTxt"],
                                           style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 22,
-                                          ),
+                                              fontSize: 14,
+                                              color:
+                                                  Colors.grey.withOpacity(0.8)),
                                         ),
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              data["subTxt"],
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.grey
-                                                      .withOpacity(0.8)),
-                                            ),
-                                            const SizedBox(
-                                              width: 4,
-                                            ),
-                                            Icon(
-                                              data["icon"],
-                                              size: 12,
-                                              color: MediaCenterAppTheme
-                                                      .buildLightTheme()
-                                                  .primaryColor,
-                                            ),
-                                          ],
+                                        const SizedBox(
+                                          width: 4,
+                                        ),
+                                        Icon(
+                                          data["icon"],
+                                          size: 12,
+                                          color: MediaCenterAppTheme
+                                                  .buildLightTheme()
+                                              .primaryColor,
                                         ),
                                       ],
                                     ),
-                                  ),
+                                  ],
                                 ),
                               ),
                             ),

@@ -61,6 +61,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
                   ),
                   Expanded(
                     child: ListView.builder(
+                      itemExtent: MediaQuery.of(context).size.width * 0.7,
                       itemCount: homeList.length,
                       padding: const EdgeInsets.only(top: 8),
                       scrollDirection: Axis.vertical,
