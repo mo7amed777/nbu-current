@@ -1,23 +1,24 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filter_list.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/slider/range_slider_view.dart';
-import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/slider/slider_view.dart';
 
 class FiltersScreen extends StatefulWidget {
+  final bool isCollegesFilter;
+  final List<PopularFilterListData> popularFilterListData;
+  const FiltersScreen(
+      {required this.isCollegesFilter, required this.popularFilterListData});
   @override
   _FiltersScreenState createState() => _FiltersScreenState();
 }
 
 class _FiltersScreenState extends State<FiltersScreen> {
-  List<PopularFilterListData> popularFilterListData =
-      PopularFilterListData.popularFList;
   List<PopularFilterListData> accomodationListData =
       PopularFilterListData.accomodationList;
-
   RangeValues _values = const RangeValues(1, 5);
-  double distValue = 0.5;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    priceBarFilter(),
+                    widget.isCollegesFilter ? Container() : priceBarFilter(),
                     const Divider(
                       height: 1,
                     ),
@@ -40,11 +41,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     const Divider(
                       height: 1,
                     ),
-                    distanceViewUI(),
                     const Divider(
                       height: 1,
                     ),
-                    allAccommodationUI()
+                    widget.isCollegesFilter
+                        ? Container()
+                        : allAccommodationUI(),
                   ],
                 ),
               ),
@@ -208,36 +210,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
     }
   }
 
-  Widget distanceViewUI() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Padding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
-          child: Text(
-            'Distance from city center',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal),
-          ),
-        ),
-        SliderView(
-          distValue: distValue,
-          onChangedistValue: (double value) {
-            distValue = value;
-          },
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-      ],
-    );
-  }
-
   Widget popularFilter() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -247,7 +219,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
           padding:
               const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
           child: Text(
-            'Popular filters',
+            widget.isCollegesFilter ? 'Location' : 'Popular filters',
             textAlign: TextAlign.left,
             style: TextStyle(
                 color: Colors.grey,
@@ -272,11 +244,14 @@ class _FiltersScreenState extends State<FiltersScreen> {
     final List<Widget> noList = <Widget>[];
     int count = 0;
     const int columnCount = 2;
-    for (int i = 0; i < popularFilterListData.length / columnCount; i++) {
+    for (int i = 0;
+        i < widget.popularFilterListData.length / columnCount;
+        i++) {
       final List<Widget> listUI = <Widget>[];
       for (int i = 0; i < columnCount; i++) {
         try {
-          final PopularFilterListData date = popularFilterListData[count];
+          final PopularFilterListData date =
+              widget.popularFilterListData[count];
           listUI.add(Expanded(
             child: Row(
               children: <Widget>[
@@ -316,7 +291,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               ],
             ),
           ));
-          if (count < popularFilterListData.length - 1) {
+          if (count < widget.popularFilterListData.length - 1) {
             count += 1;
           } else {
             break;

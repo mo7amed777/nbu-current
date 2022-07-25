@@ -1,6 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:northern_border_university/view/screens/darwer_screens/profile.dart';
 
 import '../../../controller/themes/app_theme.dart';
 
@@ -77,64 +79,67 @@ class HomeDrawerState extends State<HomeDrawer> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.only(top: 40.0),
+          InkWell(
+            onTap: () => Get.to(Profile()),
             child: Container(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  AnimatedBuilder(
-                    animation: widget.iconAnimationController!,
-                    builder: (BuildContext context, Widget? child) {
-                      return ScaleTransition(
-                        scale: AlwaysStoppedAnimation<double>(1.0 -
-                            (widget.iconAnimationController!.value) * 0.2),
-                        child: RotationTransition(
-                          turns: AlwaysStoppedAnimation<double>(Tween<double>(
-                                      begin: 0.0, end: 24.0)
-                                  .animate(CurvedAnimation(
-                                      parent: widget.iconAnimationController!,
-                                      curve: Curves.fastOutSlowIn))
-                                  .value /
-                              360),
-                          child: Container(
-                            height: 120,
-                            width: 120,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: <BoxShadow>[
-                                BoxShadow(
-                                    color: AppTheme.grey.withOpacity(0.6),
-                                    offset: const Offset(2.0, 4.0),
-                                    blurRadius: 8),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(60.0)),
-                              child: Image.asset(
-                                  'assets/images/media/userImage.png'),
+              width: double.infinity,
+              padding: const EdgeInsets.only(top: 40.0),
+              child: Container(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    AnimatedBuilder(
+                      animation: widget.iconAnimationController!,
+                      builder: (BuildContext context, Widget? child) {
+                        return ScaleTransition(
+                          scale: AlwaysStoppedAnimation<double>(1.0 -
+                              (widget.iconAnimationController!.value) * 0.2),
+                          child: RotationTransition(
+                            turns: AlwaysStoppedAnimation<double>(Tween<double>(
+                                        begin: 0.0, end: 24.0)
+                                    .animate(CurvedAnimation(
+                                        parent: widget.iconAnimationController!,
+                                        curve: Curves.fastOutSlowIn))
+                                    .value /
+                                360),
+                            child: Container(
+                              height: 120,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                boxShadow: <BoxShadow>[
+                                  BoxShadow(
+                                      color: AppTheme.grey.withOpacity(0.6),
+                                      offset: const Offset(2.0, 4.0),
+                                      blurRadius: 8),
+                                ],
+                              ),
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(60.0)),
+                                child: Image.asset(
+                                    'assets/images/media/userImage.png'),
+                              ),
                             ),
                           ),
+                        );
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8, left: 4),
+                      child: Text(
+                        'Student Profile',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: AppTheme.grey,
+                          fontSize: 18,
                         ),
-                      );
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, left: 4),
-                    child: Text(
-                      'Student Profile',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: AppTheme.grey,
-                        fontSize: 18,
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

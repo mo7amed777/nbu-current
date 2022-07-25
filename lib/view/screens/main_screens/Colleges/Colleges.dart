@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/The%20University%20President.dart';
+import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filter_list.dart';
+import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filters_screen.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -14,6 +16,29 @@ class Colleges extends StatefulWidget {
 }
 
 class _CollegesState extends State<Colleges> {
+  List<PopularFilterListData> popularFilterListData = <PopularFilterListData>[
+    PopularFilterListData(
+      titleTxt: 'Arar',
+      isSelected: false,
+    ),
+    PopularFilterListData(
+      titleTxt: 'Rafha',
+      isSelected: false,
+    ),
+    PopularFilterListData(
+      titleTxt: 'Turaif',
+      isSelected: true,
+    ),
+    PopularFilterListData(
+      titleTxt: 'Al-uwayqilah',
+      isSelected: false,
+    ),
+    PopularFilterListData(
+      titleTxt: 'All Colleges',
+      isSelected: false,
+    ),
+  ];
+
   Map<String, String> items = {
     '(Applied College (Rafha - delete':
         'assets/images/magazine/webInterFace.png',
@@ -29,7 +54,6 @@ class _CollegesState extends State<Colleges> {
     'Faculty of Computing and Information Technology':
         'assets/images/magazine/interFace3.png',
   };
-  bool multiple = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,12 +64,18 @@ class _CollegesState extends State<Colleges> {
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Appbar(
                   title: 'Colleges',
-                  icon: multiple ? Icons.dashboard : Icons.view_agenda,
+                  icon: Icons.sort,
                   onSearch: () {},
                   onIconPressed: () {
-                    setState(() {
-                      multiple = !multiple;
-                    });
+                    FocusScope.of(context).requestFocus(FocusNode());
+                    Navigator.push<dynamic>(
+                      context,
+                      MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => FiltersScreen(
+                              popularFilterListData: popularFilterListData,
+                              isCollegesFilter: true),
+                          fullscreenDialog: true),
+                    );
                   }),
             ),
             Padding(
@@ -53,11 +83,11 @@ class _CollegesState extends State<Colleges> {
               child: GridView.count(
                 physics: NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
-                crossAxisCount: multiple ? 2 : 1,
+                crossAxisCount: 2,
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,
                 shrinkWrap: true,
-                childAspectRatio: multiple ? 1 : 2,
+                childAspectRatio: 1,
                 children: List.generate(
                   8,
                   (int index) {
@@ -96,10 +126,8 @@ class _CollegesState extends State<Colleges> {
                                     left: 0.0,
                                     child: Container(
                                       width: MediaQuery.of(context).size.width,
-                                      padding:
-                                          EdgeInsets.all(multiple ? 4.0 : 6.0),
-                                      margin:
-                                          EdgeInsets.all(multiple ? 4.0 : 6.0),
+                                      padding: EdgeInsets.all(4.0),
+                                      margin: EdgeInsets.all(4.0),
                                       color: AppTheme.dark_grey,
                                       child: Text(
                                         items.keys.toList()[index],
@@ -107,7 +135,7 @@ class _CollegesState extends State<Colleges> {
                                           fontWeight: FontWeight.w600,
                                           overflow: TextOverflow.ellipsis,
                                           color: AppTheme.white,
-                                          fontSize: multiple ? 16 : 20,
+                                          fontSize: 16,
                                         ),
                                       ),
                                     ),

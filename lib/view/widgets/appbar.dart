@@ -35,7 +35,7 @@ class _AppbarState extends State<Appbar> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 22,
-                    color: AppTheme.darkText,
+                    color: AppTheme.darkerText,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -57,7 +57,7 @@ class _AppbarState extends State<Appbar> {
                                 AppBar().preferredSize.height),
                             child: Icon(
                               widget.icon,
-                              color: AppTheme.dark_grey,
+                              color: AppTheme.grey,
                             ),
                             onTap: () {
                               widget.onIconPressed();
@@ -80,7 +80,7 @@ class _AppbarState extends State<Appbar> {
                                 AppBar().preferredSize.height),
                             child: Icon(
                               FontAwesomeIcons.search,
-                              color: AppTheme.dark_grey,
+                              color: AppTheme.grey,
                             ),
                             onTap: () {
                               widget.onSearch();

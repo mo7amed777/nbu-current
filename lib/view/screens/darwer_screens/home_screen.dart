@@ -1,6 +1,9 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:northern_border_university/model/homelist.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/list_view/media_center_list_view.dart';
+import 'package:northern_border_university/view/screens/settings/settings.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -54,9 +57,11 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
                     child: Appbar(
                       title: 'Home',
                       onSearch: () {},
-                      icon: Icons.more_vert,
+                      icon: FontAwesomeIcons.edit,
                       view: true,
-                      onIconPressed: () {},
+                      onIconPressed: () {
+                        Get.to(Settings());
+                      },
                     ),
                   ),
                   Expanded(

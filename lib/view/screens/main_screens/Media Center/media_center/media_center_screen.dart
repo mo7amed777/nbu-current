@@ -1,5 +1,6 @@
 import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/calendar/calendar_popup_view.dart';
+import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filter_list.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filters_screen.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/list_view/media_center_list_data.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/list_view/media_center_list_view.dart';
@@ -476,7 +477,11 @@ class MediaCenterState extends State<MediaCenter>
                       Navigator.push<dynamic>(
                         context,
                         MaterialPageRoute<dynamic>(
-                            builder: (BuildContext context) => FiltersScreen(),
+                            builder: (BuildContext context) => FiltersScreen(
+                                  isCollegesFilter: false,
+                                  popularFilterListData:
+                                      PopularFilterListData.popularFList,
+                                ),
                             fullscreenDialog: true),
                       );
                     },
