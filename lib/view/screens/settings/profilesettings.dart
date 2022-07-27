@@ -30,7 +30,7 @@ class _EditPageState extends State<EditPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xfff2f2f2),
         iconTheme: IconThemeData(color: AppTheme.darkerText),
         title: Text(
           "Edit Profile",
@@ -41,6 +41,7 @@ class _EditPageState extends State<EditPage> {
         ),
       ),
       body: Container(
+        color: Color(0xfff2f2f2),
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: GestureDetector(
           onTap: () {

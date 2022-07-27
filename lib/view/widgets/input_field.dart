@@ -20,27 +20,33 @@ class InputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText: secured,
-      controller: controller,
-      maxLines: maxLines,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(
-              color: AppTheme.lightText,
-            )),
-        label: Text(
-          label,
-          style: TextStyle(color: AppTheme.lightText, fontSize: 18),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 12),
+      child: Material(
+        elevation: 2.0,
+        borderRadius: BorderRadius.all(Radius.circular(30)),
+        child: TextFormField(
+          obscureText: secured,
+          controller: controller,
+          maxLines: maxLines,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 13),
+            hintText: label,
+            prefixIcon: prefex ??
+                Material(
+                  elevation: 0,
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: prefex,
+                ),
+            suffixIcon: suffix ??
+                Material(
+                  elevation: 0,
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: suffix,
+                ),
+          ),
         ),
-        prefixIcon: prefex ?? Container(),
-        suffixIcon: suffix ??
-            SizedBox(
-              height: 1,
-              width: 1,
-            ),
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'package:northern_border_university/view/screens/main_screens/About%20the
 import 'package:northern_border_university/view/screens/main_screens/Administration/Administration.dart';
 import 'package:northern_border_university/view/screens/main_screens/Colleges/Colleges.dart';
 import 'package:get/get.dart';
+import 'package:northern_border_university/view/screens/main_screens/Gifted%20Academy/gifted_academy.dart';
 import '../view/screens/main_screens/Magazine/magazine_screen.dart';
 import '../view/screens/main_screens/Media Center/media_center/media_center_screen.dart';
 import '../view/screens/splash/introduction_animation_screen.dart';
@@ -82,13 +83,14 @@ class HomeList {
         Get.to(AboutTheUniversity());
       },
     ),
-    //
-    // HomeList(
-    //   imagePath: 'assets/images/help.jpg',
-    //   title: 'Help',
-    //   navigattionScreen: HelpScreen(),
-    //   color: HexColor("BA0100"),
-    //   callback: () {},
-    // ),
+    HomeList(
+      imagePath: 'assets/images/media/gifted_academy.jpg',
+      title: 'Gifted Students Academy',
+      subTxt: 'exploring & attracting talented students',
+      icon: FontAwesomeIcons.graduationCap,
+      callback: () {
+        Get.to(GiftedAcademy());
+      },
+    ),
   ];
 }

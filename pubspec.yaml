@@ -82,6 +82,7 @@ flutter:
       - assets/images/magazine/
       - assets/images/colleges/
       - assets/images/media_center/
+      - assets/images/gifted_academy/
       - assets/images/introduction_animation/
 
   # An image asset can refer to one or more resolution-specific "variants", see

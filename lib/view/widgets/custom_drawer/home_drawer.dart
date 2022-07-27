@@ -54,11 +54,6 @@ class HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(Icons.group),
       ),
       DrawerList(
-        index: DrawerIndex.Share,
-        labelName: 'Rate the app',
-        icon: Icon(Icons.share),
-      ),
-      DrawerList(
         index: DrawerIndex.About,
         labelName: 'Contact Us',
         icon: Icon(Icons.info),
