@@ -1,14 +1,12 @@
-/**
- * Author: Aparna Dulal
- * profile: https://github.com/ambikadulal
-  */
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 
 class ProfileSettingsPage extends StatelessWidget {
-  static final String path = "lib/src/pages/settings/profilesettings.dart";
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,6 +23,7 @@ class EditPage extends StatefulWidget {
 
 class _EditPageState extends State<EditPage> {
   bool showPassword = false;
+  FilePickerResult? result;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,22 +58,31 @@ class _EditPageState extends State<EditPage> {
                       width: 130,
                       height: 130,
                       decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 4,
-                              color: Theme.of(context).scaffoldBackgroundColor),
-                          boxShadow: [
-                            BoxShadow(
-                                spreadRadius: 2,
-                                blurRadius: 10,
-                                color: Colors.black.withOpacity(0.1),
-                                offset: Offset(0, 10))
-                          ],
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                "assets/images/magazine/userImage.png",
-                              ))),
+                        border: Border.all(
+                            width: 4,
+                            color: Theme.of(context).scaffoldBackgroundColor),
+                        boxShadow: [
+                          BoxShadow(
+                              spreadRadius: 2,
+                              blurRadius: 10,
+                              color: Colors.black.withOpacity(0.1),
+                              offset: Offset(0, 10))
+                        ],
+                        shape: BoxShape.circle,
+                        image: result != null
+                            ? DecorationImage(
+                                fit: BoxFit.cover,
+                                image: FileImage(
+                                  File(result!.files.single.path!),
+                                ),
+                              )
+                            : DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(
+                                  'assets/images/magazine/userImage.png',
+                                ),
+                              ),
+                      ),
                     ),
                     Positioned(
                         bottom: 0,
@@ -90,9 +98,22 @@ class _EditPageState extends State<EditPage> {
                             ),
                             color: AppTheme.grey,
                           ),
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.white,
+                          child: InkWell(
+                            onTap: () async {
+                              result = await FilePicker.platform.pickFiles(
+                                type: FileType.image,
+                                allowMultiple: false,
+                              );
+                              setState(() {
+                                showSnackBar(
+                                    message:
+                                        'Profile photo updated successfully.');
+                              });
+                            },
+                            child: Icon(
+                              Icons.edit,
+                              color: Colors.white,
+                            ),
                           ),
                         )),
                   ],

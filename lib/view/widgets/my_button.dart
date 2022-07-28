@@ -25,7 +25,7 @@ class MyButton extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   fontSize: 18),
             ),
-            onPressed: () => callback,
+            onPressed: () => callback(),
           ),
         ));
   }

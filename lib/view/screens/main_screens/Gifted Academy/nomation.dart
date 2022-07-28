@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/view/widgets/input_field.dart';
 import 'package:northern_border_university/view/widgets/my_button.dart';
 import 'package:northern_border_university/view/widgets/radio_button.dart';
@@ -358,7 +359,11 @@ class SelfNomationState extends State<SelfNomation> {
                 SizedBox(
                   height: 25,
                 ),
-                MyButton(callback: () {}, label: 'Submit')
+                MyButton(
+                    callback: () {
+                      showSnackBar(message: 'Submitted Successfully...');
+                    },
+                    label: 'Submit')
               ],
             ),
           ),
