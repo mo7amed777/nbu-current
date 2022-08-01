@@ -16,7 +16,9 @@ class ListItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(4.0),
+      margin: EdgeInsets.all(8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      elevation: 2.0,
       child: ListTile(
         title: Padding(
           padding: EdgeInsets.symmetric(vertical: 4),
@@ -38,7 +40,7 @@ class ListItems extends StatelessWidget {
           ),
         ),
         subtitle: Column(
-          children: items.map((item) => goal(item)).toList(),
+          children: items.map(goal).toList(),
         ),
       ),
     );
@@ -51,11 +53,15 @@ class ListItems extends StatelessWidget {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             icon == Icons.circle
-                ? Icon(
-                    icon,
-                    size: 6,
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Icon(
+                      icon,
+                      size: 10,
+                    ),
                   )
                 : Icon(icon, size: 18, color: AppTheme.lightText),
             SizedBox(width: 6),
@@ -63,8 +69,7 @@ class ListItems extends StatelessWidget {
               child: Text(
                 itemText,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                softWrap: false,
+                maxLines: 5,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   height: 1.5,

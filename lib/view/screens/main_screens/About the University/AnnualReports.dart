@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/download_card.dart';
 
 class AnnualReports extends StatefulWidget {
@@ -14,7 +15,16 @@ class _AnnualReportsState extends State<AnnualReports> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(height: 20),
+          Padding(
+            padding: EdgeInsets.only(top: 16.0),
+            child: Appbar(
+              title: 'Annual Reports',
+              onIconPressed: () {},
+              search: false,
+              view: false,
+              onSearch: () {},
+            ),
+          ),
           DownloadCard(
               title: 'التقرير السنوي للعام الجامعي 1436 – 1437 هـ ',
               download: () {}),

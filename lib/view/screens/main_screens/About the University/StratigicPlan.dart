@@ -1,3 +1,4 @@
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/download_card.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,16 @@ class _StratigicPlanState extends State<StratigicPlan> {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(height: 20),
+          Padding(
+            padding: EdgeInsets.only(top: 16.0),
+            child: Appbar(
+              title: 'Vision and Goals',
+              onIconPressed: () {},
+              search: false,
+              view: false,
+              onSearch: () {},
+            ),
+          ),
           DownloadCard(
               title: 'الخطة الإستراتيجية لجامعة الحدود الشمالية',
               download: () {}),

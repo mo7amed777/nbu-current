@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/list_items.dart';
 import 'package:flutter/material.dart';
 
@@ -13,11 +16,24 @@ class _UniversityCouncilState extends State<UniversityCouncil> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: const [
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 16.0),
+            child: Appbar(
+              title: 'The University Council',
+              onIconPressed: () {},
+              search: false,
+              view: false,
+              onSearch: () {},
+            ),
+          ),
           Card(
-            margin: EdgeInsets.all(4.0),
+            margin: EdgeInsets.all(12),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            elevation: 2.0,
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 'The University Council is the highest authority in all university-related matters and issues. It is headed by the Minister of Higher Education with the University President (as Vice President), the University Vice Presidents, the Secretary-General of the Higher Education Council, the college deans, and three experienced persons appointed by His Excellency the Minister of Higher Education for a three-year term (pursuant to article 19 of the Higher Education and Universities Council Regulation).',
                 style: TextStyle(

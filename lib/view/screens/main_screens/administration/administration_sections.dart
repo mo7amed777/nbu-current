@@ -1,7 +1,13 @@
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/ProfM_AlShihri.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/The%20University%20President.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/Centers/Centers.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/Deanships/Deanships.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/PresidentOffice.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/The%20Vice%20Presidency/VicePresidencies.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/FacultyMembers.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -142,33 +148,25 @@ class _AdministrationsState extends State<Administrations> {
             article: article, imgURL: imgURL, item: article.items[0]));
         break;
       case 'The Resume':
+        Get.to(ProfM_AlShihri());
+        break;
+      case 'President Office':
+        Get.to(UniversityPresidentOffice());
+        break;
+      case 'Vice-President':
+        Get.to(VicePresidencies());
+        break;
+      case 'Deanship\'s':
+        // Get.to(Deanships());
+        imgURL = await article.getItemImageURL(article.items[0]);
+        Get.to(TheUniversityPresident(
+            article: article, imgURL: imgURL, item: article.items[0]));
+        break;
+      case 'Centers':
+        //Get.to(Centers());
         imgURL = await article.getItemImageURL(article.items[1]);
         Get.to(TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[1]));
-        break;
-      case 'President Office':
-        imgURL = await article.getItemImageURL(article.items[2]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[3]));
-        break;
-      case 'Vice-President':
-        imgURL = await article.getItemImageURL(article.items[4]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[5]));
-        break;
-      case 'Deanship\'s':
-        imgURL = await article.getItemImageURL(article.items[6]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[7]));
-        break;
-      case 'Centers':
-        imgURL = await article.getItemImageURL(article.items[8]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[9]));
         break;
       case 'Administrations':
         imgURL = await article.getItemImageURL(article.items[10]);
@@ -177,10 +175,11 @@ class _AdministrationsState extends State<Administrations> {
             article: article, imgURL: imgURL, item: article.items[2]));
         break;
       case 'Faculty Members':
-        imgURL = await article.getItemImageURL(article.items[3]);
+        // Get.to(FacultyMembers());
+        imgURL = await article.getItemImageURL(article.items[8]);
 
         Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[7]));
+            article: article, imgURL: imgURL, item: article.items[5]));
         break;
     }
   }

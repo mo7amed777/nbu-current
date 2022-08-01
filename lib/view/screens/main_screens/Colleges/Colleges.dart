@@ -135,7 +135,7 @@ class _CollegesState extends State<Colleges> {
                                           fontWeight: FontWeight.w600,
                                           overflow: TextOverflow.ellipsis,
                                           color: AppTheme.white,
-                                          fontSize: 16,
+                                          fontSize: 14,
                                         ),
                                       ),
                                     ),

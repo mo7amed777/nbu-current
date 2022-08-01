@@ -1,3 +1,4 @@
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/list_items.dart';
 import 'package:northern_border_university/view/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
@@ -16,14 +17,24 @@ class _SelfGeneratedResourcesMonitoringUnitState
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: const <Widget>[
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: 16.0),
+            child: Appbar(
+              title: 'Self-Generated Resources ',
+              onIconPressed: () {},
+              search: false,
+              view: false,
+              onSearch: () {},
+            ),
+          ),
           MyListTile(
               title: 'Goal',
               subtitle:
                   "Monitoring the financial accounts of self-generated resources of university units that have independent accounts according to rules and regulations."),
           ListItems(
             title: 'Tasks: ',
-            items: [
+            items: const [
               "Prepare the office’s activities plans and follow up on their implementation after approval.",
               "Facilitate obtaining data and information by advisors in specialized units.",
               "Receive advisors’ reports, print them, organize, and present them to the President.",

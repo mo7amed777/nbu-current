@@ -7,7 +7,6 @@ class InputField extends StatelessWidget {
   final bool secured;
   final String label;
   final Widget? prefex, suffix;
-  final int maxLines;
 
   const InputField({
     required this.controller,
@@ -15,7 +14,6 @@ class InputField extends StatelessWidget {
     required this.label,
     this.prefex,
     this.suffix,
-    this.maxLines = 1,
   });
 
   @override
@@ -28,7 +26,8 @@ class InputField extends StatelessWidget {
         child: TextFormField(
           obscureText: secured,
           controller: controller,
-          maxLines: maxLines,
+          keyboardType: TextInputType.multiline,
+          maxLines: null,
           decoration: InputDecoration(
             border: InputBorder.none,
             contentPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 13),

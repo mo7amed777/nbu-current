@@ -1,7 +1,10 @@
 import 'dart:io';
+import 'package:northern_border_university/controller/functions.dart';
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:northern_border_university/view/widgets/my_button.dart';
 
 import '../../../../../../controller/themes/app_theme.dart';
 
@@ -28,67 +31,72 @@ class _ContactPresidentState extends State<ContactPresident> {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InputField(
-                controller: _civilRegistry,
-                secured: false,
-                label: 'Civil Registry',
-                prefex: Icon(Icons.numbers)),
+            padding: const EdgeInsets.only(bottom: 32.0),
+            child: Appbar(
+              title: 'Contact The President',
+              onSearch: () {},
+              onIconPressed: () {},
+              view: false,
+            ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InputField(
-                controller: _nameController,
-                secured: false,
-                label: 'Name',
-                prefex: Icon(Icons.person)),
+          InputField(
+              controller: _civilRegistry,
+              secured: false,
+              label: 'Civil Registry',
+              prefex: Icon(Icons.numbers)),
+          SizedBox(
+            height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InputField(
-                controller: _emailController,
-                secured: false,
-                label: 'Email',
-                prefex: Icon(Icons.email)),
+          InputField(
+              controller: _nameController,
+              secured: false,
+              label: 'Name',
+              prefex: Icon(Icons.person)),
+          SizedBox(
+            height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InputField(
-                controller: _phoneController,
-                secured: false,
-                label: 'Phone Number',
-                prefex: Icon(Icons.phone)),
+          InputField(
+              controller: _emailController,
+              secured: false,
+              label: 'Email',
+              prefex: Icon(Icons.email)),
+          SizedBox(
+            height: 10,
           ),
+          InputField(
+              controller: _phoneController,
+              secured: false,
+              label: 'Phone Number',
+              prefex: Icon(Icons.phone)),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              padding: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black38),
-                borderRadius: BorderRadius.circular(10),
-              ),
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 2.0),
+            child: Card(
+              margin: EdgeInsets.all(10),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              elevation: 2.0,
               child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
-                hint: Text('Applicant Category',
+                hint: Text('  Applicant Category',
                     style: TextStyle(fontSize: 18, color: AppTheme.lightText)),
                 style: TextStyle(color: AppTheme.lightText, fontSize: 18),
                 value: selectedValue,
                 items: const [
                   DropdownMenuItem(
-                    value: 'Student',
-                    child: Text('Student'),
+                    value: '  Student',
+                    child: Text('  Student'),
                   ),
                   DropdownMenuItem(
-                    value: 'Employee',
-                    child: Text('Employee'),
+                    value: '  Employee',
+                    child: Text('  Employee'),
                   ),
                   DropdownMenuItem(
-                    value: 'Visitor',
-                    child: Text('Visitor'),
+                    value: '  Visitor',
+                    child: Text('  Visitor'),
                   ),
                   DropdownMenuItem(
-                    value: 'Member',
-                    child: Text('Member'),
+                    value: '  Member',
+                    child: Text('  Member'),
                   ),
                 ],
                 onChanged: (value) {
@@ -99,48 +107,32 @@ class _ContactPresidentState extends State<ContactPresident> {
               )),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InputField(
-              controller: _messageController,
-              secured: false,
-              label: 'Communication summary',
-              prefex: Icon(Icons.message),
-              maxLines: 5,
-            ),
+          InputField(
+            controller: _messageController,
+            secured: false,
+            label: 'Communication summary',
+            prefex: Icon(Icons.message),
+          ),
+          SizedBox(
+            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextButton.icon(
-              onPressed: () {
-                uploadFile();
-              },
+              onPressed: uploadFile,
               icon: Icon(Icons.attach_file, color: AppTheme.lightText),
               label: Text('Attach File',
                   style: TextStyle(fontSize: 18, color: AppTheme.lightText)),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextButton(
-              onPressed: () {},
-              style: TextButton.styleFrom(
-                primary: Colors.white,
-                backgroundColor: AppTheme.lightText,
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  side: BorderSide(
-                    color: AppTheme.lightText,
-                  ),
-                ),
-              ),
-              child: Text('Send'),
-            ),
+          SizedBox(
+            height: 25,
           ),
+          MyButton(
+              callback: () {
+                showSnackBar(message: 'Sent Successfully');
+              },
+              label: 'Send'),
         ],
       ),
     );
@@ -151,6 +143,7 @@ class _ContactPresidentState extends State<ContactPresident> {
 
     if (result != null) {
       File file = File(result.files.single.path!);
+      showSnackBar(message: 'File Uploaded Successfully');
     }
   }
 }

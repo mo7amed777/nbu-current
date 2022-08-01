@@ -1,37 +1,33 @@
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
-import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/AnnualReports.dart';
-import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/ContactUS.dart';
-import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/FactsandFigures.dart';
-import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/Guides.dart';
-import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/Location.dart';
-import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/StratigicPlan.dart';
-import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/University%20Council/UniversityCouncil.dart';
-import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/VisionandGoals.dart';
-import 'package:northern_border_university/view/screens/main_screens/Administration/The%20University%20President.dart';
-import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/Deanships/Deanships.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/Contact%20US.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/President%20Subordinating%20Units/Advisors%20Office.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/President%20Subordinating%20Units/General%20Administration.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/President%20Subordinating%20Units/Project%20Management%20Office.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/President%20Subordinating%20Units/Risk%20Management%20Unit.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/President%20Subordinating%20Units/Self-generated%20Monitoring.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-class MoreAboutTheUniversity extends StatefulWidget {
-  const MoreAboutTheUniversity({Key? key}) : super(key: key);
+class PresidentSubordinatingUnits extends StatefulWidget {
+  const PresidentSubordinatingUnits({Key? key}) : super(key: key);
 
   @override
-  State<MoreAboutTheUniversity> createState() => _MoreAboutTheUniversityState();
+  State<PresidentSubordinatingUnits> createState() =>
+      _PresidentSubordinatingUnitsState();
 }
 
-class _MoreAboutTheUniversityState extends State<MoreAboutTheUniversity> {
+class _PresidentSubordinatingUnitsState
+    extends State<PresidentSubordinatingUnits> {
   Map<String, String> items = {
-    'Vision and Goals': 'assets/images/magazine/webInterFace.png',
-    'Strategic Plan': 'assets/images/magazine/webInterFace.png',
-    'Facts and Figures': 'assets/images/magazine/interFace3.png',
-    'Guides': 'assets/images/magazine/interFace3.png',
-    'Location': 'assets/images/magazine/webInterFace.png',
-    'Annual Reports': 'assets/images/magazine/webInterFace.png',
-    'Contact US': 'assets/images/magazine/interFace3.png',
-    'University Council': 'assets/images/magazine/interFace3.png',
+    'Advisors\' Office': 'assets/images/magazine/webInterFace.png',
+    'Project Management': 'assets/images/magazine/webInterFace.png',
+    'Self-generated Res.': 'assets/images/magazine/interFace3.png',
+    'Risk Management': 'assets/images/magazine/interFace3.png',
+    'General Admin': 'assets/images/magazine/webInterFace.png',
+    'Contact US': 'assets/images/magazine/webInterFace.png',
   };
   bool multiple = true;
   @override
@@ -43,7 +39,7 @@ class _MoreAboutTheUniversityState extends State<MoreAboutTheUniversity> {
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Appbar(
-                  title: 'About The University',
+                  title: 'Subordinating Units',
                   icon: multiple ? Icons.dashboard : Icons.view_agenda,
                   onSearch: () {},
                   onIconPressed: () {
@@ -63,7 +59,7 @@ class _MoreAboutTheUniversityState extends State<MoreAboutTheUniversity> {
                 shrinkWrap: true,
                 childAspectRatio: multiple ? 1 : 2,
                 children: List.generate(
-                  8,
+                  6,
                   (int index) {
                     return AnimationConfiguration.staggeredGrid(
                       position: index,
@@ -107,10 +103,12 @@ class _MoreAboutTheUniversityState extends State<MoreAboutTheUniversity> {
                                       color: AppTheme.dark_grey,
                                       child: Text(
                                         items.keys.toList()[index],
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           color: AppTheme.white,
-                                          fontSize: multiple ? 16 : 20,
+                                          fontSize: multiple ? 14 : 16,
                                         ),
                                       ),
                                     ),
@@ -145,32 +143,23 @@ class _MoreAboutTheUniversityState extends State<MoreAboutTheUniversity> {
     Get.back();
 
     switch (key) {
-      case 'Vision and Goals':
-        Get.to(VisionandGoals());
+      case 'Advisors\' Office':
+        Get.to(AdvisorsOffice());
         break;
-      case 'Strategic Plan':
-        Get.to(StratigicPlan());
+      case 'Project Management':
+        Get.to(ProjectManagementOffice());
         break;
-      case 'Location':
-        Get.to(Location());
+      case 'Self-generated Res.':
+        Get.to(SelfGeneratedResourcesMonitoringUnit());
         break;
-      case 'Facts and Figures':
-        Get.to(FactsandFigures());
+      case 'Risk Management':
+        Get.to(RiskManagementUnit());
         break;
-      case 'Guides':
-        Get.to(Guides());
-        break;
-      case 'Deanship\'s':
-        Get.to(Deanships());
-        break;
-      case 'Annual Reports':
-        Get.to(AnnualReports());
+      case 'General Admin':
+        Get.to(GeneralAdministration());
         break;
       case 'Contact US':
-        Get.to(ContactUS());
-        break;
-      case 'University Council':
-        Get.to(UniversityCouncil());
+        Get.to(ContactOurOffice());
         break;
     }
   }

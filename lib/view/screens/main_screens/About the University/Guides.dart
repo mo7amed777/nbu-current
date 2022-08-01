@@ -1,3 +1,4 @@
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/download_card.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,16 @@ class _GuidesState extends State<Guides> {
     return Scaffold(
       body: ListView(
         children: [
+          Padding(
+            padding: EdgeInsets.only(top: 16.0),
+            child: Appbar(
+              title: 'Guides',
+              onIconPressed: () {},
+              search: false,
+              view: false,
+              onSearch: () {},
+            ),
+          ),
           DownloadCard(
               title: 'الكتيب التعريفي لجامعة الحدود الشمالية', download: () {}),
           DownloadCard(

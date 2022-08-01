@@ -1,3 +1,4 @@
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/list_items.dart';
 import 'package:northern_border_university/view/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,16 @@ class _ProjectManagementOfficeState extends State<ProjectManagementOffice> {
     return Scaffold(
       body: ListView(
         children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: 16.0),
+            child: Appbar(
+              title: 'Project Management Office',
+              onIconPressed: () {},
+              search: false,
+              view: false,
+              onSearch: () {},
+            ),
+          ),
           MyListTile(
               title: "About Project Management Office:",
               subtitle:
@@ -68,7 +79,7 @@ class _ProjectManagementOfficeState extends State<ProjectManagementOffice> {
                   Text('Mr. Sultan bin Faisal Al-Otaibi	'),
                   Text('Director'),
                   Text('Prof. Ibrahim Elbagoury	'),
-                  Text('Head of Project Management ِAdministration'),
+                  Text('Head of Project Management'),
                 ],
               ),
             ),
@@ -84,43 +95,11 @@ class _ProjectManagementOfficeState extends State<ProjectManagementOffice> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 32.0, top: 8.0),
-            child: Text(
-              "Projects",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: AppTheme.lightText,
-              ),
-            ),
-          ),
-          Card(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 8.0,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: ListView(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  _buildListItem(
-                      number: '1',
-                      subtitle:
-                          "Project Management Office’s Internal Administrative and Procedural Management"),
-                  _buildListItem(
-                      number: '2',
-                      subtitle:
-                          "Project Management Office’s Internal Administrative and Procedural Management"),
-                  _buildListItem(
-                      number: '3',
-                      subtitle:
-                          "Project Management Office’s Internal Administrative and Procedural Management"),
-                ],
-              ),
-            ),
-          ),
+          ListItems(title: 'Projects: ', items: const [
+            "Project Management Office’s Internal Administrative and Procedural Management",
+            "Project Management Office’s Internal Administrative and Procedural Management",
+            "Project Management Office’s Internal Administrative and Procedural Management",
+          ]),
           ListItems(title: 'Current projects: ', items: const [
             "Lay the methodology for working between the Project Management Office and different university entities to manage projects/initiatives of the Strategic Plan 2020-2025. ",
             "Lay the methodology for working between the Project Management Office and different university entities to manage projects/initiatives of the Strategic Plan 2020-2025. ",
@@ -131,20 +110,6 @@ class _ProjectManagementOfficeState extends State<ProjectManagementOffice> {
             "Lay the methodology for working between the Project Management Office and different university entities to manage projects/initiatives of the Strategic Plan 2020-2025. ",
           ]),
         ],
-      ),
-    );
-  }
-
-  Widget _buildListItem({required String number, required String subtitle}) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      physics: NeverScrollableScrollPhysics(),
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Text(
-          '$number. $subtitle',
-          overflow: TextOverflow.ellipsis,
-        ),
       ),
     );
   }

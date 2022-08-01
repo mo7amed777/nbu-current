@@ -10,22 +10,27 @@ class DownloadCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.all(4.0),
-      child: ListTile(
-        trailing: IconButton(
-          icon: Icon(Icons.file_download, color: AppTheme.lightText),
-          onPressed: () => download(),
-        ),
-        title: Padding(
-          padding: EdgeInsets.symmetric(vertical: 8),
-          child: Text(title,
-              overflow: TextOverflow.ellipsis,
-              softWrap: false,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: AppTheme.lightText,
-                  fontSize: 16)),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        margin: EdgeInsets.symmetric(horizontal: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        elevation: 2.0,
+        child: ListTile(
+          trailing: IconButton(
+            icon: Icon(Icons.file_download, color: AppTheme.lightText),
+            onPressed: () => download(),
+          ),
+          title: Padding(
+            padding: EdgeInsets.symmetric(vertical: 8),
+            child: Text(title,
+                overflow: TextOverflow.ellipsis,
+                softWrap: false,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.lightText,
+                    fontSize: 16)),
+          ),
         ),
       ),
     );

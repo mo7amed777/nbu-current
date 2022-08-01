@@ -13,7 +13,9 @@ class MyListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.all(4.0),
+      margin: EdgeInsets.all(8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      elevation: 2.0,
       child: ListTile(
         title: Padding(
           padding: const EdgeInsets.symmetric(vertical: 4),

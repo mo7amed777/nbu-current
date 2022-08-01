@@ -1,3 +1,4 @@
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/list_items.dart';
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/view/widgets/list_tile.dart';
@@ -14,7 +15,17 @@ class _VisionandGoalsState extends State<VisionandGoals> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: const [
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 16.0),
+            child: Appbar(
+              title: 'Vision and Goals',
+              onIconPressed: () {},
+              search: false,
+              view: false,
+              onSearch: () {},
+            ),
+          ),
           MyListTile(
             title: 'Vision',
             subtitle:
@@ -27,7 +38,7 @@ class _VisionandGoalsState extends State<VisionandGoals> {
           ),
           ListItems(
               title: 'Goals',
-              items: [
+              items: const [
                 'Providing excellent education that sharpens intellect and professionalism.',
                 'Stimulating research and innovation following the university’s research priorities.',
                 'Developing community partnership. ',
