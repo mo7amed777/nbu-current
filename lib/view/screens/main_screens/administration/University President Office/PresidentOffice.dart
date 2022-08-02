@@ -1,6 +1,8 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/President%20Subordinating%20Units/PresidentSubordinatingUnits.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/members.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/list_items.dart';
 import 'package:northern_border_university/view/widgets/list_tile.dart';
@@ -23,10 +25,13 @@ class _UniversityPresidentOfficeState extends State<UniversityPresidentOffice> {
           Padding(
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
-              title: 'The University President Office',
-              onIconPressed: () {},
+              title: 'University President Office',
+              onIconPressed: () {
+                Get.to(OfficeMembers());
+              },
               search: false,
-              view: false,
+              view: true,
+              icon: FontAwesomeIcons.userFriends,
               onSearch: () {},
             ),
           ),

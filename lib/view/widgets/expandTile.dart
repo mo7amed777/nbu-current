@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ExpandedTile extends StatelessWidget {
+class ExpandedTile extends StatefulWidget {
   final String mainTitle;
   final String? title;
   final List<String>? TwoItemsRow;
@@ -14,24 +14,42 @@ class ExpandedTile extends StatelessWidget {
   });
 
   @override
+  State<ExpandedTile> createState() => _ExpandedTileState();
+}
+
+class _ExpandedTileState extends State<ExpandedTile> {
+  bool expanded = false;
+  @override
   Widget build(BuildContext context) {
-    return ExpansionTile(title: Text(mainTitle), children: [
-      ListTile(
-        onTap: () => onTap(),
-        title: Text(title ?? ''),
-        subtitle: Padding(
-          padding: const EdgeInsets.only(top: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(TwoItemsRow?.first ?? '',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-              Text(TwoItemsRow?.last ?? '',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-            ],
-          ),
-        ),
-      ),
-    ]);
+    return Card(
+      margin: EdgeInsets.all(8),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(expanded ? 0 : 30)),
+      child: ExpansionTile(
+          title: Text(widget.mainTitle),
+          onExpansionChanged: ((value) {
+            setState(() {
+              expanded = value;
+            });
+          }),
+          children: [
+            ListTile(
+              onTap: () => widget.onTap(),
+              title: Text(widget.title ?? ''),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(widget.TwoItemsRow?.first ?? '',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(widget.TwoItemsRow?.last ?? '',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                  ],
+                ),
+              ),
+            ),
+          ]),
+    );
   }
 }

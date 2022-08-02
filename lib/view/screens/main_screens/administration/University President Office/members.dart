@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/expandTile.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -19,6 +20,13 @@ class _OfficeMembersState extends State<OfficeMembers> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
+            Appbar(
+              title: 'President Office Members',
+              onSearch: () {},
+              search: false,
+              view: false,
+              onIconPressed: () {},
+            ),
             ExpandedTile(
               mainTitle: 'Dr. Mufdi bin Ratian Al-Sharari',
               title: "General Supervisor Of The University President's Office",
