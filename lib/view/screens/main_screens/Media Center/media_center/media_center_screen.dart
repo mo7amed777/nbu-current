@@ -478,7 +478,6 @@ class MediaCenterState extends State<MediaCenter>
                         context,
                         MaterialPageRoute<dynamic>(
                             builder: (BuildContext context) => FiltersScreen(
-                                  isCollegesFilter: false,
                                   popularFilterListData:
                                       PopularFilterListData.popularFList,
                                 ),

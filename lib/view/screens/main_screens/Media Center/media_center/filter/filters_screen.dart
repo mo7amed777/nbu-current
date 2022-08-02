@@ -7,10 +7,8 @@ import 'package:northern_border_university/view/screens/main_screens/Media%20Cen
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/slider/range_slider_view.dart';
 
 class FiltersScreen extends StatefulWidget {
-  final bool isCollegesFilter;
   final List<PopularFilterListData> popularFilterListData;
-  const FiltersScreen(
-      {required this.isCollegesFilter, required this.popularFilterListData});
+  const FiltersScreen({required this.popularFilterListData});
   @override
   _FiltersScreenState createState() => _FiltersScreenState();
 }
@@ -33,7 +31,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    widget.isCollegesFilter ? Container() : priceBarFilter(),
+                    priceBarFilter(),
                     const Divider(
                       height: 1,
                     ),
@@ -44,9 +42,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     const Divider(
                       height: 1,
                     ),
-                    widget.isCollegesFilter
-                        ? Container()
-                        : allAccommodationUI(),
+                    allAccommodationUI(),
                   ],
                 ),
               ),
@@ -219,7 +215,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
           padding:
               const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
           child: Text(
-            widget.isCollegesFilter ? 'Location' : 'Popular filters',
+            'Popular filters',
             textAlign: TextAlign.left,
             style: TextStyle(
                 color: Colors.grey,

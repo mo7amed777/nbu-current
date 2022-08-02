@@ -1,3 +1,4 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
@@ -16,44 +17,52 @@ class Colleges extends StatefulWidget {
 }
 
 class _CollegesState extends State<Colleges> {
-  List<PopularFilterListData> popularFilterListData = <PopularFilterListData>[
-    PopularFilterListData(
-      titleTxt: 'Arar',
-      isSelected: false,
-    ),
-    PopularFilterListData(
-      titleTxt: 'Rafha',
-      isSelected: false,
-    ),
-    PopularFilterListData(
-      titleTxt: 'Turaif',
-      isSelected: true,
-    ),
-    PopularFilterListData(
-      titleTxt: 'Al-uwayqilah',
-      isSelected: false,
-    ),
-    PopularFilterListData(
-      titleTxt: 'All Colleges',
-      isSelected: false,
-    ),
+  List<String> locations = [
+    'Arar',
+    'Rafha',
+    'Turaif',
+    'Al-uwayqilah',
+    'All Colleges',
   ];
 
-  Map<String, String> items = {
-    '(Applied College (Rafha - delete':
-        'assets/images/magazine/webInterFace.png',
-    'Al-Uweqilih Branch': 'assets/images/magazine/webInterFace.png',
-    'Faculty of Science and Arts in Turaif':
-        'assets/images/magazine/interFace3.png',
-    'Applied Faculty in Arar': 'assets/images/magazine/interFace3.png',
-    'Faculty of Sciences and Arts in Rafha':
-        'assets/images/magazine/webInterFace.png',
+  Map<String, String> arar = {
+    'Faculty of Science': 'assets/images/magazine/webInterFace.png',
     'Faculty of Engineering': 'assets/images/magazine/webInterFace.png',
-    '(Applied College (Turaif - delete':
+    'Faculty of Medical Sciences': 'assets/images/magazine/interFace3.png',
+    'Faculty of Medicine': 'assets/images/magazine/interFace3.png',
+    'Faculty of Nursing': 'assets/images/magazine/webInterFace.png',
+    'Faculty of Education and Arts': 'assets/images/magazine/webInterFace.png',
+    'Faculty of Family & Consumer Sciences':
         'assets/images/magazine/interFace3.png',
     'Faculty of Computing and Information Technology':
         'assets/images/magazine/interFace3.png',
+    'Applied Faculty in Arar': 'assets/images/magazine/interFace3.png',
   };
+  Map<String, String> rafha = {
+    'Faculty of Sciences and Arts in Rafha':
+        'assets/images/magazine/webInterFace.png',
+    'College of Pharmacy': 'assets/images/magazine/webInterFace.png',
+    'Faculty of Computing and Information Technology':
+        'assets/images/magazine/interFace3.png',
+  };
+  Map<String, String> turaif = {
+    'Faculty of Science and Arts in Turaif':
+        'assets/images/magazine/webInterFace.png',
+  };
+  Map<String, String> uwayqilah = {
+    'Al-Uweqilih Branch': 'assets/images/magazine/webInterFace.png',
+  };
+
+  Map<String, String> colleges = {};
+  @override
+  void initState() {
+    super.initState();
+    colleges.addAll(arar);
+    colleges.addAll(rafha);
+    colleges.addAll(turaif);
+    colleges.addAll(uwayqilah);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,17 +73,72 @@ class _CollegesState extends State<Colleges> {
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Appbar(
                   title: 'Colleges',
-                  icon: Icons.sort,
+                  icon: FontAwesomeIcons.searchLocation,
                   onSearch: () {},
-                  onIconPressed: () {
+                  onIconPressed: () async {
                     FocusScope.of(context).requestFocus(FocusNode());
-                    Navigator.push<dynamic>(
-                      context,
-                      MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) => FiltersScreen(
-                              popularFilterListData: popularFilterListData,
-                              isCollegesFilter: true),
-                          fullscreenDialog: true),
+                    await Get.dialog(
+                      Center(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.5,
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            gradient: LinearGradient(colors: const [
+                              Color.fromARGB(255, 48, 133, 202),
+                              Color.fromARGB(255, 120, 177, 73),
+                            ]),
+                          ),
+                          child: ListView.separated(
+                              itemBuilder: (context, index) => Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Get.back();
+                                        switch (index) {
+                                          // 'Arar',
+                                          // 'Rafha',
+                                          // 'Turaif',
+                                          // 'Al-uwayqilah',
+                                          // 'All Colleges',
+                                          case 0:
+                                            colleges = arar;
+                                            break;
+                                          case 1:
+                                            colleges = rafha;
+                                            break;
+                                          case 2:
+                                            colleges = turaif;
+                                            break;
+                                          case 3:
+                                            colleges = uwayqilah;
+                                            break;
+
+                                          default:
+                                            colleges.addAll(arar);
+                                            colleges.addAll(rafha);
+                                            colleges.addAll(turaif);
+                                            colleges.addAll(uwayqilah);
+                                        }
+                                      },
+                                      child: Text(
+                                        locations[index],
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                              separatorBuilder: ((context, index) => Divider(
+                                    height: 7,
+                                    indent: 25,
+                                    endIndent: 25,
+                                  )),
+                              itemCount: locations.length),
+                        ),
+                      ),
                     );
                   }),
             ),
@@ -89,7 +153,7 @@ class _CollegesState extends State<Colleges> {
                 shrinkWrap: true,
                 childAspectRatio: 1,
                 children: List.generate(
-                  8,
+                  colleges.length,
                   (int index) {
                     return AnimationConfiguration.staggeredGrid(
                       position: index,
@@ -107,7 +171,7 @@ class _CollegesState extends State<Colleges> {
                                 children: <Widget>[
                                   Positioned.fill(
                                     child: Image.asset(
-                                      items.values.toList()[index],
+                                      colleges.values.toList()[index],
                                       fit: BoxFit.fill,
                                     ),
                                   ),
@@ -117,8 +181,8 @@ class _CollegesState extends State<Colleges> {
                                       splashColor: Colors.grey.withOpacity(0.2),
                                       borderRadius: const BorderRadius.all(
                                           Radius.circular(4.0)),
-                                      onTap: () =>
-                                          callBack(items.keys.toList()[index]),
+                                      onTap: () => callBack(
+                                          colleges.keys.toList()[index]),
                                     ),
                                   ),
                                   Positioned(
@@ -130,7 +194,7 @@ class _CollegesState extends State<Colleges> {
                                       margin: EdgeInsets.all(4.0),
                                       color: AppTheme.dark_grey,
                                       child: Text(
-                                        items.keys.toList()[index],
+                                        colleges.keys.toList()[index],
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           overflow: TextOverflow.ellipsis,
@@ -168,52 +232,7 @@ class _CollegesState extends State<Colleges> {
     await article.getAllItems();
     String imgURL = await article.getItemImageURL(article.items[0]);
     Get.back();
-    switch (key) {
-      case '(Applied College (Rafha - delete':
-        imgURL = await article.getItemImageURL(article.items[0]);
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[0]));
-        break;
-      case 'Al-Uweqilih Branch':
-        imgURL = await article.getItemImageURL(article.items[1]);
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[1]));
-        break;
-      case 'Faculty of Science and Arts in Turaif':
-        imgURL = await article.getItemImageURL(article.items[2]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[3]));
-        break;
-      case 'Applied Faculty in Arar':
-        imgURL = await article.getItemImageURL(article.items[4]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[5]));
-        break;
-      case 'Faculty of Sciences and Arts in Rafha':
-        imgURL = await article.getItemImageURL(article.items[6]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[7]));
-        break;
-      case 'Faculty of Engineering':
-        imgURL = await article.getItemImageURL(article.items[8]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[9]));
-        break;
-      case '(Applied College (Turaif - delete':
-        imgURL = await article.getItemImageURL(article.items[10]);
-
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[2]));
-        break;
-      case 'Faculty of Computing and Information Technology':
-        imgURL = await article.getItemImageURL(article.items[3]);
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[7]));
-        break;
-    }
+    Get.to(TheUniversityPresident(
+        article: article, imgURL: imgURL, item: article.items[7]));
   }
 }
