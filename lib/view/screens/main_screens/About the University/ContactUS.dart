@@ -42,21 +42,25 @@ class _ContactUSState extends State<ContactUS> {
             'Fax: 6146620771, Saudi Arabia',
             'PO Box: 1321 postal code: 91431, Arar.',
           ]),
+          SizedBox(height: 10),
           InputField(
               controller: _nameController,
               secured: false,
               label: 'Name',
               prefex: Icon(Icons.person)),
+          SizedBox(height: 10),
           InputField(
               controller: _emailController,
               secured: false,
               label: 'Email',
               prefex: Icon(Icons.email)),
+          SizedBox(height: 10),
           InputField(
               controller: _subjectController,
               secured: false,
               label: 'Subject',
               prefex: Icon(Icons.subject)),
+          SizedBox(height: 10),
           InputField(
             controller: _messageController,
             secured: false,

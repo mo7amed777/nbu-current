@@ -12,6 +12,8 @@ class News extends StatefulWidget {
 }
 
 class _NewsState extends State<News> {
+  TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +25,7 @@ class _NewsState extends State<News> {
               title: 'News',
               onIconPressed: () {},
               search: true,
+              searchController: searchController,
               view: false,
               onSearch: () {},
             ),

@@ -1,6 +1,7 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/administration_sections.dart';
 import 'package:northern_border_university/view/screens/splash/intro_video.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
@@ -16,6 +17,7 @@ class Administration extends StatefulWidget {
 class _AdministrationState extends State<Administration> {
   late VideoPlayerController _controller;
   late ChewieController _chewieController;
+  TextEditingController searchController = TextEditingController();
 
   @override
   void initState() {
@@ -40,6 +42,7 @@ class _AdministrationState extends State<Administration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.background,
       body: Column(
         children: [
           Padding(
@@ -48,6 +51,7 @@ class _AdministrationState extends State<Administration> {
             child: Appbar(
                 title: 'Administrations',
                 onSearch: () {},
+                searchController: searchController,
                 search: true,
                 view: false,
                 onIconPressed: () {}),

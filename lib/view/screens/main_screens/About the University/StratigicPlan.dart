@@ -18,7 +18,7 @@ class _StratigicPlanState extends State<StratigicPlan> {
           Padding(
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
-              title: 'Vision and Goals',
+              title: 'Stratigic Plan',
               onIconPressed: () {},
               search: false,
               view: false,

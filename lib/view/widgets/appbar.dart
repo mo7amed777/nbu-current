@@ -1,3 +1,4 @@
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
@@ -9,10 +10,12 @@ class Appbar extends StatefulWidget {
     required this.onIconPressed,
     required this.onSearch,
     this.search = false,
+    this.searchController,
     this.view = true,
   });
   final IconData icon;
   final String title;
+  final TextEditingController? searchController;
   final Function onIconPressed, onSearch;
   final bool search, view;
   @override
@@ -69,24 +72,19 @@ class _AppbarState extends State<Appbar> {
                   : Container(),
               widget.search
                   ? Padding(
-                      padding: const EdgeInsets.only(top: 8, right: 8),
-                      child: SizedBox(
-                        width: AppBar().preferredSize.height - 8,
-                        height: AppBar().preferredSize.height - 8,
-                        child: Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(
-                                AppBar().preferredSize.height),
-                            child: Icon(
-                              FontAwesomeIcons.search,
-                              color: AppTheme.grey,
-                            ),
-                            onTap: () {
-                              widget.onSearch();
-                            },
-                          ),
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: AnimSearchBar(
+                        width: MediaQuery.of(context).size.width - 8,
+                        color: AppTheme.background,
+                        prefixIcon: Icon(
+                          FontAwesomeIcons.search,
+                          size: 18,
                         ),
+                        textController:
+                            widget.searchController ?? TextEditingController(),
+                        onSuffixTap: () {
+                          widget.searchController?.clear();
+                        },
                       ),
                     )
                   : Container(),
