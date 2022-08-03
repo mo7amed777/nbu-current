@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/media_card.dart';
 
 class VicePresidencies extends StatefulWidget {
@@ -14,6 +15,13 @@ class _VicePresidenciesState extends State<VicePresidencies> {
     return Scaffold(
       body: ListView(
         children: [
+          Appbar(
+            title: 'The Vice Presidencies',
+            onSearch: () {},
+            search: false,
+            view: false,
+            onIconPressed: () {},
+          ),
           MediaCard(
             title: 'The Vice Presidency',
             subtitle: 'More ...',

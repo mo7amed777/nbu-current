@@ -17,8 +17,9 @@ class MediaCard extends StatelessWidget {
     return InkWell(
       onTap: () => onTap(),
       child: Card(
-        elevation: 4.0,
-        margin: const EdgeInsets.all(4.0),
+        margin: EdgeInsets.all(8),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        elevation: 2.0,
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           physics: NeverScrollableScrollPhysics(),
@@ -27,11 +28,21 @@ class MediaCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Image.asset(
-                    image,
+                  Container(
                     height: 100,
                     width: 100,
-                    fit: BoxFit.fill,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(image),
+                        fit: BoxFit.fill,
+                      ),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(0),
+                        topLeft: Radius.circular(0),
+                        topRight: Radius.circular(30),
+                        bottomRight: Radius.circular(30),
+                      ),
+                    ),
                   ),
                   SizedBox(width: 8),
                   Column(
