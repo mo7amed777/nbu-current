@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-const VideoURL = 'https://beta.nbu.edu.sa/sites/default/files/2022-04/%D9%85%D9%86%20%D9%86%D8%AD%D9%86_1_0.mp4';
+const VideoURL =
+    'https://beta.nbu.edu.sa/sites/default/files/2022-04/%D9%85%D9%86%20%D9%86%D8%AD%D9%86_1_0.mp4';
 
 class SplashView extends StatefulWidget {
   final AnimationController animationController;
@@ -35,7 +36,6 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-
     final _introductionanimation =
         Tween<Offset>(begin: Offset(0, 0), end: Offset(0.0, -1.0))
             .animate(CurvedAnimation(
@@ -51,8 +51,8 @@ class _SplashViewState extends State<SplashView> {
       child: Stack(
         children: [
           InkWell(
-            onTap: ()async {
-              if(!_controller.value.isPlaying)await _controller.play();
+            onTap: () async {
+              if (!_controller.value.isPlaying) await _controller.play();
             },
             child: SizedBox.expand(
               child: FittedBox(
@@ -83,7 +83,7 @@ class _SplashViewState extends State<SplashView> {
                 ),
                 child: Center(
                   child: Text(
-                    "Let's begin",
+                    "Get Started",
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,

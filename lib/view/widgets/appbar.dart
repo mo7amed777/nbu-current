@@ -74,7 +74,8 @@ class _AppbarState extends State<Appbar> {
                   ? Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: AnimSearchBar(
-                        width: MediaQuery.of(context).size.width - 8,
+                        width: MediaQuery.of(context).size.width -
+                            AppBar().preferredSize.height,
                         color: AppTheme.background,
                         prefixIcon: Icon(
                           FontAwesomeIcons.search,
