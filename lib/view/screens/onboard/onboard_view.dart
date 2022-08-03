@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -80,9 +83,27 @@ class WelcomeView extends StatelessWidget {
               Padding(
                 padding:
                     EdgeInsets.only(left: 64, right: 64, top: 8, bottom: 8),
-                child: Text(
-                  "Stay organised and live stress-free with you-do app",
-                  textAlign: TextAlign.center,
+                child: AnimatedTextKit(
+                  repeatForever: true,
+                  animatedTexts: [
+                    TyperAnimatedText(
+                      'Northern Border University Welcome',
+                      textAlign: TextAlign.center,
+                      speed: Duration(milliseconds: 50),
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                    TyperAnimatedText(
+                      'Join Now and get started with NBU',
+                      textAlign: TextAlign.center,
+                      speed: Duration(milliseconds: 50),
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                  onTap: () {},
                 ),
               ),
             ],
