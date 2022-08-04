@@ -77,6 +77,8 @@ class _AppbarState extends State<Appbar> {
                         width: MediaQuery.of(context).size.width -
                             AppBar().preferredSize.height,
                         color: AppTheme.background,
+                        autoFocus: false,
+                        helpText: "Search...",
                         prefixIcon: Icon(
                           FontAwesomeIcons.search,
                           size: 18,

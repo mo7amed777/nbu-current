@@ -1,10 +1,7 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
-import 'package:northern_border_university/model/article.dart';
-import 'package:northern_border_university/view/screens/main_screens/Administration/The%20University%20President.dart';
-import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filter_list.dart';
-import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filters_screen.dart';
+import 'package:northern_border_university/view/screens/main_screens/Colleges/college_departments.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -222,17 +219,20 @@ class _CollegesState extends State<Colleges> {
   }
 
   void callBack(String key) async {
-    Article article = Article();
+    //Article article = Article();
     Get.dialog(
       Center(
         child: CircularProgressIndicator(),
       ),
       barrierDismissible: false,
     );
-    await article.getAllItems();
-    String imgURL = await article.getItemImageURL(article.items[0]);
+    //await article.getAllItems();
+    //String imgURL = await article.getItemImageURL(article.items[0]);
     Get.back();
-    Get.to(TheUniversityPresident(
-        article: article, imgURL: imgURL, item: article.items[7]));
+    // Get.to(TheUniversityPresident(
+    //     article: article, imgURL: imgURL, item: article.items[7]));
+    Get.to(CollegeDepartments(
+      college: key,
+    ));
   }
 }
