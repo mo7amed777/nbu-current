@@ -1,3 +1,4 @@
+import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/media_center_theme.dart';
@@ -59,7 +60,12 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
                       onSearch: () {},
                       icon: FontAwesomeIcons.edit,
                       view: true,
-                      onIconPressed: () {
+                      onIconPressed: () async {
+                        bool isAppBadgeSupported =
+                            await FlutterAppBadger.isAppBadgeSupported();
+                        if (isAppBadgeSupported) {
+                          FlutterAppBadger.updateBadgeCount(1);
+                        }
                         Get.to(Settings());
                       },
                     ),

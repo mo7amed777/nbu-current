@@ -104,11 +104,13 @@ class _EditPageState extends State<EditPage> {
                                 type: FileType.image,
                                 allowMultiple: false,
                               );
-                              setState(() {
-                                showSnackBar(
-                                    message:
-                                        'Profile photo updated successfully.');
-                              });
+                              if (result != null) {
+                                setState(() {
+                                  showSnackBar(
+                                      message:
+                                          'Profile photo updated successfully.');
+                                });
+                              }
                             },
                             child: Icon(
                               Icons.edit,
