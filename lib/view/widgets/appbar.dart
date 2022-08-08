@@ -1,4 +1,4 @@
-import 'package:anim_search_bar/anim_search_bar.dart';
+import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
@@ -71,24 +71,20 @@ class _AppbarState extends State<Appbar> {
                     )
                   : Container(),
               widget.search
-                  ? Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: AnimSearchBar(
-                        width: MediaQuery.of(context).size.width -
-                            AppBar().preferredSize.height,
-                        color: AppTheme.background,
-                        autoFocus: false,
-                        helpText: "Search...",
-                        prefixIcon: Icon(
-                          FontAwesomeIcons.search,
-                          size: 18,
-                        ),
-                        textController:
-                            widget.searchController ?? TextEditingController(),
-                        onSuffixTap: () {
-                          widget.searchController?.clear();
-                        },
-                      ),
+                  ? SearchBarAnimation(
+                      durationInMilliSeconds: 300,
+                      isSearchBoxOnRightSide: true,
+                      hintText: 'Search...',
+                      onChanged: (val) => widget.onSearch(val),
+                      searchBoxWidth: MediaQuery.of(context).size.width - 2,
+                      isOriginalAnimation: false,
+                      textEditingController:
+                          widget.searchController ?? TextEditingController(),
+                      buttonBorderColour: Colors.black45,
+                      buttonIcon: Icons.search,
+                      onFieldSubmitted: (String value) {
+                        debugPrint('onFieldSubmitted value $value');
+                      },
                     )
                   : Container(),
             ],

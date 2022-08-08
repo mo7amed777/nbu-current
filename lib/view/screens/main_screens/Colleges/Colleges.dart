@@ -77,7 +77,7 @@ class _CollegesState extends State<Colleges> {
                     await Get.dialog(
                       Center(
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.5,
+                          height: MediaQuery.of(context).size.height * 0.45,
                           width: MediaQuery.of(context).size.width * 0.4,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),

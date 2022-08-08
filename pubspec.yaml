@@ -51,9 +51,9 @@ dependencies:
   url_launcher: ^6.1.3
   fluttertoast: ^8.0.9
   file_picker: ^3.0.4
-  anim_search_bar: ^2.0.2
   animated_text_kit: ^4.2.2
   flutter_app_badger: ^1.4.0
+  searchbar_animation: ^0.0.2
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +82,7 @@ flutter:
       - assets/images/media/
       - assets/images/council/
       - assets/images/council/members/
+      - assets/images/e-services/
       - assets/images/magazine/
       - assets/images/colleges/
       - assets/images/media_center/

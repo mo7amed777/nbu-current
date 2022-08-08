@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/EServices.dart';
 import 'package:northern_border_university/view/screens/onboard/onboard_view.dart';
 import 'package:northern_border_university/view/screens/splash/intro_screen1.dart';
 import 'package:northern_border_university/view/screens/splash/intro_screen2.dart';
@@ -110,6 +112,6 @@ class _IntroductionAnimationScreenState
   }
 
   void _signUpClick() {
-    //Navigator.pop(context);
+    Get.to(EServices());
   }
 }

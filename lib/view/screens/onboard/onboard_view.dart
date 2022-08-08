@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/EServices.dart';
 
 class WelcomeView extends StatelessWidget {
   final AnimationController animationController;
@@ -103,7 +105,6 @@ class WelcomeView extends StatelessWidget {
                       ),
                     ),
                   ],
-                  onTap: () {},
                 ),
               ),
             ],

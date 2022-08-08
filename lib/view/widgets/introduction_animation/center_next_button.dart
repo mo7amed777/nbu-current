@@ -58,7 +58,7 @@ class CenterNextButton extends StatelessWidget {
             ),
           ),
         ),
-         SlideTransition(
+        SlideTransition(
           position: _topMoveAnimation,
           child: AnimatedBuilder(
             animation: animationController,
@@ -93,9 +93,8 @@ class CenterNextButton extends StatelessWidget {
                         child: Padding(
                           padding: EdgeInsets.only(left: 16.0, right: 16.0),
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                            children: [
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
                               Text(
                                 'Sign Up',
                                 style: TextStyle(
@@ -115,10 +114,10 @@ class CenterNextButton extends StatelessWidget {
                         onTap: onNextClick,
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
-                          child: animationController.value >= 0.5 ? Icon(Icons.done,
-                              color: Colors.white) :
-                          Icon(Icons.arrow_forward_ios_rounded,
-                              color: Colors.white),
+                          child: animationController.value >= 0.5
+                              ? Icon(Icons.done, color: Colors.white)
+                              : Icon(Icons.arrow_forward_ios_rounded,
+                                  color: Colors.white),
                         ),
                       ),
               ),
@@ -128,7 +127,7 @@ class CenterNextButton extends StatelessWidget {
         SlideTransition(
           position: _loginTextMoveAnimation,
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 8.0,top: 8.0),
+            padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -169,25 +168,27 @@ class CenterNextButton extends StatelessWidget {
       _selectedIndex = 0;
     }
 
-    return _selectedIndex ==2?Container(): Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        for (var i = 0; i < 4; i++)
-          Padding(
-            padding: const EdgeInsets.all(4),
-            child: AnimatedContainer(
-              duration: Duration(milliseconds: 480),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(32),
-                color: _selectedIndex == i
-                    ? Color(0xff132137)
-                    : Color(0xffE3E4E4),
-              ),
-              width: 10,
-              height: 10,
-            ),
-          )
-      ],
-    );
+    return _selectedIndex == 2
+        ? Container()
+        : Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (var i = 0; i < 4; i++)
+                Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 480),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(32),
+                      color: _selectedIndex == i
+                          ? Color(0xff132137)
+                          : Color(0xffE3E4E4),
+                    ),
+                    width: 10,
+                    height: 10,
+                  ),
+                )
+            ],
+          );
   }
 }
