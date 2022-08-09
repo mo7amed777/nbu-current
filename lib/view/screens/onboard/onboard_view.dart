@@ -1,9 +1,5 @@
-import 'dart:ui';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:northern_border_university/view/screens/main_screens/E-Services/EServices.dart';
 
 class WelcomeView extends StatelessWidget {
   final AnimationController animationController;
@@ -77,34 +73,27 @@ class WelcomeView extends StatelessWidget {
               ),
               SlideTransition(
                 position: _welcomeFirstHalfAnimation,
-                child: Text(
-                  "Welcome",
-                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                child: AnimatedTextKit(
+                  repeatForever: true,
+                  animatedTexts: [
+                    ScaleAnimatedText(
+                      "Welcome",
+                      duration: Duration(milliseconds: 2000),
+                      textStyle: TextStyle(
+                          fontSize: 25.0, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
               ),
               Padding(
                 padding:
-                    EdgeInsets.only(left: 64, right: 64, top: 8, bottom: 8),
-                child: AnimatedTextKit(
-                  repeatForever: true,
-                  animatedTexts: [
-                    TyperAnimatedText(
-                      'Northern Border University Welcome',
-                      textAlign: TextAlign.center,
-                      speed: Duration(milliseconds: 50),
-                      textStyle: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    TyperAnimatedText(
-                      'Join Now and get started with NBU',
-                      textAlign: TextAlign.center,
-                      speed: Duration(milliseconds: 50),
-                      textStyle: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
+                    EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                child: Text(
+                  'Join Now and get started with NBU',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ],
