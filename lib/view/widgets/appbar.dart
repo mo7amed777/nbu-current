@@ -1,6 +1,5 @@
 import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 
 class Appbar extends StatefulWidget {
@@ -10,12 +9,10 @@ class Appbar extends StatefulWidget {
     required this.onIconPressed,
     required this.onSearch,
     this.search = false,
-    this.searchController,
     this.view = true,
   });
   final IconData icon;
   final String title;
-  final TextEditingController? searchController;
   final Function onIconPressed, onSearch;
   final bool search, view;
   @override
@@ -23,6 +20,7 @@ class Appbar extends StatefulWidget {
 }
 
 class _AppbarState extends State<Appbar> {
+  final TextEditingController _textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -74,12 +72,12 @@ class _AppbarState extends State<Appbar> {
                   ? SearchBarAnimation(
                       durationInMilliSeconds: 300,
                       isSearchBoxOnRightSide: true,
+                      enableKeyboardFocus: true,
                       hintText: 'Search...',
                       onChanged: (val) => widget.onSearch(val),
                       searchBoxWidth: MediaQuery.of(context).size.width - 2,
                       isOriginalAnimation: false,
-                      textEditingController:
-                          widget.searchController ?? TextEditingController(),
+                      textEditingController: _textEditingController,
                       buttonBorderColour: Colors.black45,
                       buttonIcon: Icons.search,
                       onFieldSubmitted: (String value) {

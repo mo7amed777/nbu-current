@@ -17,7 +17,6 @@ class Administration extends StatefulWidget {
 class _AdministrationState extends State<Administration> {
   late VideoPlayerController _controller;
   late ChewieController _chewieController;
-  TextEditingController searchController = TextEditingController();
 
   @override
   void initState() {
@@ -50,8 +49,7 @@ class _AdministrationState extends State<Administration> {
                 EdgeInsets.only(top: MediaQuery.of(context).padding.top + 6),
             child: Appbar(
                 title: 'Administrations',
-                onSearch: () {},
-                searchController: searchController,
+                onSearch: (val) {},
                 search: true,
                 view: false,
                 onIconPressed: () {}),

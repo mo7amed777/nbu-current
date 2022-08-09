@@ -26,11 +26,6 @@ class _CollegeDepartmentsState extends State<CollegeDepartments> {
   };
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnimationLimiter(
@@ -40,7 +35,7 @@ class _CollegeDepartmentsState extends State<CollegeDepartments> {
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Appbar(
                 title: widget.college,
-                onSearch: () {},
+                onSearch: (val) {},
                 search: true,
                 view: false,
                 onIconPressed: () {},

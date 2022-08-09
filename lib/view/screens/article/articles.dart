@@ -12,8 +12,6 @@ class ArticlesScreen extends StatefulWidget {
 }
 
 class _ArticlesScreenState extends State<ArticlesScreen> {
-  TextEditingController searchController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +24,8 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
               title: 'Articles',
               onIconPressed: () {},
               search: true,
-              searchController: searchController,
               view: false,
-              onSearch: () {},
+              onSearch: (val) {},
             ),
           ),
           Expanded(

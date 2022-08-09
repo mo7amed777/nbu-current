@@ -13,8 +13,6 @@ class ArticleDetailScreen extends StatefulWidget {
 }
 
 class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
-  TextEditingController searchController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +23,8 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
             child: Appbar(
               title: widget.article.getItemFields(widget.item)["title"],
               onIconPressed: () {},
-              onSearch: () {},
+              onSearch: (val) {},
               search: true,
-              searchController: searchController,
               view: false,
             ),
           ),

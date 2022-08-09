@@ -13,8 +13,6 @@ class TheUniversityPresident extends StatefulWidget {
 }
 
 class _TheUniversityPresidentState extends State<TheUniversityPresident> {
-  TextEditingController searchController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +23,8 @@ class _TheUniversityPresidentState extends State<TheUniversityPresident> {
             child: Appbar(
               title: widget.article.getItemFields(widget.item)["title"],
               onIconPressed: () {},
-              onSearch: () {},
+              onSearch: (val) {},
               search: true,
-              searchController: searchController,
               view: false,
             ),
           ),
