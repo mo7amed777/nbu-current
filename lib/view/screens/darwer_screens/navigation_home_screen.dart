@@ -6,7 +6,7 @@ import 'package:northern_border_university/view/screens/darwer_screens/about%20U
 import 'package:northern_border_university/view/screens/darwer_screens/feedback_screen.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/help_screen.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/home_screen.dart';
-import 'package:northern_border_university/view/screens/darwer_screens/invite_friend_screen.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/EServices.dart';
 import 'package:northern_border_university/view/widgets/custom_drawer/drawer_user_controller.dart';
 import 'package:northern_border_university/view/widgets/custom_drawer/home_drawer.dart';
 import 'package:flutter/material.dart';
@@ -76,9 +76,9 @@ class NavigationHomeScreenState extends State<NavigationHomeScreen> {
             screenView = FeedbackScreen();
           });
           break;
-        case DrawerIndex.Invite:
+        case DrawerIndex.EServices:
           setState(() {
-            screenView = InviteFriend();
+            screenView = EServices();
           });
           break;
         case DrawerIndex.Testing:

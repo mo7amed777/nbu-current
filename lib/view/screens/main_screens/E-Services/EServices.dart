@@ -135,26 +135,23 @@ class _EServicesState extends State<EServices> {
                                               MainAxisAlignment.center,
                                           children: <Widget>[
                                             CircleAvatar(
-                                              radius: 55,
+                                              radius: 50,
                                               backgroundImage: AssetImage(
                                                   services.values
                                                       .toList()[index]),
                                             ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Text(
-                                                search_list.isEmpty
-                                                    ? services.keys
-                                                        .toList()[index]
-                                                    : search_list.keys
-                                                        .toList()[index],
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  color: AppTheme.darkerText,
-                                                  fontSize: 14,
-                                                ),
+                                            Text(
+                                              search_list.isEmpty
+                                                  ? services.keys
+                                                      .toList()[index]
+                                                  : search_list.keys
+                                                      .toList()[index],
+                                              textAlign: TextAlign.center,
+                                              overflow: TextOverflow.fade,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                color: AppTheme.darkerText,
+                                                fontSize: 14,
                                               ),
                                             ),
                                           ],

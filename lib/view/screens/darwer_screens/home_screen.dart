@@ -1,6 +1,7 @@
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:northern_border_university/model/homelist.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/list_view/media_center_list_view.dart';

@@ -1,5 +1,8 @@
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/ContactUS.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/Contact%20US.dart';
 
 class HelpScreen extends StatefulWidget {
   @override
@@ -70,7 +73,9 @@ class _HelpScreenState extends State<HelpScreen> {
                       child: Material(
                         color: Colors.transparent,
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(ContactOurOffice());
+                          },
                           child: Center(
                             child: Padding(
                               padding: const EdgeInsets.all(4.0),

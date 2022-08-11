@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/navigation_home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -71,113 +73,118 @@ class MoodDiaryVew extends StatelessWidget {
       ),
     ));
 
-    return SlideTransition(
-      position: _firstHalfAnimation,
+    return WillPopScope(
+      onWillPop: () {
+        showSnackBar(message: 'double press to exit app');
+        return Future(
+          () => true,
+        );
+      },
       child: SlideTransition(
-        position: _secondHalfAnimation,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 25),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "N B U",
-                style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
-              ),
-              SlideTransition(
-                position: _moodFirstHalfAnimation,
-                child: SlideTransition(
-                  position: _moodSecondHalfAnimation,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: 64,
-                      right: 64,
-                      top: 8,
-                    ),
-                    child: Text(
-                      "Welcome to NBU just one step to get started",
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
+        position: _firstHalfAnimation,
+        child: SlideTransition(
+          position: _secondHalfAnimation,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 25),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "N B U",
+                  style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                 ),
-              ),
-              SlideTransition(
-                position: _imageFirstHalfAnimation,
-                child: SlideTransition(
-                  position: _imageSecondHalfAnimation,
-                  child: Container(
-                    constraints: BoxConstraints(maxWidth: 350, maxHeight: 250),
-                    child: Image.asset(
-                      'assets/images/introduction_animation/intro3.jpg',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).padding.bottom + 16),
-                child: InkWell(
-                  onTap: () {
-                    //TODO : Navigate to Gate Home for Surfing without login
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NavigationHomeScreen(),
-                        ));
-                  },
-                  child: Container(
-                    height: 58,
-                    padding: EdgeInsets.only(
-                      left: 56.0,
-                      right: 56.0,
-                      top: 16,
-                      bottom: 16,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(38.0),
-                      color: Color(0xff132137),
-                    ),
-                    child: Text(
-                      "الـبـوابـة الجـامـعيـة",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
+                SlideTransition(
+                  position: _moodFirstHalfAnimation,
+                  child: SlideTransition(
+                    position: _moodSecondHalfAnimation,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: 64,
+                        right: 64,
+                        top: 8,
+                      ),
+                      child: Text(
+                        "Welcome to NBU just one step to get started",
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).padding.bottom + 32),
-                child: InkWell(
-                  onTap: () {
-                    animationController.animateTo(0.8);
-                  },
-                  child: Container(
-                    height: 58,
-                    padding: EdgeInsets.only(
-                      left: 56.0,
-                      right: 56.0,
-                      top: 16,
-                      bottom: 16,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(38.0),
-                      color: Color(0xff132137),
-                    ),
-                    child: Text(
-                      "الخدمات الإلكترونية",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
+                SlideTransition(
+                  position: _imageFirstHalfAnimation,
+                  child: SlideTransition(
+                    position: _imageSecondHalfAnimation,
+                    child: Container(
+                      constraints:
+                          BoxConstraints(maxWidth: 350, maxHeight: 250),
+                      child: Image.asset(
+                        'assets/images/introduction_animation/intro3.jpg',
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).padding.bottom + 16),
+                  child: InkWell(
+                    onTap: () {
+                      //TODO : Navigate to Gate Home for Surfing without login
+                      Get.to(NavigationHomeScreen());
+                    },
+                    child: Container(
+                      height: 58,
+                      padding: EdgeInsets.only(
+                        left: 56.0,
+                        right: 56.0,
+                        top: 16,
+                        bottom: 16,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(38.0),
+                        color: Color(0xff132137),
+                      ),
+                      child: Text(
+                        "الـبـوابـة الجـامـعيـة",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).padding.bottom + 32),
+                  child: InkWell(
+                    onTap: () {
+                      animationController.animateTo(0.8);
+                    },
+                    child: Container(
+                      height: 58,
+                      padding: EdgeInsets.only(
+                        left: 56.0,
+                        right: 56.0,
+                        top: 16,
+                        bottom: 16,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(38.0),
+                        color: Color(0xff132137),
+                      ),
+                      child: Text(
+                        "الخدمات الإلكترونية",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

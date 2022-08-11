@@ -1,3 +1,4 @@
+import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,8 @@ class FeedbackScreen extends StatefulWidget {
 }
 
 class _FeedbackScreenState extends State<FeedbackScreen> {
+  TextEditingController feedbackController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -75,6 +78,11 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                           child: InkWell(
                             onTap: () {
                               FocusScope.of(context).requestFocus(FocusNode());
+                              // check if he entered feedback
+                              if (feedbackController.text.isNotEmpty) {
+                                showSnackBar(
+                                    message: 'Thanks for your Feedback');
+                              }
                             },
                             child: Center(
                               child: Padding(
@@ -127,6 +135,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
               child: TextField(
                 maxLines: null,
+                controller: feedbackController,
                 onChanged: (String txt) {},
                 style: TextStyle(
                   fontFamily: AppTheme.fontName,

@@ -38,6 +38,11 @@ class HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(Icons.home),
       ),
       DrawerList(
+        index: DrawerIndex.EServices,
+        labelName: 'E-Services',
+        icon: Icon(Icons.apps),
+      ),
+      DrawerList(
         index: DrawerIndex.Help,
         labelName: 'Help',
         icon: Icon(Icons.help),
@@ -47,11 +52,6 @@ class HomeDrawerState extends State<HomeDrawer> {
         labelName: 'FeedBack',
         isassetsImage: true,
         imageName: 'assets/images/media/supportIcon.png',
-      ),
-      DrawerList(
-        index: DrawerIndex.Invite,
-        labelName: 'Invite Friend',
-        icon: Icon(Icons.group),
       ),
       DrawerList(
         index: DrawerIndex.About,
@@ -305,7 +305,7 @@ enum DrawerIndex {
   Help,
   Share,
   About,
-  Invite,
+  EServices,
   Testing,
 }
 
