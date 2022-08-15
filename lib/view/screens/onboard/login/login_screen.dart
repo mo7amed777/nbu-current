@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/themes/app_theme.dart';
 import 'custom_route.dart';
 import 'dashboard_screen.dart';
@@ -42,7 +43,7 @@ class LoginScreen extends StatelessWidget {
     return FlutterLogin(
       title: 'N B U',
       theme: LoginTheme(pageColorLight: AppTheme.background),
-      logo: const AssetImage('assets/images/logo/logo.jpg'),
+      logo: const AssetImage('assets/images/logo/logo.png'),
       logoTag: 'NBU-Logo',
       titleTag: 'Northern Border University',
       navigateBackAfterRecovery: true,
@@ -81,10 +82,10 @@ class LoginScreen extends StatelessWidget {
         TermOfService(
             id: 'notifications', mandatory: false, text: 'Notifications'),
         TermOfService(
-            id: 'general-term',
-            mandatory: true,
-            text: 'Term of services',
-            linkUrl: 'https://github.com/NearHuscarl/flutter_login'),
+          id: 'general-term',
+          mandatory: true,
+          text: 'Term of services',
+        ),
       ],
       additionalSignupFields: [
         const UserFormField(
@@ -107,10 +108,10 @@ class LoginScreen extends StatelessWidget {
           },
         ),
       ],
-      initialAuthMode: AuthMode.login,
+      initialAuthMode: key == Key('Sign UP') ? AuthMode.signup : AuthMode.login,
       userValidator: (value) {
-        if (!value!.contains('@') || !value.endsWith('.com')) {
-          return "Email must contain '@' and end with '.com'";
+        if (!GetUtils.isEmail(value!)) {
+          return "Email Address not valid!";
         }
         return null;
       },
@@ -144,9 +145,11 @@ class LoginScreen extends StatelessWidget {
         return _signupUser();
       },
       onSubmitAnimationCompleted: () {
-        Navigator.of(context).pushReplacement(FadePageRoute(
-          builder: (context) => const DashboardScreen(),
-        ));
+        Navigator.of(context).pushReplacement(
+          FadePageRoute(
+            builder: (context) => const DashboardScreen(),
+          ),
+        );
       },
       onRecoverPassword: (name) {
         debugPrint('Recover password info');

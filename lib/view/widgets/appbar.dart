@@ -9,12 +9,13 @@ class Appbar extends StatefulWidget {
     required this.onIconPressed,
     required this.onSearch,
     this.search = false,
+    this.fullWidth = true,
     this.view = true,
   });
   final IconData icon;
   final String title;
   final Function onIconPressed, onSearch;
-  final bool search, view;
+  final bool search, view, fullWidth;
   @override
   State<Appbar> createState() => _AppbarState();
 }
@@ -75,7 +76,9 @@ class _AppbarState extends State<Appbar> {
                       enableKeyboardFocus: true,
                       hintText: 'Search...',
                       onChanged: (val) => widget.onSearch(val),
-                      searchBoxWidth: MediaQuery.of(context).size.width - 2,
+                      searchBoxWidth: widget.fullWidth
+                          ? MediaQuery.of(context).size.width - 2
+                          : MediaQuery.of(context).size.width - 50,
                       isOriginalAnimation: false,
                       textEditingController: _textEditingController,
                       buttonBorderColour: Colors.black45,

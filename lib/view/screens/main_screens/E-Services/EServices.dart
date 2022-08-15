@@ -68,6 +68,7 @@ class _EServicesState extends State<EServices> {
                   title: 'E-Services',
                   search: true,
                   view: false,
+                  fullWidth: false,
                   onSearch: (String val) {
                     search_list.clear();
                     setState(() {

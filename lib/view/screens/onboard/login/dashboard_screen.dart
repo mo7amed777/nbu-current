@@ -49,8 +49,7 @@ class _DashboardScreenState extends State<DashboardScreen>
   @override
   void initState() {
     super.initState();
-    drawerIndex = DrawerIndex.HOME;
-    screenView = Home();
+    drawerIndex = DrawerIndex.EServices;
     _loadingController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1250),
@@ -152,11 +151,11 @@ class _DashboardScreenState extends State<DashboardScreen>
         controller: _loadingController,
         curve: headerAniInterval,
         fadeDirection: FadeDirection.bottomToTop,
-        offset: .5,
+        duration: Duration(seconds: 3),
         child: AnimatedNumericText(
-          initialValue: 12,
-          targetValue: 25,
-          curve: const Interval(0, .5, curve: Curves.easeOut),
+          initialValue: 1,
+          targetValue: 30,
+          curve: const Interval(0, 1, curve: Curves.easeOut),
           controller: _loadingController!,
           text: 'Student Name',
         ),
@@ -211,14 +210,14 @@ class _DashboardScreenState extends State<DashboardScreen>
             padding: const EdgeInsets.only(left: 10.0),
             alignment: Alignment.centerLeft,
             child: const Icon(
-              Icons.home,
+              Icons.apps,
               size: 35,
             ),
           ),
-          label: 'Home',
+          label: 'My Services',
           interval: const Interval(step, aniInterval + step),
           callback: () {
-            Get.to(Home());
+            Get.to(EServices());
           },
         ),
         _buildButton(
@@ -292,7 +291,7 @@ class _DashboardScreenState extends State<DashboardScreen>
               changeIndex(drawerIndexitem);
               //callback from drawer for replace screen as user need with passing DrawerIndex(Enum index)
             },
-            screenView: screenView,
+            screenView: screenView ?? dashboardBody(theme),
             //we replace screen view as we need on navigate starting screens like MyHomePage, HelpScreen, FeedbackScreen, etc...
           ),
         ),

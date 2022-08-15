@@ -1,5 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:northern_border_university/view/screens/onboard/login/login_screen.dart';
 
 class CenterNextButton extends StatelessWidget {
   final AnimationController animationController;
@@ -130,7 +132,7 @@ class CenterNextButton extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8.0, top: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   'Don\'t have an account? ',
                   style: TextStyle(
@@ -139,12 +141,17 @@ class CenterNextButton extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    color: Color(0xff132137),
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: () => Get.to(LoginScreen(
+                    key: Key('Sign UP'),
+                  )),
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: Color(0xff132137),
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],

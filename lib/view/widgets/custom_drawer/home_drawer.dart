@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/profile.dart';
+import 'package:northern_border_university/view/screens/onboard/login/login_screen.dart';
 
 import '../../../controller/themes/app_theme.dart';
 
@@ -189,7 +190,7 @@ class HomeDrawerState extends State<HomeDrawer> {
   }
 
   void onTapped() {
-    print('Doing Something...'); // Print to console.
+    Get.offAllNamed(LoginScreen.routeName);
   }
 
   Widget inkwell(DrawerList listData) {
