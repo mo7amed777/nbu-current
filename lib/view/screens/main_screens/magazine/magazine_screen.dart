@@ -62,7 +62,6 @@ class _MagazineState extends State<Magazine> {
               fontWeight: FontWeight.w600,
               fontSize: 22,
               letterSpacing: 0.27,
-              color: AppTheme.green,
             ),
           ),
         ),
@@ -113,7 +112,6 @@ class _MagazineState extends State<Magazine> {
               fontWeight: FontWeight.w600,
               fontSize: 22,
               letterSpacing: 0.27,
-              color: AppTheme.green,
             ),
           ),
           Flexible(
@@ -189,13 +187,13 @@ class _MagazineState extends State<Magazine> {
               padding: const EdgeInsets.only(top: 8, bottom: 8),
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppTheme.green,
                   borderRadius: const BorderRadius.only(
                     bottomRight: Radius.circular(13.0),
                     bottomLeft: Radius.circular(13.0),
                     topLeft: Radius.circular(13.0),
                     topRight: Radius.circular(13.0),
                   ),
+                  color: AppTheme.nearlyBlack.withOpacity(0.05),
                 ),
                 child: Row(
                   children: <Widget>[
@@ -207,7 +205,6 @@ class _MagazineState extends State<Magazine> {
                             fontFamily: 'WorkSans',
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
-                            color: AppTheme.green,
                           ),
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
@@ -216,13 +213,11 @@ class _MagazineState extends State<Magazine> {
                             helperStyle: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
-                              color: AppTheme.green,
                             ),
                             labelStyle: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
                               letterSpacing: 0.2,
-                              color: AppTheme.green,
                             ),
                           ),
                           onEditingComplete: () {},
@@ -234,7 +229,6 @@ class _MagazineState extends State<Magazine> {
                       height: 60,
                       child: Icon(
                         Icons.search,
-                        color: AppTheme.green,
                       ),
                     )
                   ],
@@ -267,7 +261,6 @@ class _MagazineState extends State<Magazine> {
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                     letterSpacing: 0.2,
-                    color: AppTheme.green,
                   ),
                 ),
                 Text(
@@ -277,7 +270,6 @@ class _MagazineState extends State<Magazine> {
                     fontWeight: FontWeight.bold,
                     fontSize: 22,
                     letterSpacing: 0.27,
-                    color: AppTheme.green,
                   ),
                 ),
               ],
