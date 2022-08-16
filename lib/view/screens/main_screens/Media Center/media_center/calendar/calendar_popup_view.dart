@@ -1,6 +1,6 @@
-import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'custom_calendar.dart';
 
 class CalendarPopupView extends StatefulWidget {
@@ -57,7 +57,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
   Widget build(BuildContext context) {
     return Center(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.transparent,
         body: AnimatedBuilder(
           animation: animationController!,
           builder: (BuildContext context, Widget? child) {
@@ -65,10 +65,10 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
               duration: const Duration(milliseconds: 100),
               opacity: animationController!.value,
               child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                hoverColor: Colors.transparent,
+                splashColor: AppTheme.transparent,
+                focusColor: AppTheme.transparent,
+                highlightColor: AppTheme.transparent,
+                hoverColor: AppTheme.transparent,
                 onTap: () {
                   if (widget.barrierDismissible) {
                     Navigator.pop(context);
@@ -79,13 +79,12 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                     padding: const EdgeInsets.all(24.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: MediaCenterAppTheme.buildLightTheme()
-                            .backgroundColor,
+                        color: AppTheme.background,
                         borderRadius:
                             const BorderRadius.all(Radius.circular(24.0)),
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
+                              color: AppTheme.nearlyBlack.withOpacity(0.3),
                               offset: const Offset(4, 4),
                               blurRadius: 8.0),
                         ],
@@ -113,8 +112,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                         style: TextStyle(
                                             fontWeight: FontWeight.w100,
                                             fontSize: 16,
-                                            color:
-                                                Colors.grey.withOpacity(0.8)),
+                                            color: AppTheme.green),
                                       ),
                                       const SizedBox(
                                         height: 4,
@@ -135,8 +133,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                 Container(
                                   height: 74,
                                   width: 1,
-                                  color: MediaCenterAppTheme.buildLightTheme()
-                                      .dividerColor,
+                                  color: AppTheme.spacer,
                                 ),
                                 Expanded(
                                   child: Column(
@@ -149,8 +146,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                         style: TextStyle(
                                             fontWeight: FontWeight.w100,
                                             fontSize: 16,
-                                            color:
-                                                Colors.grey.withOpacity(0.8)),
+                                            color: AppTheme.green),
                                       ),
                                       const SizedBox(
                                         height: 4,
@@ -191,24 +187,24 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                               child: Container(
                                 height: 48,
                                 decoration: BoxDecoration(
-                                  color: MediaCenterAppTheme.buildLightTheme()
-                                      .primaryColor,
+                                  color: AppTheme.green,
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(24.0)),
                                   boxShadow: <BoxShadow>[
                                     BoxShadow(
-                                      color: Colors.grey.withOpacity(0.6),
+                                      color:
+                                          AppTheme.nearlyBlack.withOpacity(0.3),
                                       blurRadius: 8,
                                       offset: const Offset(4, 4),
                                     ),
                                   ],
                                 ),
                                 child: Material(
-                                  color: Colors.transparent,
+                                  color: AppTheme.transparent,
                                   child: InkWell(
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(24.0)),
-                                    highlightColor: Colors.transparent,
+                                    highlightColor: AppTheme.transparent,
                                     onTap: () {
                                       try {
                                         // animationController.reverse().then((f) {
@@ -225,7 +221,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                                         style: TextStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 18,
-                                            color: Colors.white),
+                                            color: AppTheme.white),
                                       ),
                                     ),
                                   ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:timeline_list/timeline.dart';
 import 'package:timeline_list/timeline_model.dart';
 
-import '../../../../../controller/themes/app_theme.dart';
+import '../../../../controller/app_theme.dart';
 import '../Administration/administration_sections.dart';
 import 'MoreAboutTheUniversity.dart';
 
@@ -41,13 +41,16 @@ class _AboutTheUniversityState extends State<AboutTheUniversity> {
                         child: Text('About the University',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: AppTheme.lightText,
+                                color: AppTheme.green,
                                 fontSize: 16)),
                       ),
                       Text(
                         'Being the only university in the Northern Borders Region, Northern Border University enjoys a unique position in higher education in Saudi Arabia, which is why it holds the name of this precious region. The university plans are inspired by the region\'s rich values, culture, history, and location. We also ensure that our Strategic Plan 2020-2025 goes along with the region\'s rich natural resources, Vision 2030, and with the New University System, guided by the strategic priorities of the Northern Borders Region\'s Emirate.',
-                        style:
-                            TextStyle(fontWeight: FontWeight.w500, height: 1.5),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          height: 1.5,
+                          color: AppTheme.lightText,
+                        ),
                       ),
                     ],
                   ),
@@ -59,17 +62,17 @@ class _AboutTheUniversityState extends State<AboutTheUniversity> {
                 child: InkWell(
                   onTap: () => Get.to(MoreAboutTheUniversity()),
                   child: Row(
-                    children: const [
+                    children: [
                       Text(
                         'view more',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: AppTheme.lightGreen,
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
                       ),
                       Icon(
                         Icons.double_arrow,
-                        color: Colors.blue,
+                        color: AppTheme.lightGreen,
                       )
                     ],
                   ),
@@ -82,7 +85,7 @@ class _AboutTheUniversityState extends State<AboutTheUniversity> {
             child: Text('University\'s History',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: AppTheme.lightText,
+                  color: AppTheme.green,
                   fontSize: 20,
                 )),
           ),
@@ -123,18 +126,21 @@ TimelineModel timelineModel(String title, String subtitle) {
                 child: Text(title,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: AppTheme.lightText,
+                        color: AppTheme.green,
                         fontSize: 20)),
               ),
               Text(subtitle,
-                  style: TextStyle(fontSize: 16, overflow: TextOverflow.fade)),
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: AppTheme.lightText,
+                      overflow: TextOverflow.fade)),
             ],
           ),
         ),
       ),
       icon: Icon(
         Icons.history,
-        color: Colors.white,
+        color: AppTheme.white,
       ),
-      iconBackground: AppTheme.lightText);
+      iconBackground: AppTheme.lightGreen);
 }

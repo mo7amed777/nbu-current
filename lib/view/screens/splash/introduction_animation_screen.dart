@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/onboard/login/login_screen.dart';
 import 'package:northern_border_university/view/screens/onboard/onboard_view.dart';
 import 'package:northern_border_university/view/screens/splash/intro_screen1.dart';
@@ -40,7 +41,7 @@ class _IntroductionAnimationScreenState
   Widget build(BuildContext context) {
     print(_animationController?.value);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppTheme.white,
       body: Stack(
         children: [
           SplashView(

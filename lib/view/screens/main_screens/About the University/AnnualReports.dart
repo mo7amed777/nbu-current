@@ -19,9 +19,7 @@ class _AnnualReportsState extends State<AnnualReports> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'Annual Reports',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

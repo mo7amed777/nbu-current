@@ -20,9 +20,7 @@ class _AdvisorsOfficeState extends State<AdvisorsOffice> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'Advisors Office',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

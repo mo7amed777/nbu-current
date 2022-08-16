@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_login/theme.dart';
 import 'package:flutter_login/widgets.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/about%20US.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/feedback_screen.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/help_screen.dart';
@@ -89,26 +89,26 @@ class _DashboardScreenState extends State<DashboardScreen>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 8.0),
-            child: Hero(
-              tag: 'NBU',
-              child: Icon(
-                Icons.e_mobiledata,
-                size: 35,
-                color: AppTheme.darkerText,
-              ),
+          Hero(
+            tag: 'NBU',
+            child: Icon(
+              Icons.e_mobiledata,
+              size: 35,
+              color: AppTheme.lightGreen,
             ),
           ),
-          HeroText(
-            'SERVICES',
-            tag: 'NBU-Logo',
-            viewState: ViewState.shrunk,
-            style: LoginThemeHelper.loginTextStyle?.copyWith(
-              color: Color.fromARGB(160, 0, 0, 0),
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              letterSpacing: 7,
+          Padding(
+            padding: const EdgeInsets.only(top: 4.0),
+            child: HeroText(
+              'SERVICES',
+              tag: 'NBU-Logo',
+              viewState: ViewState.shrunk,
+              style: LoginThemeHelper.loginTextStyle?.copyWith(
+                color: Color.fromARGB(160, 0, 0, 0),
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                letterSpacing: 7,
+              ),
             ),
           ),
           const SizedBox(width: 20),
@@ -328,10 +328,10 @@ class _DashboardScreenState extends State<DashboardScreen>
                         end: Alignment.bottomRight,
                         tileMode: TileMode.clamp,
                         colors: <Color>[
-                          Colors.deepPurpleAccent.shade100,
-                          Colors.deepPurple.shade100,
-                          Colors.deepPurple.shade100,
-                          Colors.deepPurple.shade100,
+                          AppTheme.lightGreen.withOpacity(0.7),
+                          AppTheme.lightGreen,
+                          AppTheme.lightGreen,
+                          AppTheme.lightGreen.withOpacity(0.7),
                           // Colors.red,
                           // Colors.yellow,
                         ],

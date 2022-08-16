@@ -18,9 +18,7 @@ class _VicePresidenciesState extends State<VicePresidencies> {
           Appbar(
             title: 'The Vice Presidencies',
             onSearch: () {},
-            search: false,
-            view: false,
-            onIconPressed: () {},
+            search: Icons.search,
           ),
           MediaCard(
             title: 'The Vice Presidency',

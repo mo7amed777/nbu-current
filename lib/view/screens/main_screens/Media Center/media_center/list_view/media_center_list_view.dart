@@ -1,10 +1,5 @@
-import 'package:northern_border_university/controller/themes/media_center_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:northern_border_university/model/homelist.dart';
-
-import 'media_center_list_data.dart';
 
 class MediaCenterListView extends StatelessWidget {
   MediaCenterListView({
@@ -31,14 +26,14 @@ class MediaCenterListView extends StatelessWidget {
               padding: const EdgeInsets.only(
                   left: 24, right: 24, top: 8, bottom: 16),
               child: InkWell(
-                splashColor: Colors.transparent,
+                splashColor: AppTheme.transparent,
                 onTap: data["callback"],
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(16.0)),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.6),
+                        color: AppTheme.nearlyBlack.withOpacity(0.3),
                         offset: const Offset(4, 4),
                         blurRadius: 16,
                       ),
@@ -58,8 +53,7 @@ class MediaCenterListView extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              color: MediaCenterAppTheme.buildLightTheme()
-                                  .backgroundColor,
+                              color: AppTheme.background,
                               child: Padding(
                                 padding: const EdgeInsets.only(
                                     left: 16, top: 8, bottom: 8),
@@ -85,8 +79,8 @@ class MediaCenterListView extends StatelessWidget {
                                           data["subTxt"],
                                           style: TextStyle(
                                               fontSize: 14,
-                                              color:
-                                                  Colors.grey.withOpacity(0.8)),
+                                              color: AppTheme.lightText
+                                                  .withOpacity(0.8)),
                                         ),
                                         const SizedBox(
                                           width: 4,
@@ -94,9 +88,7 @@ class MediaCenterListView extends StatelessWidget {
                                         Icon(
                                           data["icon"],
                                           size: 12,
-                                          color: MediaCenterAppTheme
-                                                  .buildLightTheme()
-                                              .primaryColor,
+                                          color: AppTheme.lightText,
                                         ),
                                       ],
                                     ),

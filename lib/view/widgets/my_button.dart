@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class MyButton extends StatelessWidget {
   final Function callback;
@@ -14,14 +15,14 @@ class MyButton extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(100)),
               gradient: LinearGradient(colors: const [
-                Color.fromARGB(193, 197, 154, 89),
-                Color(0xffff3a5a),
+                AppTheme.green,
+                AppTheme.green,
               ])),
           child: FlatButton(
             child: Text(
               label,
               style: TextStyle(
-                  color: Colors.white,
+                  color: AppTheme.white,
                   fontWeight: FontWeight.w700,
                   fontSize: 18),
             ),

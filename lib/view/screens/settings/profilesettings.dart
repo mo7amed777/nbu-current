@@ -4,7 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/functions.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class ProfileSettingsPage extends StatelessWidget {
   @override
@@ -29,18 +29,16 @@ class _EditPageState extends State<EditPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xfff2f2f2),
-        iconTheme: IconThemeData(color: AppTheme.darkerText),
+        backgroundColor: AppTheme.background,
+        iconTheme: IconThemeData(color: AppTheme.green),
         title: Text(
           "Edit Profile",
           style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.w500,
-              color: AppTheme.darkerText),
+              fontSize: 25, fontWeight: FontWeight.w500, color: AppTheme.green),
         ),
       ),
       body: Container(
-        color: Color(0xfff2f2f2),
+        color: AppTheme.background,
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: GestureDetector(
           onTap: () {
@@ -65,7 +63,7 @@ class _EditPageState extends State<EditPage> {
                           BoxShadow(
                               spreadRadius: 2,
                               blurRadius: 10,
-                              color: Colors.black.withOpacity(0.1),
+                              color: AppTheme.nearlyBlack.withOpacity(0.3),
                               offset: Offset(0, 10))
                         ],
                         shape: BoxShape.circle,
@@ -96,7 +94,7 @@ class _EditPageState extends State<EditPage> {
                               width: 4,
                               color: Theme.of(context).scaffoldBackgroundColor,
                             ),
-                            color: AppTheme.grey,
+                            color: AppTheme.green,
                           ),
                           child: InkWell(
                             onTap: () async {
@@ -114,7 +112,7 @@ class _EditPageState extends State<EditPage> {
                             },
                             child: Icon(
                               Icons.edit,
-                              color: Colors.white,
+                              color: AppTheme.white,
                             ),
                           ),
                         )),
@@ -133,7 +131,7 @@ class _EditPageState extends State<EditPage> {
                 children: [
                   FlatButton(
                     padding: EdgeInsets.symmetric(horizontal: 50),
-                    color: AppTheme.dark_grey,
+                    color: AppTheme.nearlyBlack,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     onPressed: () {},
@@ -141,11 +139,11 @@ class _EditPageState extends State<EditPage> {
                         style: TextStyle(
                             fontSize: 14,
                             letterSpacing: 2.2,
-                            color: Colors.white)),
+                            color: AppTheme.white)),
                   ),
                   RaisedButton(
                     onPressed: () {},
-                    color: AppTheme.grey,
+                    color: AppTheme.green,
                     padding: EdgeInsets.symmetric(horizontal: 50),
                     elevation: 2,
                     shape: RoundedRectangleBorder(
@@ -155,7 +153,7 @@ class _EditPageState extends State<EditPage> {
                       style: TextStyle(
                           fontSize: 14,
                           letterSpacing: 2.2,
-                          color: Colors.white),
+                          color: AppTheme.white),
                     ),
                   )
                 ],
@@ -183,7 +181,7 @@ class _EditPageState extends State<EditPage> {
                     },
                     icon: Icon(
                       Icons.remove_red_eye,
-                      color: Colors.grey,
+                      color: AppTheme.green,
                     ),
                   )
                 : null,
@@ -194,7 +192,7 @@ class _EditPageState extends State<EditPage> {
             hintStyle: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: AppTheme.green,
             )),
       ),
     );

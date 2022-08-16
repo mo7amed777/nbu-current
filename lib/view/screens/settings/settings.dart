@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/settings/profilesettings.dart';
 
 class Settings extends StatefulWidget {
@@ -29,17 +29,18 @@ class _SettingsState extends State<Settings> {
         brightness: _getBrightness(),
       ),
       child: Scaffold(
-        backgroundColor: _dark ? null : Colors.grey.shade200,
+        backgroundColor: _dark ? null : AppTheme.background,
         appBar: AppBar(
           elevation: 0,
           brightness: _getBrightness(),
-          iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),
-          backgroundColor: Colors.transparent,
+          iconTheme:
+              IconThemeData(color: _dark ? AppTheme.white : AppTheme.green),
+          backgroundColor: AppTheme.transparent,
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios), onPressed: (Get.back)),
           title: Text(
             'Settings',
-            style: TextStyle(color: _dark ? Colors.white : Colors.black),
+            style: TextStyle(color: _dark ? AppTheme.white : AppTheme.green),
           ),
           actions: <Widget>[
             IconButton(
@@ -64,7 +65,7 @@ class _SettingsState extends State<Settings> {
                     elevation: 8.0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0)),
-                    color: AppTheme.grey,
+                    color: AppTheme.green,
                     child: ListTile(
                       onTap: () {
                         //open edit profile
@@ -73,7 +74,7 @@ class _SettingsState extends State<Settings> {
                       title: Text(
                         "Student Name",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppTheme.white,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -83,7 +84,7 @@ class _SettingsState extends State<Settings> {
                       ),
                       trailing: Icon(
                         Icons.edit,
-                        color: Colors.white,
+                        color: AppTheme.white,
                       ),
                     ),
                   ),
@@ -98,7 +99,8 @@ class _SettingsState extends State<Settings> {
                         ListTile(
                           leading: Icon(
                             Icons.lock_outline,
-                            color: _dark ? AppTheme.nearlyWhite : AppTheme.grey,
+                            color:
+                                _dark ? AppTheme.nearlyWhite : AppTheme.green,
                           ),
                           title: Text("Change Password"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -110,7 +112,8 @@ class _SettingsState extends State<Settings> {
                         ListTile(
                           leading: Icon(
                             FontAwesomeIcons.language,
-                            color: _dark ? AppTheme.nearlyWhite : AppTheme.grey,
+                            color:
+                                _dark ? AppTheme.nearlyWhite : AppTheme.green,
                           ),
                           title: Text("Change Language"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -122,7 +125,8 @@ class _SettingsState extends State<Settings> {
                         ListTile(
                           leading: Icon(
                             Icons.location_on,
-                            color: _dark ? AppTheme.nearlyWhite : AppTheme.grey,
+                            color:
+                                _dark ? AppTheme.nearlyWhite : AppTheme.green,
                           ),
                           title: Text("Change Location"),
                           trailing: Icon(Icons.keyboard_arrow_right),
@@ -139,32 +143,32 @@ class _SettingsState extends State<Settings> {
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
-                      color: Colors.indigo,
+                      color: AppTheme.green,
                     ),
                   ),
                   SwitchListTile(
-                    activeColor: AppTheme.grey,
+                    activeColor: AppTheme.green,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received notification"),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
-                    activeColor: AppTheme.grey,
+                    activeColor: AppTheme.green,
                     contentPadding: const EdgeInsets.all(0),
                     value: false,
                     title: Text("Received newsletter"),
                     onChanged: null,
                   ),
                   SwitchListTile(
-                    activeColor: AppTheme.grey,
+                    activeColor: AppTheme.green,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received Offer Notification"),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
-                    activeColor: AppTheme.grey,
+                    activeColor: AppTheme.green,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
                     title: Text("Received App Updates"),
@@ -182,7 +186,7 @@ class _SettingsState extends State<Settings> {
                 height: 80,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: AppTheme.grey,
+                  color: AppTheme.green,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -193,7 +197,7 @@ class _SettingsState extends State<Settings> {
               child: IconButton(
                 icon: Icon(
                   FontAwesomeIcons.powerOff,
-                  color: Colors.white,
+                  color: AppTheme.white,
                 ),
                 onPressed: () {
                   //log out
@@ -213,7 +217,7 @@ class _SettingsState extends State<Settings> {
       ),
       width: double.infinity,
       height: 1.0,
-      color: Colors.grey.shade400,
+      color: AppTheme.green,
     );
   }
 }

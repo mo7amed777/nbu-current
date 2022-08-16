@@ -5,7 +5,7 @@ import 'package:northern_border_university/view/widgets/list_items.dart';
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/view/widgets/my_button.dart';
 
-import '../../../../../controller/themes/app_theme.dart';
+import '../../../../controller/app_theme.dart';
 
 class ContactUS extends StatefulWidget {
   const ContactUS({Key? key}) : super(key: key);
@@ -30,9 +30,7 @@ class _ContactUSState extends State<ContactUS> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'Contact US',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

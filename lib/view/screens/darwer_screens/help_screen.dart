@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/ContactUS.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/Contact%20US.dart';
@@ -39,6 +39,7 @@ class _HelpScreenState extends State<HelpScreen> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    color: AppTheme.green,
                   ),
                 ),
               ),
@@ -49,6 +50,7 @@ class _HelpScreenState extends State<HelpScreen> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
+                    color: AppTheme.lightText,
                   ),
                 ),
               ),
@@ -60,18 +62,18 @@ class _HelpScreenState extends State<HelpScreen> {
                       width: 140,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: AppTheme.green,
                         borderRadius:
                             const BorderRadius.all(Radius.circular(4.0)),
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: Colors.grey.withOpacity(0.6),
+                              color: AppTheme.nearlyBlack.withOpacity(0.3),
                               offset: const Offset(4, 4),
                               blurRadius: 8.0),
                         ],
                       ),
                       child: Material(
-                        color: Colors.transparent,
+                        color: AppTheme.transparent,
                         child: InkWell(
                           onTap: () {
                             Get.to(ContactOurOffice());
@@ -83,7 +85,7 @@ class _HelpScreenState extends State<HelpScreen> {
                                 'Chat with Us',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white,
+                                  color: AppTheme.white,
                                 ),
                               ),
                             ),

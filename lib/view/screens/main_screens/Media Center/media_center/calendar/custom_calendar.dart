@@ -1,6 +1,6 @@
-import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class CustomCalendarView extends StatefulWidget {
   const CustomCalendarView(
@@ -83,12 +83,11 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                       borderRadius:
                           const BorderRadius.all(Radius.circular(24.0)),
                       border: Border.all(
-                        color:
-                            MediaCenterAppTheme.buildLightTheme().dividerColor,
+                        color: AppTheme.spacer,
                       ),
                     ),
                     child: Material(
-                      color: Colors.transparent,
+                      color: AppTheme.transparent,
                       child: InkWell(
                         borderRadius:
                             const BorderRadius.all(Radius.circular(24.0)),
@@ -101,7 +100,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                         },
                         child: Icon(
                           Icons.keyboard_arrow_left,
-                          color: Colors.grey,
+                          color: AppTheme.green,
                         ),
                       ),
                     ),
@@ -114,7 +113,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20,
-                          color: Colors.black),
+                          color: AppTheme.green),
                     ),
                   ),
                 ),
@@ -127,12 +126,11 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                       borderRadius:
                           const BorderRadius.all(Radius.circular(24.0)),
                       border: Border.all(
-                        color:
-                            MediaCenterAppTheme.buildLightTheme().dividerColor,
+                        color: AppTheme.spacer,
                       ),
                     ),
                     child: Material(
-                      color: Colors.transparent,
+                      color: AppTheme.transparent,
                       child: InkWell(
                         borderRadius:
                             const BorderRadius.all(Radius.circular(24.0)),
@@ -145,7 +143,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                         },
                         child: Icon(
                           Icons.keyboard_arrow_right,
-                          color: Colors.grey,
+                          color: AppTheme.green,
                         ),
                       ),
                     ),
@@ -182,7 +180,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: MediaCenterAppTheme.buildLightTheme().primaryColor),
+                  color: AppTheme.green),
             ),
           ),
         ),
@@ -208,7 +206,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                     Padding(
                       padding: const EdgeInsets.only(top: 3, bottom: 3),
                       child: Material(
-                        color: Colors.transparent,
+                        color: AppTheme.transparent,
                         child: Padding(
                           padding: EdgeInsets.only(
                               top: 2,
@@ -220,11 +218,9 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                               color: startDate != null && endDate != null
                                   ? getIsItStartAndEndDate(date) ||
                                           getIsInRange(date)
-                                      ? MediaCenterAppTheme.buildLightTheme()
-                                          .primaryColor
-                                          .withOpacity(0.4)
-                                      : Colors.transparent
-                                  : Colors.transparent,
+                                      ? AppTheme.green.withOpacity(0.4)
+                                      : AppTheme.transparent
+                                  : AppTheme.transparent,
                               borderRadius: BorderRadius.only(
                                 bottomLeft: isStartDateRadius(date)
                                     ? const Radius.circular(24.0)
@@ -245,7 +241,7 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                       ),
                     ),
                     Material(
-                      color: Colors.transparent,
+                      color: AppTheme.transparent,
                       child: InkWell(
                         borderRadius:
                             const BorderRadius.all(Radius.circular(32.0)),
@@ -291,21 +287,21 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: getIsItStartAndEndDate(date)
-                                  ? MediaCenterAppTheme.buildLightTheme()
-                                      .primaryColor
-                                  : Colors.transparent,
+                                  ? AppTheme.green
+                                  : AppTheme.transparent,
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(32.0)),
                               border: Border.all(
                                 color: getIsItStartAndEndDate(date)
-                                    ? Colors.white
-                                    : Colors.transparent,
+                                    ? AppTheme.white
+                                    : AppTheme.transparent,
                                 width: 2,
                               ),
                               boxShadow: getIsItStartAndEndDate(date)
                                   ? <BoxShadow>[
                                       BoxShadow(
-                                          color: Colors.grey.withOpacity(0.6),
+                                          color: AppTheme.nearlyBlack
+                                              .withOpacity(0.3),
                                           blurRadius: 4,
                                           offset: const Offset(0, 0)),
                                     ]
@@ -316,10 +312,10 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                                 '${date.day}',
                                 style: TextStyle(
                                     color: getIsItStartAndEndDate(date)
-                                        ? Colors.white
+                                        ? AppTheme.white
                                         : currentMonthDate.month == date.month
-                                            ? Colors.black
-                                            : Colors.grey.withOpacity(0.6),
+                                            ? AppTheme.green
+                                            : AppTheme.green,
                                     fontSize:
                                         MediaQuery.of(context).size.width > 360
                                             ? 18
@@ -345,10 +341,9 @@ class _CustomCalendarViewState extends State<CustomCalendarView> {
                                     DateTime.now().month == date.month &&
                                     DateTime.now().year == date.year
                                 ? getIsInRange(date)
-                                    ? Colors.white
-                                    : MediaCenterAppTheme.buildLightTheme()
-                                        .primaryColor
-                                : Colors.transparent,
+                                    ? AppTheme.white
+                                    : AppTheme.green
+                                : AppTheme.transparent,
                             shape: BoxShape.circle),
                       ),
                     ),

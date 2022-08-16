@@ -19,9 +19,7 @@ class _GuidesState extends State<Guides> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'Guides',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

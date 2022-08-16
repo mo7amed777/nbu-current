@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:zoom_widget/zoom_widget.dart';
 
 class CouncilOrg extends StatefulWidget {
@@ -19,7 +20,7 @@ class _CouncilOrgState extends State<CouncilOrg> {
             maxZoomWidth: 1800,
             maxZoomHeight: 1800,
             initZoom: 0.0,
-            backgroundColor: Colors.white,
+            backgroundColor: AppTheme.white,
             child: Image.asset(
               'assets/images/council/org.png',
               fit: BoxFit.fill,

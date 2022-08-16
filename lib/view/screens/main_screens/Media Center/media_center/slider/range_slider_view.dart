@@ -1,5 +1,5 @@
-import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class RangeSliderView extends StatefulWidget {
   const RangeSliderView({Key? key, this.values, this.onChangeRangeValues})
@@ -76,8 +76,8 @@ class _RangeSliderViewState extends State<RangeSliderView> {
               values: _values!,
               min: 0.0,
               max: 5.0,
-              activeColor: MediaCenterAppTheme.buildLightTheme().primaryColor,
-              inactiveColor: Colors.grey.withOpacity(0.4),
+              activeColor: AppTheme.green,
+              inactiveColor: AppTheme.green,
               divisions: 5,
               onChanged: (RangeValues values) {
                 try {
@@ -162,17 +162,17 @@ class CustomRangeThumbShape extends RangeSliderThumbShape {
               Offset(center.dx - 12, center.dy - 12)))
           ..fillType = PathFillType.evenOdd,
         Paint()
-          ..color = Colors.black.withOpacity(0.5)
+          ..color = AppTheme.green.withOpacity(0.5)
           ..maskFilter =
               MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(8)));
 
     final Paint cPaint = Paint();
-    cPaint..color = Colors.white;
+    cPaint..color = AppTheme.white;
     cPaint..strokeWidth = 14 / 2;
     canvas.drawCircle(Offset(center.dx, center.dy), 12, cPaint);
     cPaint..color = colorTween.evaluate(enableAnimation)!;
     canvas.drawCircle(Offset(center.dx, center.dy), 10, cPaint);
-    canvas.drawPath(thumbPath, Paint()..color = Colors.white);
+    canvas.drawPath(thumbPath, Paint()..color = AppTheme.white);
   }
 
   double convertRadiusToSigma(double radius) {

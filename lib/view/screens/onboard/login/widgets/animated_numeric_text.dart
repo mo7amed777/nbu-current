@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class AnimatedNumericText extends StatelessWidget {
   AnimatedNumericText({
@@ -36,7 +36,7 @@ class AnimatedNumericText extends StatelessWidget {
           fontSize: numberAnimation.value,
           fontWeight: FontWeight.bold,
           letterSpacing: 3,
-          color: AppTheme.darkText,
+          color: AppTheme.green,
         ),
       ),
     );

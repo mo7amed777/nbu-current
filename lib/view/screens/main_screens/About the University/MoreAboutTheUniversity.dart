@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/AnnualReports.dart';
 import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/ContactUS.dart';
@@ -43,27 +43,22 @@ class _MoreAboutTheUniversityState extends State<MoreAboutTheUniversity> {
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Appbar(
-                  title: 'About The University',
-                  icon: multiple ? Icons.dashboard : Icons.view_agenda,
-                  onSearch: () {},
-                  onIconPressed: () {
-                    setState(() {
-                      multiple = !multiple;
-                    });
-                  }),
+                title: 'About The University',
+                onSearch: () {},
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: GridView.count(
                 physics: NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
-                crossAxisCount: multiple ? 2 : 1,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
+                crossAxisCount: 2,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
                 shrinkWrap: true,
-                childAspectRatio: multiple ? 1 : 2,
+                childAspectRatio: 1,
                 children: List.generate(
-                  8,
+                  items.length,
                   (int index) {
                     return AnimationConfiguration.staggeredGrid(
                       position: index,
@@ -76,46 +71,38 @@ class _MoreAboutTheUniversityState extends State<MoreAboutTheUniversity> {
                             child: ClipRRect(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(4.0)),
-                              child: Stack(
-                                alignment: AlignmentDirectional.center,
-                                children: <Widget>[
-                                  Positioned.fill(
-                                    child: Image.asset(
-                                      items.values.toList()[index],
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                  Material(
-                                    color: Colors.transparent,
-                                    child: InkWell(
-                                      splashColor: Colors.grey.withOpacity(0.2),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(4.0)),
-                                      onTap: () =>
-                                          callBack(items.keys.toList()[index]),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0.0,
-                                    left: 0.0,
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      padding:
-                                          EdgeInsets.all(multiple ? 4.0 : 6.0),
-                                      margin:
-                                          EdgeInsets.all(multiple ? 4.0 : 6.0),
-                                      color: AppTheme.dark_grey,
-                                      child: Text(
-                                        items.keys.toList()[index],
+                              child: InkWell(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(4.0)),
+                                onTap: () =>
+                                    callBack(items.keys.toList()[index]),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  elevation: 2.0,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      CircleAvatar(
+                                        radius: 50,
+                                        backgroundImage: AssetImage(
+                                            items.values.toList()[index]),
+                                      ),
+                                      Text(
+                                        items.isEmpty
+                                            ? items.keys.toList()[index]
+                                            : items.keys.toList()[index],
+                                        textAlign: TextAlign.center,
+                                        overflow: TextOverflow.fade,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
-                                          color: AppTheme.white,
-                                          fontSize: multiple ? 16 : 20,
+                                          color: AppTheme.green,
+                                          fontSize: 14,
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           ),

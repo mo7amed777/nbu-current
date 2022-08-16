@@ -27,9 +27,7 @@ class _NewsDetailState extends State<NewsDetail> {
           padding: EdgeInsets.symmetric(vertical: 16),
           child: Appbar(
             title: widget.title,
-            onIconPressed: () {},
-            search: true,
-            view: false,
+            search: Icons.search,
             onSearch: (val) {},
           ),
         ),

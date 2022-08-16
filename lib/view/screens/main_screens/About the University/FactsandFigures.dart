@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 
-import '../../../../../controller/themes/app_theme.dart';
+import '../../../../controller/app_theme.dart';
 
 class FactsandFigures extends StatefulWidget {
   const FactsandFigures({Key? key}) : super(key: key);
@@ -21,9 +21,7 @@ class _FactsandFiguresState extends State<FactsandFigures> {
                 EdgeInsets.only(top: MediaQuery.of(context).padding.top + 6),
             child: Appbar(
               title: 'Facts and Figures',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

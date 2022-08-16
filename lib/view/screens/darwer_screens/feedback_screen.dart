@@ -1,5 +1,5 @@
 import 'package:northern_border_university/controller/functions.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class FeedbackScreen extends StatefulWidget {
@@ -46,12 +46,13 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(top: 16),
+                    padding: const EdgeInsets.all(16),
                     child: const Text(
                       'Give your valuable feedback to help us improve our app',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
+                        color: AppTheme.lightText,
                       ),
                     ),
                   ),
@@ -63,18 +64,18 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                         width: 120,
                         height: 40,
                         decoration: BoxDecoration(
-                          color: Colors.blue,
+                          color: AppTheme.green,
                           borderRadius:
                               const BorderRadius.all(Radius.circular(4.0)),
                           boxShadow: <BoxShadow>[
                             BoxShadow(
-                                color: Colors.grey.withOpacity(0.6),
+                                color: AppTheme.nearlyBlack.withOpacity(0.3),
                                 offset: const Offset(4, 4),
                                 blurRadius: 8.0),
                           ],
                         ),
                         child: Material(
-                          color: Colors.transparent,
+                          color: AppTheme.transparent,
                           child: InkWell(
                             onTap: () {
                               FocusScope.of(context).requestFocus(FocusNode());
@@ -91,7 +92,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                                   'Send',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    color: Colors.white,
+                                    color: AppTheme.white,
                                   ),
                                 ),
                               ),
@@ -119,7 +120,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
           borderRadius: BorderRadius.circular(8),
           boxShadow: <BoxShadow>[
             BoxShadow(
-                color: Colors.grey.withOpacity(0.8),
+                color: AppTheme.nearlyBlack.withOpacity(0.3),
                 offset: const Offset(4, 4),
                 blurRadius: 8),
           ],
@@ -140,9 +141,9 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 style: TextStyle(
                   fontFamily: AppTheme.fontName,
                   fontSize: 16,
-                  color: AppTheme.dark_grey,
+                  color: AppTheme.green,
                 ),
-                cursorColor: Colors.blue,
+                cursorColor: AppTheme.green,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Enter your feedback...'),

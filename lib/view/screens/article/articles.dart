@@ -22,9 +22,7 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                 EdgeInsets.only(top: MediaQuery.of(context).padding.top + 6),
             child: Appbar(
               title: 'Articles',
-              onIconPressed: () {},
-              search: true,
-              view: false,
+              search: Icons.search,
               onSearch: (val) {},
             ),
           ),

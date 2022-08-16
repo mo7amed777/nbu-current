@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/magazine_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/main.dart';
 import 'package:northern_border_university/view/screens/main_screens/magazine/course_info_screen.dart';
 import 'package:northern_border_university/view/screens/main_screens/magazine/magazine_list_view.dart';
@@ -17,9 +17,9 @@ class _MagazineState extends State<Magazine> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: DesignCourseAppTheme.nearlyWhite,
+      color: AppTheme.nearlyWhite,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.transparent,
         body: Column(
           children: <Widget>[
             SizedBox(
@@ -62,7 +62,7 @@ class _MagazineState extends State<Magazine> {
               fontWeight: FontWeight.w600,
               fontSize: 22,
               letterSpacing: 0.27,
-              color: DesignCourseAppTheme.darkerText,
+              color: AppTheme.green,
             ),
           ),
         ),
@@ -113,7 +113,7 @@ class _MagazineState extends State<Magazine> {
               fontWeight: FontWeight.w600,
               fontSize: 22,
               letterSpacing: 0.27,
-              color: DesignCourseAppTheme.darkerText,
+              color: AppTheme.green,
             ),
           ),
           Flexible(
@@ -140,15 +140,13 @@ class _MagazineState extends State<Magazine> {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
-            color: isSelected
-                ? DesignCourseAppTheme.nearlyBlue
-                : DesignCourseAppTheme.nearlyWhite,
+            color: isSelected ? AppTheme.green : AppTheme.nearlyWhite,
             borderRadius: const BorderRadius.all(Radius.circular(24.0)),
-            border: Border.all(color: DesignCourseAppTheme.nearlyBlue)),
+            border: Border.all(color: AppTheme.green)),
         child: Material(
-          color: Colors.transparent,
+          color: AppTheme.transparent,
           child: InkWell(
-            splashColor: Colors.white24,
+            splashColor: AppTheme.white,
             borderRadius: const BorderRadius.all(Radius.circular(24.0)),
             onTap: () {
               setState(() {
@@ -166,9 +164,7 @@ class _MagazineState extends State<Magazine> {
                     fontWeight: FontWeight.w600,
                     fontSize: 12,
                     letterSpacing: 0.27,
-                    color: isSelected
-                        ? DesignCourseAppTheme.nearlyWhite
-                        : DesignCourseAppTheme.nearlyBlue,
+                    color: isSelected ? AppTheme.nearlyWhite : AppTheme.green,
                   ),
                 ),
               ),
@@ -193,7 +189,7 @@ class _MagazineState extends State<Magazine> {
               padding: const EdgeInsets.only(top: 8, bottom: 8),
               child: Container(
                 decoration: BoxDecoration(
-                  color: HexColor('#F8FAFB'),
+                  color: AppTheme.green,
                   borderRadius: const BorderRadius.only(
                     bottomRight: Radius.circular(13.0),
                     bottomLeft: Radius.circular(13.0),
@@ -211,7 +207,7 @@ class _MagazineState extends State<Magazine> {
                             fontFamily: 'WorkSans',
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
-                            color: DesignCourseAppTheme.nearlyBlue,
+                            color: AppTheme.green,
                           ),
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
@@ -220,13 +216,13 @@ class _MagazineState extends State<Magazine> {
                             helperStyle: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
-                              color: HexColor('#B9BABC'),
+                              color: AppTheme.green,
                             ),
                             labelStyle: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
                               letterSpacing: 0.2,
-                              color: HexColor('#B9BABC'),
+                              color: AppTheme.green,
                             ),
                           ),
                           onEditingComplete: () {},
@@ -236,7 +232,10 @@ class _MagazineState extends State<Magazine> {
                     SizedBox(
                       width: 60,
                       height: 60,
-                      child: Icon(Icons.search, color: HexColor('#B9BABC')),
+                      child: Icon(
+                        Icons.search,
+                        color: AppTheme.green,
+                      ),
                     )
                   ],
                 ),
@@ -268,7 +267,7 @@ class _MagazineState extends State<Magazine> {
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                     letterSpacing: 0.2,
-                    color: DesignCourseAppTheme.grey,
+                    color: AppTheme.green,
                   ),
                 ),
                 Text(
@@ -278,7 +277,7 @@ class _MagazineState extends State<Magazine> {
                     fontWeight: FontWeight.bold,
                     fontSize: 22,
                     letterSpacing: 0.27,
-                    color: DesignCourseAppTheme.darkerText,
+                    color: AppTheme.green,
                   ),
                 ),
               ],

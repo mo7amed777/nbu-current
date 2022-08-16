@@ -20,9 +20,7 @@ class _GeneralAdministrationState extends State<GeneralAdministration> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'General Administration',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

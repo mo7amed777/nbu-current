@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/Contact%20the%20President.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -24,8 +24,6 @@ class _ContactOurOfficeState extends State<ContactOurOffice> {
             child: Appbar(
               title: 'Contact US',
               onSearch: () {},
-              onIconPressed: () {},
-              view: false,
             ),
           ),
           Card(

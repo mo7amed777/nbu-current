@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../controller/themes/app_theme.dart';
+import '../../../controller/app_theme.dart';
 import 'home_drawer.dart';
 
 class DrawerUserController extends StatefulWidget {
@@ -138,7 +138,7 @@ class DrawerUserControllerState extends State<DrawerUserController>
                     color: AppTheme.white,
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: AppTheme.grey.withOpacity(0.6),
+                          color: AppTheme.nearlyBlack.withOpacity(0.3),
                           blurRadius: 24),
                     ],
                   ),
@@ -163,7 +163,7 @@ class DrawerUserControllerState extends State<DrawerUserController>
                           width: AppBar().preferredSize.height - 8,
                           height: AppBar().preferredSize.height - 8,
                           child: Material(
-                            color: Colors.transparent,
+                            color: AppTheme.transparent,
                             child: InkWell(
                               borderRadius: BorderRadius.circular(
                                   AppBar().preferredSize.height),

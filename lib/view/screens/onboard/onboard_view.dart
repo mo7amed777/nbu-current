@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class WelcomeView extends StatelessWidget {
   final AnimationController animationController;
@@ -93,6 +94,7 @@ class WelcomeView extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
+                    color: AppTheme.lightText,
                   ),
                 ),
               ),

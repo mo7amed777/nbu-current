@@ -1,6 +1,6 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/President%20Subordinating%20Units/PresidentSubordinatingUnits.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/members.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
@@ -29,8 +29,7 @@ class _UniversityPresidentOfficeState extends State<UniversityPresidentOffice> {
               onIconPressed: () {
                 Get.to(OfficeMembers());
               },
-              search: false,
-              view: true,
+              search: Icons.search,
               icon: FontAwesomeIcons.userFriends,
               onSearch: () {},
             ),
@@ -57,8 +56,11 @@ class _UniversityPresidentOfficeState extends State<UniversityPresidentOffice> {
                     ),
                     child: Text(
                       "The University President’s Office is the link between High Management and all academic, administrative, and technical bodies of the university. The office is connected to several departments and sub-departments whose work is integrated to complete transactions of different university bodies, the local community, and various public and private sectors in Saudi Arabia.",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, height: 1.5),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        height: 1.5,
+                        color: AppTheme.lightText,
+                      ),
                     ),
                   ),
                 ),
@@ -71,17 +73,17 @@ class _UniversityPresidentOfficeState extends State<UniversityPresidentOffice> {
                     Get.to(PresidentSubordinatingUnits());
                   },
                   child: Row(
-                    children: const [
+                    children: [
                       Text(
                         'view more',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: AppTheme.lightGreen,
                             fontWeight: FontWeight.bold,
                             fontSize: 18),
                       ),
                       Icon(
                         Icons.double_arrow,
-                        color: Colors.blue,
+                        color: AppTheme.lightGreen,
                       )
                     ],
                   ),

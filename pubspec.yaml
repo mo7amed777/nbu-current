@@ -103,20 +103,19 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-      - family: WorkSans
+      - family: NeoSans
         fonts:
-            - asset: assets/fonts/WorkSans-Regular.ttf
-            - asset: assets/fonts/WorkSans-Medium.ttf
-              weight: 500
-            - asset: assets/fonts/WorkSans-SemiBold.ttf
-              weight: 600
-            - asset: assets/fonts/WorkSans-Bold.ttf
-              weight: 700
-      - family: Roboto
+            - asset: assets/fonts/Neo_Sans_Medium.ttf
+            - asset: assets/fonts/NeoSans Black Italic.otf
+            - asset: assets/fonts/NeoSans Black.otf
+            - asset: assets/fonts/NeoSans Light Italic.otf
+            - asset: assets/fonts/NeoSans Medium Italic.otf
+      - family: NeoSans-AR
         fonts:
-            - asset: assets/fonts/Roboto-Bold.ttf
-            - asset: assets/fonts/Roboto-Regular.ttf
-            - asset: assets/fonts/Roboto-Medium.ttf
-              weight: 400
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+            - asset: assets/fonts/NeoSansArabic.ttf
+            - asset: assets/fonts/NeoSansArabicBlack.ttf
+            - asset: assets/fonts/NeoSansArabicBold.ttf
+            - asset: assets/fonts/NeoSansArabicLight.ttf
+            - asset: assets/fonts/NeoSansArabicMedium.ttf
+            - asset: assets/fonts/NeoSansArabicRegular.ttf
+            - asset: assets/fonts/NeoSansArabicUltra.ttf

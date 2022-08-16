@@ -1,6 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:northern_border_university/controller/themes/media_center_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filter_list.dart';
@@ -21,9 +21,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: MediaCenterAppTheme.buildLightTheme().backgroundColor,
+      color: AppTheme.background,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.transparent,
         body: Column(
           children: <Widget>[
             getAppBarUI(),
@@ -56,21 +56,21 @@ class _FiltersScreenState extends State<FiltersScreen> {
               child: Container(
                 height: 48,
                 decoration: BoxDecoration(
-                  color: MediaCenterAppTheme.buildLightTheme().primaryColor,
+                  color: AppTheme.green,
                   borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.6),
+                      color: AppTheme.nearlyBlack.withOpacity(0.3),
                       blurRadius: 8,
                       offset: const Offset(4, 4),
                     ),
                   ],
                 ),
                 child: Material(
-                  color: Colors.transparent,
+                  color: AppTheme.transparent,
                   child: InkWell(
                     borderRadius: const BorderRadius.all(Radius.circular(24.0)),
-                    highlightColor: Colors.transparent,
+                    highlightColor: AppTheme.transparent,
                     onTap: () {
                       Navigator.pop(context);
                     },
@@ -80,7 +80,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 18,
-                            color: Colors.white),
+                            color: AppTheme.white),
                       ),
                     ),
                   ),
@@ -105,7 +105,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             'Type of Media',
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
+                color: AppTheme.green,
                 fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
                 fontWeight: FontWeight.normal),
           ),
@@ -129,7 +129,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
       final PopularFilterListData date = accomodationListData[i];
       noList.add(
         Material(
-          color: Colors.transparent,
+          color: AppTheme.transparent,
           child: InkWell(
             borderRadius: const BorderRadius.all(Radius.circular(4.0)),
             onTap: () {
@@ -144,13 +144,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   Expanded(
                     child: Text(
                       date.titleTxt,
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(color: AppTheme.green),
                     ),
                   ),
                   CupertinoSwitch(
-                    activeColor: date.isSelected
-                        ? MediaCenterAppTheme.buildLightTheme().primaryColor
-                        : Colors.grey.withOpacity(0.6),
+                    activeColor:
+                        date.isSelected ? AppTheme.green : AppTheme.green,
                     onChanged: (bool value) {
                       setState(() {
                         checkAppPosition(i);
@@ -218,7 +217,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             'Popular filters',
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
+                color: AppTheme.green,
                 fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
                 fontWeight: FontWeight.normal),
           ),
@@ -252,7 +251,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             child: Row(
               children: <Widget>[
                 Material(
-                  color: Colors.transparent,
+                  color: AppTheme.transparent,
                   child: InkWell(
                     borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                     onTap: () {
@@ -269,9 +268,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                 ? Icons.check_box
                                 : Icons.check_box_outline_blank,
                             color: date.isSelected
-                                ? MediaCenterAppTheme.buildLightTheme()
-                                    .primaryColor
-                                : Colors.grey.withOpacity(0.6),
+                                ? AppTheme.green
+                                : AppTheme.green,
                           ),
                           const SizedBox(
                             width: 4,
@@ -317,7 +315,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             'Rating',
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
+                color: AppTheme.green,
                 fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
                 fontWeight: FontWeight.normal),
           ),
@@ -338,10 +336,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
   Widget getAppBarUI() {
     return Container(
       decoration: BoxDecoration(
-        color: MediaCenterAppTheme.buildLightTheme().backgroundColor,
+        color: AppTheme.background,
         boxShadow: <BoxShadow>[
           BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: AppTheme.nearlyBlack.withOpacity(0.3),
               offset: const Offset(0, 2),
               blurRadius: 4.0),
         ],
@@ -356,7 +354,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               width: AppBar().preferredSize.height + 40,
               height: AppBar().preferredSize.height,
               child: Material(
-                color: Colors.transparent,
+                color: AppTheme.transparent,
                 child: InkWell(
                   borderRadius: const BorderRadius.all(
                     Radius.circular(32.0),

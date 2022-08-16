@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/onboard/login/login_screen.dart';
 
 class CenterNextButton extends StatelessWidget {
@@ -70,7 +71,7 @@ class CenterNextButton extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(
                     8 + 32 * (1 - _signUpMoveAnimation.value)),
-                color: Color(0xff132137),
+                color: AppTheme.green,
               ),
               child: PageTransitionSwitcher(
                 duration: Duration(milliseconds: 480),
@@ -81,7 +82,7 @@ class CenterNextButton extends StatelessWidget {
                   Animation<double> secondaryAnimation,
                 ) {
                   return SharedAxisTransition(
-                    fillColor: Colors.transparent,
+                    fillColor: AppTheme.transparent,
                     child: child,
                     animation: animation,
                     secondaryAnimation: secondaryAnimation,
@@ -100,13 +101,13 @@ class CenterNextButton extends StatelessWidget {
                               Text(
                                 'Login',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: AppTheme.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               Icon(Icons.arrow_forward_rounded,
-                                  color: Colors.white),
+                                  color: AppTheme.white),
                             ],
                           ),
                         ),
@@ -117,9 +118,9 @@ class CenterNextButton extends StatelessWidget {
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
                           child: animationController.value >= 0.5
-                              ? Icon(Icons.done, color: Colors.white)
+                              ? Icon(Icons.done, color: AppTheme.white)
                               : Icon(Icons.arrow_forward_ios_rounded,
-                                  color: Colors.white),
+                                  color: AppTheme.white),
                         ),
                       ),
               ),
@@ -136,7 +137,7 @@ class CenterNextButton extends StatelessWidget {
                 Text(
                   'Don\'t have an account? ',
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: AppTheme.green,
                     fontSize: 14,
                     fontWeight: FontWeight.normal,
                   ),
@@ -148,7 +149,7 @@ class CenterNextButton extends StatelessWidget {
                   child: Text(
                     'Sign Up',
                     style: TextStyle(
-                      color: Color(0xff132137),
+                      color: AppTheme.lightGreen,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -188,8 +189,8 @@ class CenterNextButton extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(32),
                       color: _selectedIndex == i
-                          ? Color(0xff132137)
-                          : Color(0xffE3E4E4),
+                          ? AppTheme.green
+                          : AppTheme.lightGreen,
                     ),
                     width: 10,
                     height: 10,

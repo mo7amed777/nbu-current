@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:northern_border_university/view/widgets/my_button.dart';
 
-import '../../../../../../controller/themes/app_theme.dart';
+import '../../../../../controller/app_theme.dart';
 
 class ContactPresident extends StatefulWidget {
   const ContactPresident({Key? key}) : super(key: key);
@@ -35,8 +35,6 @@ class _ContactPresidentState extends State<ContactPresident> {
             child: Appbar(
               title: 'Contact The President',
               onSearch: () {},
-              onIconPressed: () {},
-              view: false,
             ),
           ),
           InputField(

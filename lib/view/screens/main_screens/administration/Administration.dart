@@ -1,7 +1,7 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/administration_sections.dart';
 import 'package:northern_border_university/view/screens/splash/intro_video.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
@@ -50,8 +50,7 @@ class _AdministrationState extends State<Administration> {
             child: Appbar(
                 title: 'Administrations',
                 onSearch: (val) {},
-                search: true,
-                view: false,
+                search: Icons.search,
                 onIconPressed: () {}),
           ),
           Expanded(
@@ -71,7 +70,11 @@ class _AdministrationState extends State<Administration> {
                         ),
                         child: Text(
                           'We aspire to become a distinguished and credible university, recognized for our academic programs that build competency and support research and innovation—and for providing services across the region and the Kingdom. We are a regionally serving, comprehensive university committed to educational excellence. Guided by our core values, heritage, and place, We deliver innovative educational programs characterized by outcomes that leverage the human, economic, cultural, and natural resources for the Northern Borders Region and beyond.',
-                          style: TextStyle(fontSize: 16.0, height: 1.5),
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            height: 1.5,
+                            color: AppTheme.lightText,
+                          ),
                         ),
                       ),
                     ),
@@ -81,17 +84,17 @@ class _AdministrationState extends State<Administration> {
                       child: InkWell(
                         onTap: () => Get.to(Administrations()),
                         child: Row(
-                          children: const [
+                          children: [
                             Text(
                               'view more',
                               style: TextStyle(
-                                  color: Colors.blue,
+                                  color: AppTheme.lightGreen,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18),
                             ),
                             Icon(
                               Icons.double_arrow,
-                              color: Colors.blue,
+                              color: AppTheme.lightGreen,
                             )
                           ],
                         ),

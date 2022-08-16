@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:video_player/video_player.dart';
 
 const VideoURL =
@@ -79,14 +80,14 @@ class _SplashViewState extends State<SplashView> {
                 height: 58,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(38.0),
-                  color: Color(0xff132137),
+                  color: AppTheme.green,
                 ),
                 child: Center(
                   child: Text(
                     "Get Started",
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white,
+                      color: AppTheme.white,
                     ),
                   ),
                 ),

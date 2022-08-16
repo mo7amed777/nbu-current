@@ -3,7 +3,7 @@ import 'package:northern_border_university/view/widgets/list_items.dart';
 import 'package:northern_border_university/view/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../../controller/themes/app_theme.dart';
+import '../../../../../../controller/app_theme.dart';
 
 class ProjectManagementOffice extends StatefulWidget {
   const ProjectManagementOffice({Key? key}) : super(key: key);
@@ -23,9 +23,7 @@ class _ProjectManagementOfficeState extends State<ProjectManagementOffice> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'Project Management Office',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

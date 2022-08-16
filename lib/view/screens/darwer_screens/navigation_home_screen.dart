@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/article/articles.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/about%20US.dart';

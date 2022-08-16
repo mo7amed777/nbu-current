@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../controller/themes/app_theme.dart';
+import '../../controller/app_theme.dart';
 
 class DownloadCard extends StatelessWidget {
   final String title;

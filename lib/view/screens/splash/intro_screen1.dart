@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class RelaxView extends StatelessWidget {
   final AnimationController animationController;
@@ -88,6 +89,9 @@ class RelaxView extends StatelessWidget {
                   child: Text(
                     "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
                     textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: AppTheme.lightText,
+                    ),
                   ),
                 ),
               ),

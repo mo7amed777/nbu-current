@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:northern_border_university/view/widgets/expandTile.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -23,9 +24,7 @@ class _OfficeMembersState extends State<OfficeMembers> {
             Appbar(
               title: 'President Office Members',
               onSearch: () {},
-              search: false,
-              view: false,
-              onIconPressed: () {},
+              search: Icons.search,
             ),
             ExpandedTile(
               mainTitle: 'Dr. Mufdi bin Ratian Al-Sharari',
@@ -142,7 +141,7 @@ class _OfficeMembersState extends State<OfficeMembers> {
                     gravity: ToastGravity.CENTER,
                     timeInSecForIosWeb: 1,
                     backgroundColor: Colors.red,
-                    textColor: Colors.white,
+                    textColor: AppTheme.white,
                     fontSize: 18.0);
               },
             ),
@@ -163,7 +162,7 @@ class _OfficeMembersState extends State<OfficeMembers> {
                     gravity: ToastGravity.CENTER,
                     timeInSecForIosWeb: 1,
                     backgroundColor: Colors.red,
-                    textColor: Colors.white,
+                    textColor: AppTheme.white,
                     fontSize: 18.0);
               },
             ),
@@ -180,8 +179,8 @@ class _OfficeMembersState extends State<OfficeMembers> {
   }) async {
     Get.defaultDialog(
       title: 'Calling...',
-      titleStyle: TextStyle(color: Colors.blue),
-      content: Text(name, style: TextStyle(color: Colors.blue)),
+      titleStyle: TextStyle(color: AppTheme.green),
+      content: Text(name, style: TextStyle(color: AppTheme.green)),
       actions: [
         phoneNumber != 'Not Available'
             ? TextButton(

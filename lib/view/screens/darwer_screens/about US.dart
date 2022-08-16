@@ -1,6 +1,6 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/ContactUS.dart';
 import 'package:northern_border_university/view/screens/main_screens/Contact%20US/DoYouNeedHelp.dart';
@@ -41,6 +41,7 @@ class _AboutUSState extends State<AboutUS> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    color: AppTheme.green,
                   ),
                 ),
               ),
@@ -51,9 +52,7 @@ class _AboutUSState extends State<AboutUS> {
                   "Northern Border University (NBU) is located in Arar, Saudi Arabia. It was founded in 2007.[1][2] It contains 16 colleges: 9 in Arar, 4 in Rafha, 2 in Turayf, and 1 in Al Uwayqilah.[3] It has a variety of majors in multiple levels, including bachelor's and master's degrees",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 16,
-                    height: 1.5,
-                  ),
+                      fontSize: 16, height: 1.5, color: AppTheme.lightText),
                 ),
               ),
               Expanded(
@@ -64,18 +63,18 @@ class _AboutUSState extends State<AboutUS> {
                       width: 120,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: AppTheme.green,
                         borderRadius:
                             const BorderRadius.all(Radius.circular(4.0)),
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: Colors.grey.withOpacity(0.6),
+                              color: AppTheme.nearlyBlack.withOpacity(0.3),
                               offset: const Offset(4, 4),
                               blurRadius: 8.0),
                         ],
                       ),
                       child: Material(
-                        color: Colors.transparent,
+                        color: AppTheme.transparent,
                         child: InkWell(
                           onTap: () {
                             Get.to(ContactUS());
@@ -91,13 +90,13 @@ class _AboutUSState extends State<AboutUS> {
                                     'Contact US',
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      color: Colors.white,
+                                      color: AppTheme.white,
                                     ),
                                   ),
                                 ),
                                 Icon(
                                   Icons.phone_enabled,
-                                  color: Colors.white,
+                                  color: AppTheme.white,
                                   size: 22,
                                 ),
                               ],

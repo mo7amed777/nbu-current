@@ -1,3 +1,4 @@
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +23,8 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Appbar(
               title: widget.article.getItemFields(widget.item)["title"],
-              onIconPressed: () {},
               onSearch: (val) {},
-              search: true,
-              view: false,
+              search: Icons.search,
             ),
           ),
           Padding(
@@ -42,12 +41,14 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
               children: [
                 Text(
                   'Published at : ',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: AppTheme.lightText),
                 ),
                 Text(
                   formatDate(
                       widget.article.getItemFields(widget.item)["created"]),
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: AppTheme.lightText),
                 ),
               ],
             ),
@@ -56,7 +57,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               widget.article.getItemFields(widget.item)["body"],
-              style: TextStyle(height: 1.5),
+              style: TextStyle(height: 1.5, color: AppTheme.lightText),
             ),
           ),
         ],

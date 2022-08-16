@@ -21,9 +21,7 @@ class _UniversityCouncilState extends State<UniversityCouncil> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'The University Council',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

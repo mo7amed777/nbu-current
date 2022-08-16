@@ -1,5 +1,5 @@
-import 'package:northern_border_university/controller/themes/media_center_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class SliderView extends StatefulWidget {
   const SliderView({Key? key, this.onChangedistValue, this.distValue})
@@ -60,8 +60,8 @@ class _SliderViewState extends State<SliderView> {
               },
               min: 0,
               max: 100,
-              activeColor: MediaCenterAppTheme.buildLightTheme().primaryColor,
-              inactiveColor: Colors.grey.withOpacity(0.4),
+              activeColor: AppTheme.green,
+              inactiveColor: AppTheme.green,
               divisions: 100,
               value: distValue,
             ),
@@ -115,12 +115,12 @@ class CustomThumbShape extends SliderComponentShape {
               Offset(thumbCenter.dx - 12, thumbCenter.dy - 12)))
           ..fillType = PathFillType.evenOdd,
         Paint()
-          ..color = Colors.black.withOpacity(0.5)
+          ..color = AppTheme.green.withOpacity(0.5)
           ..maskFilter =
               MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(8)));
 
     final Paint cPaint = Paint();
-    cPaint..color = Colors.white;
+    cPaint..color = AppTheme.white;
     cPaint..strokeWidth = 14 / 2;
     canvas.drawCircle(Offset(thumbCenter.dx, thumbCenter.dy), 12, cPaint);
     cPaint..color = colorTween.evaluate(enableAnimation!)!;

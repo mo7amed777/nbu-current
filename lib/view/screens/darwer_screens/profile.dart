@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/settings/profilesettings.dart';
 
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: AppTheme.green,
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -31,7 +31,7 @@ class Profile extends StatelessWidget {
                         padding: EdgeInsets.all(16.0),
                         margin: EdgeInsets.only(top: 16.0),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: AppTheme.white,
                             borderRadius: BorderRadius.circular(5.0)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,7 @@ class Profile extends StatelessWidget {
                                           onTap: () => Get.to(EditPage()),
                                           child: Icon(
                                             FontAwesomeIcons.edit,
-                                            color: AppTheme.grey,
+                                            color: AppTheme.green,
                                           )),
                                     ],
                                   ),
@@ -65,6 +65,7 @@ class Profile extends StatelessWidget {
                                     contentPadding: EdgeInsets.all(0),
                                     title: Text("Faculty of Medicine"),
                                     subtitle: Text("Arar"),
+                                    textColor: AppTheme.lightText,
                                   ),
                                 ],
                               ),
@@ -75,24 +76,54 @@ class Profile extends StatelessWidget {
                                 Expanded(
                                   child: Column(
                                     children: const <Widget>[
-                                      Text("285"),
-                                      Text("Likes")
+                                      Text(
+                                        "285",
+                                        style: TextStyle(
+                                          color: AppTheme.lightText,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Likes",
+                                        style: TextStyle(
+                                          color: AppTheme.lightText,
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
                                 Expanded(
                                   child: Column(
                                     children: const <Widget>[
-                                      Text("3025"),
-                                      Text("Comments")
+                                      Text(
+                                        "3025",
+                                        style: TextStyle(
+                                          color: AppTheme.lightText,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Comments",
+                                        style: TextStyle(
+                                          color: AppTheme.lightText,
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
                                 Expanded(
                                   child: Column(
                                     children: const <Widget>[
-                                      Text("650"),
-                                      Text("Favourites")
+                                      Text(
+                                        "650",
+                                        style: TextStyle(
+                                          color: AppTheme.lightText,
+                                        ),
+                                      ),
+                                      Text(
+                                        "Favourites",
+                                        style: TextStyle(
+                                          color: AppTheme.lightText,
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -117,40 +148,47 @@ class Profile extends StatelessWidget {
                   SizedBox(height: 20.0),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppTheme.white,
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: Column(
                       children: const <Widget>[
                         ListTile(
                           title: Text("User information"),
+                          textColor: AppTheme.green,
                         ),
                         Divider(),
                         ListTile(
                           title: Text("Email"),
                           subtitle: Text("student@gmail.com"),
-                          leading: Icon(Icons.email),
+                          leading: Icon(color: AppTheme.green, Icons.email),
+                          textColor: AppTheme.lightText,
                         ),
                         ListTile(
                           title: Text("Phone"),
                           subtitle: Text("+966-5815225566"),
-                          leading: Icon(Icons.phone),
+                          leading: Icon(color: AppTheme.green, Icons.phone),
+                          textColor: AppTheme.lightText,
                         ),
                         ListTile(
                           title: Text("Website"),
                           subtitle: Text("https://www.student_profile.com"),
-                          leading: Icon(Icons.web),
+                          leading: Icon(color: AppTheme.green, Icons.web),
+                          textColor: AppTheme.lightText,
                         ),
                         ListTile(
                           title: Text("About"),
                           subtitle: Text(
                               "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, illo repellendus quas beatae reprehenderit nemo, debitis explicabo officiis sit aut obcaecati iusto porro? Exercitationem illum consequuntur magnam eveniet delectus ab."),
-                          leading: Icon(Icons.person),
+                          leading: Icon(color: AppTheme.green, Icons.person),
+                          textColor: AppTheme.lightText,
                         ),
                         ListTile(
                           title: Text("Joined Date"),
                           subtitle: Text("15 February 2019"),
-                          leading: Icon(Icons.calendar_view_day),
+                          leading: Icon(
+                              color: AppTheme.green, Icons.calendar_view_day),
+                          textColor: AppTheme.lightText,
                         ),
                       ],
                     ),
@@ -159,7 +197,7 @@ class Profile extends StatelessWidget {
               ),
             ),
             AppBar(
-              backgroundColor: Colors.transparent,
+              backgroundColor: AppTheme.transparent,
               elevation: 0,
             )
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class RadioButton extends StatelessWidget {
   final String label, firstOption, lastOption;
@@ -29,6 +30,7 @@ class RadioButton extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 16,
+                color: AppTheme.lightText,
               ),
             ),
           ),
@@ -39,7 +41,12 @@ class RadioButton extends StatelessWidget {
                 groupValue: firstGroupValue,
                 onChanged: (_) => onFirstChanged(),
               ),
-              Text(firstOption),
+              Text(
+                firstOption,
+                style: TextStyle(
+                  color: AppTheme.lightText,
+                ),
+              ),
             ],
           ),
           Row(
@@ -49,7 +56,12 @@ class RadioButton extends StatelessWidget {
                 groupValue: lastGroupValue,
                 onChanged: (_) => onLastChanged(),
               ),
-              Text(lastOption),
+              Text(
+                lastOption,
+                style: TextStyle(
+                  color: AppTheme.lightText,
+                ),
+              ),
             ],
           ),
         ],

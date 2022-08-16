@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/view/widgets/input_field.dart';
 import 'package:northern_border_university/view/widgets/my_button.dart';
@@ -51,7 +52,7 @@ class SelfNomationState extends State<SelfNomation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppTheme.white,
       body: Column(
         children: [
           Stack(
@@ -63,8 +64,8 @@ class SelfNomationState extends State<SelfNomation> {
                   height: 200,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: const [
-                    Color(0x22ff3a5a),
-                    Color(0x22fe494d)
+                    AppTheme.green,
+                    AppTheme.nearlyBlack,
                   ])),
                 ),
               ),
@@ -75,8 +76,8 @@ class SelfNomationState extends State<SelfNomation> {
                   height: 200,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: const [
-                    Color.fromARGB(193, 29, 25, 3),
-                    Color(0xffff3a5a)
+                    AppTheme.green,
+                    AppTheme.lightGreen,
                   ])),
                 ),
               ),
@@ -87,22 +88,22 @@ class SelfNomationState extends State<SelfNomation> {
                   height: 200,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: const [
-                    Color.fromARGB(193, 197, 154, 89),
-                    Color(0xffff3a5a),
+                    AppTheme.lightGreen,
+                    AppTheme.lightText,
                   ])),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 16.0),
+                    padding: const EdgeInsets.only(top: 32.0),
                     child: Column(
                       children: const <Widget>[
                         Icon(
                           Icons.app_registration_rounded,
-                          color: Colors.white,
+                          color: AppTheme.white,
                           size: 50,
                         ),
                         Text(
                           "Required Info",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: AppTheme.white,
                               fontWeight: FontWeight.w700,
                               fontSize: 18),
                         ),

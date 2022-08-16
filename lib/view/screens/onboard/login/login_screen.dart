@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'custom_route.dart';
 import 'dashboard_screen.dart';
 
@@ -42,7 +42,10 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: 'N B U',
-      theme: LoginTheme(pageColorLight: AppTheme.background),
+      theme: LoginTheme(
+        pageColorLight: AppTheme.background,
+        primaryColor: AppTheme.green,
+      ),
       logo: const AssetImage('assets/images/logo/logo.png'),
       logoTag: 'NBU-Logo',
       titleTag: 'Northern Border University',

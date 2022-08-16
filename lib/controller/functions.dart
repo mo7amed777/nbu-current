@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 void showSnackBar({required String message}) {
   Get.showSnackbar(
@@ -19,7 +20,7 @@ void showSnackBar({required String message}) {
         child: Text(
           message,
           style: TextStyle(
-            color: Colors.white,
+            color: AppTheme.white,
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),

@@ -1,6 +1,6 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Colleges/college_departments.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
@@ -123,7 +123,7 @@ class _CollegesState extends State<Colleges> {
                                         style: TextStyle(
                                           fontWeight: FontWeight.w700,
                                           fontSize: 18,
-                                          color: Colors.white,
+                                          color: AppTheme.white,
                                         ),
                                       ),
                                     ),
@@ -145,8 +145,8 @@ class _CollegesState extends State<Colleges> {
                 physics: NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 crossAxisCount: 2,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
                 shrinkWrap: true,
                 childAspectRatio: 1,
                 children: List.generate(
@@ -163,45 +163,38 @@ class _CollegesState extends State<Colleges> {
                             child: ClipRRect(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(4.0)),
-                              child: Stack(
-                                alignment: AlignmentDirectional.center,
-                                children: <Widget>[
-                                  Positioned.fill(
-                                    child: Image.asset(
-                                      colleges.values.toList()[index],
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                  Material(
-                                    color: Colors.transparent,
-                                    child: InkWell(
-                                      splashColor: Colors.grey.withOpacity(0.2),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(4.0)),
-                                      onTap: () => callBack(
-                                          colleges.keys.toList()[index]),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0.0,
-                                    left: 0.0,
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      padding: EdgeInsets.all(4.0),
-                                      margin: EdgeInsets.all(4.0),
-                                      color: AppTheme.dark_grey,
-                                      child: Text(
-                                        colleges.keys.toList()[index],
+                              child: InkWell(
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(4.0)),
+                                onTap: () =>
+                                    callBack(colleges.keys.toList()[index]),
+                                child: Card(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  elevation: 2.0,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      CircleAvatar(
+                                        radius: 50,
+                                        backgroundImage: AssetImage(
+                                            colleges.values.toList()[index]),
+                                      ),
+                                      Text(
+                                        colleges.isEmpty
+                                            ? colleges.keys.toList()[index]
+                                            : colleges.keys.toList()[index],
+                                        textAlign: TextAlign.center,
+                                        overflow: TextOverflow.fade,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
-                                          overflow: TextOverflow.ellipsis,
-                                          color: AppTheme.white,
+                                          color: AppTheme.green,
                                           fontSize: 14,
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           ),

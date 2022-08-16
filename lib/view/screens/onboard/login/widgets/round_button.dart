@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class RoundButton extends StatefulWidget {
   const RoundButton({
@@ -88,7 +89,7 @@ class _RoundButtonState extends State<RoundButton>
                       });
                       widget.onPressed();
                     },
-                    foregroundColor: Colors.white,
+                    foregroundColor: AppTheme.white,
                     child: widget.icon,
                   ),
                 ),

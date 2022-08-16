@@ -1,4 +1,4 @@
-import 'package:northern_border_university/controller/themes/media_center_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/calendar/calendar_popup_view.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filter_list.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filters_screen.dart';
@@ -44,97 +44,90 @@ class MediaCenterState extends State<MediaCenter>
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: MediaCenterAppTheme.buildLightTheme(),
-      child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              onTap: () {
-                FocusScope.of(context).requestFocus(FocusNode());
-              },
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).padding.top + 6),
-                    child: Appbar(
-                      title: 'Media Center',
-                      onSearch: () {},
-                      view: false,
-                      onIconPressed: () {},
-                    ),
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          InkWell(
+            splashColor: AppTheme.transparent,
+            focusColor: AppTheme.transparent,
+            highlightColor: AppTheme.transparent,
+            hoverColor: AppTheme.transparent,
+            onTap: () {
+              FocusScope.of(context).requestFocus(FocusNode());
+            },
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).padding.top + 6),
+                  child: Appbar(
+                    title: 'Media Center',
+                    onSearch: () {},
                   ),
-                  Expanded(
-                    child: NestedScrollView(
-                      controller: _scrollController,
-                      headerSliverBuilder:
-                          (BuildContext context, bool innerBoxIsScrolled) {
-                        return <Widget>[
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
-                                (BuildContext context, int index) {
-                              return Column(
-                                children: <Widget>[
-                                  getSearchBarUI(),
-                                  getTimeDateUI(),
-                                ],
-                              );
-                            }, childCount: 1),
-                          ),
-                          SliverPersistentHeader(
-                            pinned: true,
-                            floating: true,
-                            delegate: ContestTabHeader(
-                              getFilterBarUI(),
-                            ),
-                          ),
-                        ];
-                      },
-                      body: Container(
-                        color: MediaCenterAppTheme.buildLightTheme()
-                            .backgroundColor,
-                        child: ListView.builder(
-                          itemCount: MediaCenterList.length,
-                          padding: const EdgeInsets.only(top: 8),
-                          scrollDirection: Axis.vertical,
-                          itemBuilder: (BuildContext context, int index) {
-                            final int count = MediaCenterList.length > 10
-                                ? 10
-                                : MediaCenterList.length;
-                            final Animation<double> animation =
-                                Tween<double>(begin: 0.0, end: 1.0).animate(
-                                    CurvedAnimation(
-                                        parent: animationController!,
-                                        curve: Interval(
-                                            (1 / count) * index, 1.0,
-                                            curve: Curves.fastOutSlowIn)));
-                            animationController?.forward();
-                            return MediaCenterListView(
-                              data: {
-                                'title': MediaCenterList[index].titleTxt,
-                                'subTxt': MediaCenterList[index].subTxt,
-                                'imagePath': MediaCenterList[index].imagePath,
-                                'callback': MediaCenterList[index].callback,
-                                'icon': MediaCenterList[index].icon,
-                              },
-                              animation: animation,
-                              animationController: animationController!,
+                ),
+                Expanded(
+                  child: NestedScrollView(
+                    controller: _scrollController,
+                    headerSliverBuilder:
+                        (BuildContext context, bool innerBoxIsScrolled) {
+                      return <Widget>[
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                            return Column(
+                              children: <Widget>[
+                                getSearchBarUI(),
+                                getTimeDateUI(),
+                              ],
                             );
-                          },
+                          }, childCount: 1),
                         ),
+                        SliverPersistentHeader(
+                          pinned: true,
+                          floating: true,
+                          delegate: ContestTabHeader(
+                            getFilterBarUI(),
+                          ),
+                        ),
+                      ];
+                    },
+                    body: Container(
+                      color: AppTheme.background,
+                      child: ListView.builder(
+                        itemCount: MediaCenterList.length,
+                        padding: const EdgeInsets.only(top: 8),
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (BuildContext context, int index) {
+                          final int count = MediaCenterList.length > 10
+                              ? 10
+                              : MediaCenterList.length;
+                          final Animation<double> animation =
+                              Tween<double>(begin: 0.0, end: 1.0).animate(
+                                  CurvedAnimation(
+                                      parent: animationController!,
+                                      curve: Interval((1 / count) * index, 1.0,
+                                          curve: Curves.fastOutSlowIn)));
+                          animationController?.forward();
+                          return MediaCenterListView(
+                            data: {
+                              'title': MediaCenterList[index].titleTxt,
+                              'subTxt': MediaCenterList[index].subTxt,
+                              'imagePath': MediaCenterList[index].imagePath,
+                              'callback': MediaCenterList[index].callback,
+                              'icon': MediaCenterList[index].icon,
+                            },
+                            animation: animation,
+                            animationController: animationController!,
+                          );
+                        },
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -142,10 +135,10 @@ class MediaCenterState extends State<MediaCenter>
   Widget getListUI() {
     return Container(
       decoration: BoxDecoration(
-        color: MediaCenterAppTheme.buildLightTheme().backgroundColor,
+        color: AppTheme.background,
         boxShadow: <BoxShadow>[
           BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: AppTheme.nearlyBlack.withOpacity(0.3),
               offset: const Offset(0, -2),
               blurRadius: 8.0),
         ],
@@ -237,12 +230,11 @@ class MediaCenterState extends State<MediaCenter>
             child: Row(
               children: <Widget>[
                 Material(
-                  color: Colors.transparent,
+                  color: AppTheme.transparent,
                   child: InkWell(
-                    focusColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    splashColor: Colors.grey.withOpacity(0.2),
+                    focusColor: AppTheme.transparent,
+                    highlightColor: AppTheme.transparent,
+                    hoverColor: AppTheme.transparent,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(4.0),
                     ),
@@ -265,7 +257,7 @@ class MediaCenterState extends State<MediaCenter>
                             style: TextStyle(
                                 fontWeight: FontWeight.w100,
                                 fontSize: 16,
-                                color: Colors.grey.withOpacity(0.8)),
+                                color: AppTheme.green),
                           ),
                           const SizedBox(
                             height: 8,
@@ -290,19 +282,18 @@ class MediaCenterState extends State<MediaCenter>
             child: Container(
               width: 1,
               height: 42,
-              color: Colors.grey.withOpacity(0.8),
+              color: AppTheme.green,
             ),
           ),
           Expanded(
             child: Row(
               children: <Widget>[
                 Material(
-                  color: Colors.transparent,
+                  color: AppTheme.transparent,
                   child: InkWell(
-                    focusColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    splashColor: Colors.grey.withOpacity(0.2),
+                    focusColor: AppTheme.transparent,
+                    highlightColor: AppTheme.transparent,
+                    hoverColor: AppTheme.transparent,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(4.0),
                     ),
@@ -321,7 +312,7 @@ class MediaCenterState extends State<MediaCenter>
                             style: TextStyle(
                                 fontWeight: FontWeight.w100,
                                 fontSize: 16,
-                                color: Colors.grey.withOpacity(0.8)),
+                                color: AppTheme.green),
                           ),
                           const SizedBox(
                             height: 8,
@@ -356,13 +347,13 @@ class MediaCenterState extends State<MediaCenter>
               padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
               child: Container(
                 decoration: BoxDecoration(
-                  color: MediaCenterAppTheme.buildLightTheme().backgroundColor,
+                  color: AppTheme.background,
                   borderRadius: const BorderRadius.all(
                     Radius.circular(38.0),
                   ),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
+                        color: AppTheme.nearlyBlack.withOpacity(0.3),
                         offset: const Offset(0, 2),
                         blurRadius: 8.0),
                   ],
@@ -375,8 +366,7 @@ class MediaCenterState extends State<MediaCenter>
                     style: const TextStyle(
                       fontSize: 18,
                     ),
-                    cursorColor:
-                        MediaCenterAppTheme.buildLightTheme().primaryColor,
+                    cursorColor: AppTheme.green,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Search...',
@@ -388,19 +378,19 @@ class MediaCenterState extends State<MediaCenter>
           ),
           Container(
             decoration: BoxDecoration(
-              color: MediaCenterAppTheme.buildLightTheme().primaryColor,
+              color: AppTheme.green,
               borderRadius: const BorderRadius.all(
                 Radius.circular(38.0),
               ),
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                    color: Colors.grey.withOpacity(0.4),
+                    color: AppTheme.nearlyBlack.withOpacity(0.3),
                     offset: const Offset(0, 2),
                     blurRadius: 8.0),
               ],
             ),
             child: Material(
-              color: Colors.transparent,
+              color: AppTheme.transparent,
               child: InkWell(
                 borderRadius: const BorderRadius.all(
                   Radius.circular(32.0),
@@ -411,9 +401,7 @@ class MediaCenterState extends State<MediaCenter>
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Icon(FontAwesomeIcons.search,
-                      size: 20,
-                      color: MediaCenterAppTheme.buildLightTheme()
-                          .backgroundColor),
+                      size: 20, color: AppTheme.background),
                 ),
               ),
             ),
@@ -433,10 +421,10 @@ class MediaCenterState extends State<MediaCenter>
           child: Container(
             height: 24,
             decoration: BoxDecoration(
-              color: MediaCenterAppTheme.buildLightTheme().backgroundColor,
+              color: AppTheme.background,
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
+                    color: AppTheme.nearlyBlack.withOpacity(0.3),
                     offset: const Offset(0, -2),
                     blurRadius: 8.0),
               ],
@@ -444,7 +432,7 @@ class MediaCenterState extends State<MediaCenter>
           ),
         ),
         Container(
-          color: MediaCenterAppTheme.buildLightTheme().backgroundColor,
+          color: AppTheme.background,
           child: Padding(
             padding:
                 const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
@@ -463,12 +451,11 @@ class MediaCenterState extends State<MediaCenter>
                   ),
                 ),
                 Material(
-                  color: Colors.transparent,
+                  color: AppTheme.transparent,
                   child: InkWell(
-                    focusColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    splashColor: Colors.grey.withOpacity(0.2),
+                    focusColor: AppTheme.transparent,
+                    highlightColor: AppTheme.transparent,
+                    hoverColor: AppTheme.transparent,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(4.0),
                     ),
@@ -497,9 +484,7 @@ class MediaCenterState extends State<MediaCenter>
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Icon(Icons.sort,
-                                color: MediaCenterAppTheme.buildLightTheme()
-                                    .primaryColor),
+                            child: Icon(Icons.sort, color: AppTheme.green),
                           ),
                         ],
                       ),

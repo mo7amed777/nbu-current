@@ -22,9 +22,7 @@ class _SelfGeneratedResourcesMonitoringUnitState
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'Self-Generated Resources ',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

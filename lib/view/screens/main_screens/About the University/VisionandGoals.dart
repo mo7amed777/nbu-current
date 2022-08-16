@@ -20,9 +20,7 @@ class _VisionandGoalsState extends State<VisionandGoals> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'Vision and Goals',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/navigation_home_screen.dart';
 import 'package:flutter/material.dart';
@@ -106,6 +107,9 @@ class MoodDiaryVew extends StatelessWidget {
                       child: Text(
                         "Welcome to NBU just one step to get started",
                         textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: AppTheme.lightText,
+                        ),
                       ),
                     ),
                   ),
@@ -142,13 +146,13 @@ class MoodDiaryVew extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(38.0),
-                        color: Color(0xff132137),
+                        color: AppTheme.green,
                       ),
                       child: Text(
                         "الـبـوابـة الجـامـعيـة",
                         style: TextStyle(
                           fontSize: 18,
-                          color: Colors.white,
+                          color: AppTheme.white,
                         ),
                       ),
                     ),
@@ -171,13 +175,13 @@ class MoodDiaryVew extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(38.0),
-                        color: Color(0xff132137),
+                        color: AppTheme.green,
                       ),
                       child: Text(
                         "الخدمات الإلكترونية",
                         style: TextStyle(
                           fontSize: 18,
-                          color: Colors.white,
+                          color: AppTheme.white,
                         ),
                       ),
                     ),

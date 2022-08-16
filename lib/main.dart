@@ -8,7 +8,7 @@ import 'package:northern_border_university/view/screens/onboard/login/dashboard_
 import 'package:northern_border_university/view/screens/onboard/login/login_screen.dart';
 import 'package:northern_border_university/view/screens/onboard/login/transition_route_observer.dart';
 import 'package:northern_border_university/view/screens/splash/introduction_animation_screen.dart';
-import 'controller/themes/app_theme.dart';
+import 'controller/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,12 +36,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
-        textSelectionTheme:
-            const TextSelectionThemeData(cursorColor: Colors.orange),
-        // fontFamily: 'SourceSansPro',
+        //TODO if lang is arabic, change the font family to the arabic font family  (NeoSans-AR) and change the direction to rtl in the app theme
 
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple)
-            .copyWith(secondary: Colors.orange),
+        fontFamily: AppTheme.fontName, //in arabic the font family is fontNameAR
+
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)
+            .copyWith(secondary: Colors.green),
       ),
       home: const IntroductionAnimationScreen(),
       navigatorObservers: [TransitionRouteObserver()],

@@ -1,8 +1,7 @@
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/functions.dart';
-import 'package:northern_border_university/controller/themes/media_center_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/homelist.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/list_view/media_center_list_view.dart';
 import 'package:northern_border_university/view/screens/settings/settings.dart';
@@ -38,74 +37,70 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: MediaCenterAppTheme.buildLightTheme(),
-      child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              onTap: () {
-                FocusScope.of(context).requestFocus(FocusNode());
-              },
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).padding.top + 6),
-                    child: Appbar(
-                      title: 'Home',
-                      onSearch: () {},
-                      icon: FontAwesomeIcons.edit,
-                      view: true,
-                      onIconPressed: () async {
-                        bool isAppBadgeSupported =
-                            await FlutterAppBadger.isAppBadgeSupported();
-                        if (isAppBadgeSupported) {
-                          FlutterAppBadger.updateBadgeCount(1);
-                        }
-                        Get.to(Settings());
-                      },
-                    ),
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          InkWell(
+            splashColor: AppTheme.transparent,
+            focusColor: AppTheme.transparent,
+            highlightColor: AppTheme.transparent,
+            hoverColor: AppTheme.transparent,
+            onTap: () {
+              FocusScope.of(context).requestFocus(FocusNode());
+            },
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).padding.top + 6),
+                  child: Appbar(
+                    title: 'Home',
+                    onSearch: () {},
+                    icon: FontAwesomeIcons.edit,
+                    onIconPressed: () async {
+                      bool isAppBadgeSupported =
+                          await FlutterAppBadger.isAppBadgeSupported();
+                      if (isAppBadgeSupported) {
+                        FlutterAppBadger.updateBadgeCount(1);
+                      }
+                      Get.to(Settings());
+                    },
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemExtent: MediaQuery.of(context).size.width * 0.7,
-                      itemCount: homeList.length,
-                      padding: const EdgeInsets.only(top: 8),
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (BuildContext context, int index) {
-                        final int count =
-                            homeList.length > 10 ? 10 : homeList.length;
-                        final Animation<double> animation =
-                            Tween<double>(begin: 0.0, end: 1.0).animate(
-                                CurvedAnimation(
-                                    parent: animationController!,
-                                    curve: Interval((1 / count) * index, 1.0,
-                                        curve: Curves.fastOutSlowIn)));
-                        animationController?.forward();
-                        return MediaCenterListView(
-                          data: {
-                            'title': homeList[index].title,
-                            'subTxt': homeList[index].subTxt,
-                            'imagePath': homeList[index].imagePath,
-                            'callback': homeList[index].callback,
-                            'icon': homeList[index].icon,
-                          },
-                          animation: animation,
-                          animationController: animationController!,
-                        );
-                      },
-                    ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemExtent: MediaQuery.of(context).size.width * 0.7,
+                    itemCount: homeList.length,
+                    padding: const EdgeInsets.only(top: 8),
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      final int count =
+                          homeList.length > 10 ? 10 : homeList.length;
+                      final Animation<double> animation =
+                          Tween<double>(begin: 0.0, end: 1.0).animate(
+                              CurvedAnimation(
+                                  parent: animationController!,
+                                  curve: Interval((1 / count) * index, 1.0,
+                                      curve: Curves.fastOutSlowIn)));
+                      animationController?.forward();
+                      return MediaCenterListView(
+                        data: {
+                          'title': homeList[index].title,
+                          'subTxt': homeList[index].subTxt,
+                          'imagePath': homeList[index].imagePath,
+                          'callback': homeList[index].callback,
+                          'icon': homeList[index].icon,
+                        },
+                        animation: animation,
+                        animationController: animationController!,
+                      );
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

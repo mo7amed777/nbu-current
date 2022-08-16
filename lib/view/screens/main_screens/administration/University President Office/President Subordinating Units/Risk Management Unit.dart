@@ -20,9 +20,7 @@ class _RiskManagementUnitState extends State<RiskManagementUnit> {
             padding: EdgeInsets.only(top: 16.0),
             child: Appbar(
               title: 'Risk Management',
-              onIconPressed: () {},
-              search: false,
-              view: false,
+              search: Icons.search,
               onSearch: () {},
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:northern_border_university/controller/themes/app_theme.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/The%20University%20President.dart';
 import 'package:northern_border_university/view/screens/main_screens/Colleges/college_departments.dart';
@@ -66,9 +66,7 @@ class _EServicesState extends State<EServices> {
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Appbar(
                   title: 'E-Services',
-                  search: true,
-                  view: false,
-                  fullWidth: false,
+                  search: Icons.search,
                   onSearch: (String val) {
                     search_list.clear();
                     setState(() {
@@ -120,7 +118,6 @@ class _EServicesState extends State<EServices> {
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(4.0)),
                                     child: InkWell(
-                                      splashColor: Colors.grey.withOpacity(0.2),
                                       borderRadius: const BorderRadius.all(
                                           Radius.circular(4.0)),
                                       onTap: () => callBack(search_list.isEmpty
@@ -151,7 +148,7 @@ class _EServicesState extends State<EServices> {
                                               overflow: TextOverflow.fade,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w600,
-                                                color: AppTheme.darkerText,
+                                                color: AppTheme.green,
                                                 fontSize: 14,
                                               ),
                                             ),

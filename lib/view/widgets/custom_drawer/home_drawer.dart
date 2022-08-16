@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/profile.dart';
 import 'package:northern_border_university/view/screens/onboard/login/login_screen.dart';
 
-import '../../../controller/themes/app_theme.dart';
+import '../../../controller/app_theme.dart';
 
 class HomeDrawer extends StatefulWidget {
   const HomeDrawer(
@@ -107,7 +107,8 @@ class HomeDrawerState extends State<HomeDrawer> {
                                 shape: BoxShape.circle,
                                 boxShadow: <BoxShadow>[
                                   BoxShadow(
-                                      color: AppTheme.grey.withOpacity(0.6),
+                                      color:
+                                          AppTheme.nearlyBlack.withOpacity(0.3),
                                       offset: const Offset(2.0, 4.0),
                                       blurRadius: 8),
                                 ],
@@ -129,7 +130,7 @@ class HomeDrawerState extends State<HomeDrawer> {
                         'Student Profile',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          color: AppTheme.grey,
+                          color: AppTheme.green,
                           fontSize: 18,
                         ),
                       ),
@@ -144,7 +145,7 @@ class HomeDrawerState extends State<HomeDrawer> {
           ),
           Divider(
             height: 1,
-            color: AppTheme.grey.withOpacity(0.6),
+            color: AppTheme.green.withOpacity(0.6),
           ),
           Expanded(
             child: ListView.builder(
@@ -158,7 +159,7 @@ class HomeDrawerState extends State<HomeDrawer> {
           ),
           Divider(
             height: 1,
-            color: AppTheme.grey.withOpacity(0.6),
+            color: AppTheme.green.withOpacity(0.6),
           ),
           Column(
             children: <Widget>[
@@ -169,13 +170,13 @@ class HomeDrawerState extends State<HomeDrawer> {
                     fontFamily: AppTheme.fontName,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: AppTheme.darkText,
+                    color: AppTheme.green,
                   ),
                   textAlign: TextAlign.left,
                 ),
                 trailing: Icon(
                   Icons.power_settings_new,
-                  color: Colors.red,
+                  color: AppTheme.green,
                 ),
                 onTap: onTapped,
               ),
@@ -195,10 +196,10 @@ class HomeDrawerState extends State<HomeDrawer> {
 
   Widget inkwell(DrawerList listData) {
     return Material(
-      color: Colors.transparent,
+      color: AppTheme.transparent,
       child: InkWell(
-        splashColor: Colors.grey.withOpacity(0.1),
-        highlightColor: Colors.transparent,
+        splashColor: AppTheme.green.withOpacity(0.1),
+        highlightColor: AppTheme.transparent,
         onTap: () {
           navigationtoScreen(listData.index!);
         },
@@ -211,17 +212,6 @@ class HomeDrawerState extends State<HomeDrawer> {
                   SizedBox(
                     width: 6.0,
                     height: 46.0,
-                    // decoration: BoxDecoration(
-                    //   color: widget.screenIndex == listData.index
-                    //       ? Colors.blue
-                    //       : Colors.transparent,
-                    //   borderRadius:  BorderRadius.only(
-                    //     topLeft: Radius.circular(0),
-                    //     topRight: Radius.circular(16),
-                    //     bottomLeft: Radius.circular(0),
-                    //     bottomRight: Radius.circular(16),
-                    //   ),
-                    // ),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(4.0),
@@ -232,12 +222,12 @@ class HomeDrawerState extends State<HomeDrawer> {
                           height: 24,
                           child: Image.asset(listData.imageName,
                               color: widget.screenIndex == listData.index
-                                  ? Colors.blue
+                                  ? AppTheme.green
                                   : AppTheme.nearlyBlack),
                         )
                       : Icon(listData.icon?.icon,
                           color: widget.screenIndex == listData.index
-                              ? Colors.blue
+                              ? AppTheme.green
                               : AppTheme.nearlyBlack),
                   const Padding(
                     padding: EdgeInsets.all(4.0),
@@ -248,7 +238,7 @@ class HomeDrawerState extends State<HomeDrawer> {
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
                       color: widget.screenIndex == listData.index
-                          ? Colors.blue
+                          ? AppTheme.green
                           : AppTheme.nearlyBlack,
                     ),
                     textAlign: TextAlign.left,
@@ -275,7 +265,7 @@ class HomeDrawerState extends State<HomeDrawer> {
                                 MediaQuery.of(context).size.width * 0.75 - 64,
                             height: 46,
                             decoration: BoxDecoration(
-                              color: Colors.blue.withOpacity(0.2),
+                              color: AppTheme.green.withOpacity(0.2),
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(0),
                                 topRight: Radius.circular(28),

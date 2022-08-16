@@ -21,9 +21,7 @@ class _NewsState extends State<News> {
             padding: EdgeInsets.symmetric(vertical: 16),
             child: Appbar(
               title: 'News',
-              onIconPressed: () {},
-              search: true,
-              view: false,
+              search: Icons.search,
               onSearch: (val) {},
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:northern_border_university/controller/app_theme.dart';
 
 class MediaCard extends StatelessWidget {
   final String title;
@@ -54,20 +55,22 @@ class MediaCard extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             softWrap: false,
                             maxLines: 2,
-                            style: TextStyle(fontWeight: FontWeight.w500)),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: AppTheme.lightGreen)),
                       ),
                       SizedBox(height: 8),
                       Text(
                         subtitle,
                         style: TextStyle(
-                          color: Colors.grey,
+                          color: AppTheme.green,
                         ),
                       ),
                     ],
                   ),
                 ],
               ),
-              Icon(Icons.arrow_forward_ios, color: Colors.grey),
+              Icon(Icons.arrow_forward_ios, color: AppTheme.green),
             ],
           ),
         ),
