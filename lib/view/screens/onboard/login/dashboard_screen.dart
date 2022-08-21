@@ -117,6 +117,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     );
 
     return AppBar(
+      leading: Container(),
       actions: <Widget>[
         FadeIn(
           controller: _loadingController,
@@ -284,16 +285,7 @@ class _DashboardScreenState extends State<DashboardScreen>
       child: SafeArea(
         child: Scaffold(
           //appBar: _buildAppBar(theme),
-          body: DrawerUserController(
-            screenIndex: drawerIndex,
-            drawerWidth: MediaQuery.of(context).size.width * 0.75,
-            onDrawerCall: (DrawerIndex drawerIndexitem) {
-              changeIndex(drawerIndexitem);
-              //callback from drawer for replace screen as user need with passing DrawerIndex(Enum index)
-            },
-            screenView: screenView ?? dashboardBody(theme),
-            //we replace screen view as we need on navigate starting screens like MyHomePage, HelpScreen, FeedbackScreen, etc...
-          ),
+          body: dashboardBody(theme),
         ),
       ),
     );
@@ -345,43 +337,4 @@ class _DashboardScreenState extends State<DashboardScreen>
           ],
         ),
       );
-  void changeIndex(DrawerIndex drawerIndexitem) {
-    if (drawerIndex != drawerIndexitem) {
-      drawerIndex = drawerIndexitem;
-      switch (drawerIndex) {
-        case DrawerIndex.HOME:
-          setState(() {
-            screenView = Home();
-          });
-          break;
-        case DrawerIndex.Help:
-          setState(() {
-            screenView = HelpScreen();
-          });
-          break;
-        case DrawerIndex.About:
-          setState(() {
-            screenView = AboutUS();
-          });
-          break;
-
-        case DrawerIndex.FeedBack:
-          setState(() {
-            screenView = FeedbackScreen();
-          });
-          break;
-        case DrawerIndex.EServices:
-          setState(() {
-            screenView = dashboardBody(Theme.of(context));
-          });
-          break;
-        case DrawerIndex.Share:
-          // TODO: Handle this case.
-          break;
-        case DrawerIndex.Testing:
-          // TODO: Handle this case.
-          break;
-      }
-    }
-  }
 }
