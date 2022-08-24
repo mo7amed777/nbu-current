@@ -4,6 +4,7 @@ import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/The%20University%20President.dart';
 import 'package:northern_border_university/view/screens/main_screens/Colleges/college_departments.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/mjales/signature.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -182,7 +183,13 @@ class _EServicesState extends State<EServices> {
     await article.getAllItems();
     String imgURL = await article.getItemImageURL(article.items[0]);
     Get.back();
-    Get.to(TheUniversityPresident(
-        article: article, imgURL: imgURL, item: article.items[7]));
+    switch (key) {
+      case 'Majales':
+        Get.to(Signature());
+        break;
+      default:
+        Get.to(TheUniversityPresident(
+            article: article, imgURL: imgURL, item: article.items[7]));
+    }
   }
 }

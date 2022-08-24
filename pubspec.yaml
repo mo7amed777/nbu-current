@@ -55,6 +55,8 @@ dependencies:
   flutter_app_badger: ^1.4.0
   searchbar_animation: ^0.0.2
   flutter_login: ^4.0.0
+  hand_signature: ^2.3.0+1
+  image_gallery_saver: ^1.7.1
 
 dev_dependencies:
   flutter_test:
