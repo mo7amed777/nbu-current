@@ -12,7 +12,18 @@ HandSignatureControl control = HandSignatureControl(
   velocityRange: 2.0,
 );
 
-class Signature extends StatelessWidget {
+class Signature extends StatefulWidget {
+  @override
+  State<Signature> createState() => _SignatureState();
+}
+
+class _SignatureState extends State<Signature> {
+  @override
+  void dispose() {
+    super.dispose();
+    control.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,21 +57,25 @@ class Signature extends StatelessWidget {
             ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               CupertinoButton(
+                color: AppTheme.nearlyBlack,
                 onPressed: () {
                   control.clear();
                 },
-                child: Text('Clear'),
+                child: Text('Clear', style: TextStyle(letterSpacing: 1)),
               ),
               CupertinoButton(
+                color: AppTheme.lightGreen,
                 onPressed: () async {
-                  ByteData? bytes = await control.toImage();
+                  ByteData? bytes =
+                      await control.toImage(background: AppTheme.background);
                   final result = await ImageGallerySaver.saveImage(
                       bytes!.buffer.asUint8List(),
                       name: "Signature");
                 },
-                child: Text('Save'),
+                child: Text('SAVE', style: TextStyle(letterSpacing: 1)),
               ),
             ],
           ),
