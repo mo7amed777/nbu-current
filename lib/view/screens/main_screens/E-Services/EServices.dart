@@ -1,9 +1,7 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/The%20University%20President.dart';
-import 'package:northern_border_university/view/screens/main_screens/Colleges/college_departments.dart';
 import 'package:northern_border_university/view/screens/main_screens/E-Services/mjales/signature.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
@@ -53,8 +51,8 @@ class _EServicesState extends State<EServices> {
     'Employee of the Year': 'assets/images/magazine/webInterFace.png',
     'E-Archiving': 'assets/images/magazine/interFace3.png',
   };
-  Map<String, String> search_list = {};
-  bool not_found = false;
+  Map<String, String> searchList = {};
+  bool notFound = false;
 
   @override
   Widget build(BuildContext context) {
@@ -69,16 +67,18 @@ class _EServicesState extends State<EServices> {
                   title: 'E-Services',
                   search: Icons.search,
                   onSearch: (String val) {
-                    search_list.clear();
+                    // clear list on the begging of Search process ...
+                    searchList.clear();
                     setState(() {
                       services.keys.toList().forEach((key) {
                         if (key.toLowerCase().contains(val.toLowerCase())) {
-                          not_found = false;
-                          search_list.addAll({key: services[key]!});
+                          notFound = false;
+                          searchList.addAll({key: services[key]!});
                         }
                       });
-                      if (search_list.isEmpty && val.isNotEmpty) {
-                        not_found = true;
+                      if (searchList.isEmpty && val.isNotEmpty) {
+                        //No Search Results
+                        notFound = true;
                       }
                     });
                   },
@@ -86,7 +86,7 @@ class _EServicesState extends State<EServices> {
                     FocusScope.of(context).requestFocus(FocusNode());
                   }),
             ),
-            not_found
+            notFound
                 ? Center(
                     child: Image.asset(
                       'assets/images/e-services/search_not_found.png',
@@ -103,9 +103,9 @@ class _EServicesState extends State<EServices> {
                       shrinkWrap: true,
                       childAspectRatio: 1,
                       children: List.generate(
-                        search_list.isEmpty
+                        searchList.isEmpty
                             ? services.length
-                            : search_list.length,
+                            : searchList.length,
                         (int index) {
                           return AnimationConfiguration.staggeredGrid(
                             position: index,
@@ -117,17 +117,22 @@ class _EServicesState extends State<EServices> {
                                   aspectRatio: 1.5,
                                   child: ClipRRect(
                                     borderRadius: const BorderRadius.all(
-                                        Radius.circular(4.0)),
+                                      Radius.circular(4.0),
+                                    ),
                                     child: InkWell(
                                       borderRadius: const BorderRadius.all(
-                                          Radius.circular(4.0)),
-                                      onTap: () => callBack(search_list.isEmpty
-                                          ? services.keys.toList()[index]
-                                          : search_list.keys.toList()[index]),
+                                        Radius.circular(4.0),
+                                      ),
+                                      onTap: () => callBack(
+                                        searchList.isEmpty
+                                            ? services.keys.toList()[index]
+                                            : searchList.keys.toList()[index],
+                                      ),
                                       child: Card(
                                         shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(15)),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                        ),
                                         elevation: 2.0,
                                         child: Column(
                                           mainAxisAlignment:
@@ -136,21 +141,25 @@ class _EServicesState extends State<EServices> {
                                             CircleAvatar(
                                               radius: 50,
                                               backgroundImage: AssetImage(
-                                                  services.values
-                                                      .toList()[index]),
+                                                services.values.toList()[index],
+                                              ),
                                             ),
-                                            Text(
-                                              search_list.isEmpty
-                                                  ? services.keys
-                                                      .toList()[index]
-                                                  : search_list.keys
-                                                      .toList()[index],
-                                              textAlign: TextAlign.center,
-                                              overflow: TextOverflow.fade,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                color: AppTheme.green,
-                                                fontSize: 14,
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                searchList.isEmpty
+                                                    ? services.keys
+                                                        .toList()[index]
+                                                    : searchList.keys
+                                                        .toList()[index],
+                                                textAlign: TextAlign.center,
+                                                overflow: TextOverflow.fade,
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w600,
+                                                  color: AppTheme.green,
+                                                  fontSize: 14,
+                                                ),
                                               ),
                                             ),
                                           ],
@@ -172,6 +181,7 @@ class _EServicesState extends State<EServices> {
     );
   }
 
+// key param refer to service name
   void callBack(String key) async {
     Article article = Article();
     Get.dialog(
@@ -184,12 +194,19 @@ class _EServicesState extends State<EServices> {
     String imgURL = await article.getItemImageURL(article.items[0]);
     Get.back();
     switch (key) {
+      //TODO: Replace with full switch cases of keys(Service Names) List
       case 'Majales':
+        // Just for testing signature screen to draW & save own sign
         Get.to(Signature());
         break;
       default:
-        Get.to(TheUniversityPresident(
-            article: article, imgURL: imgURL, item: article.items[7]));
+        Get.to(
+          TheUniversityPresident(
+            article: article,
+            imgURL: imgURL,
+            item: article.items[7],
+          ),
+        );
     }
   }
 }

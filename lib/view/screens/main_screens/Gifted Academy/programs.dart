@@ -78,16 +78,19 @@ class _ProgramsState extends State<Programs> {
                                         backgroundImage: AssetImage(
                                             items.values.toList()[index]),
                                       ),
-                                      Text(
-                                        items.isEmpty
-                                            ? items.keys.toList()[index]
-                                            : items.keys.toList()[index],
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.fade,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          color: AppTheme.green,
-                                          fontSize: 14,
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          items.isEmpty
+                                              ? items.keys.toList()[index]
+                                              : items.keys.toList()[index],
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.fade,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            color: AppTheme.green,
+                                            fontSize: 14,
+                                          ),
                                         ),
                                       ),
                                     ],

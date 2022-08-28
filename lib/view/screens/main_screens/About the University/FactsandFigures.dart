@@ -59,14 +59,17 @@ class _FactsandFiguresState extends State<FactsandFigures> {
                       color: AppTheme.lightText,
                       fontSize: 20)),
             ),
-            Text(title,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: AppTheme.lightText,
-                    fontSize: 18)),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(title,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: AppTheme.lightText,
+                      fontSize: 18)),
+            ),
           ],
         ),
       );

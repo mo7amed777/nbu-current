@@ -9,6 +9,7 @@ import 'package:northern_border_university/view/screens/darwer_screens/about%20U
 import 'package:northern_border_university/view/screens/darwer_screens/feedback_screen.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/help_screen.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/home_screen.dart';
+import 'package:northern_border_university/view/screens/darwer_screens/navigation_home_screen.dart';
 import 'package:northern_border_university/view/screens/darwer_screens/profile.dart';
 import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/ContactUS.dart';
 import 'package:northern_border_university/view/screens/main_screens/Administration/University%20President%20Office/Contact%20US.dart';
@@ -222,10 +223,12 @@ class _DashboardScreenState extends State<DashboardScreen>
           },
         ),
         _buildButton(
-          icon: const Icon(FontAwesomeIcons.heart),
-          label: 'Favourite',
+          icon: const Icon(FontAwesomeIcons.home),
+          label: 'E-Gate',
           interval: const Interval(step * 2, aniInterval + step * 2),
-          callback: () {},
+          callback: () {
+            Get.to(NavigationHomeScreen());
+          },
         ),
         _buildButton(
           icon: const Icon(

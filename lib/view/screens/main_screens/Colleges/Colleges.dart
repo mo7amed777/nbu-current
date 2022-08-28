@@ -180,16 +180,19 @@ class _CollegesState extends State<Colleges> {
                                         backgroundImage: AssetImage(
                                             colleges.values.toList()[index]),
                                       ),
-                                      Text(
-                                        colleges.isEmpty
-                                            ? colleges.keys.toList()[index]
-                                            : colleges.keys.toList()[index],
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.fade,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          color: AppTheme.green,
-                                          fontSize: 14,
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          colleges.isEmpty
+                                              ? colleges.keys.toList()[index]
+                                              : colleges.keys.toList()[index],
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.fade,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            color: AppTheme.green,
+                                            fontSize: 14,
+                                          ),
                                         ),
                                       ),
                                     ],

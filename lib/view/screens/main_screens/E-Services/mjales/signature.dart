@@ -2,9 +2,11 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hand_signature/signature.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
+import 'package:northern_border_university/controller/functions.dart';
 
 HandSignatureControl control = HandSignatureControl(
   threshold: 0.01,
@@ -21,7 +23,7 @@ class _SignatureState extends State<Signature> {
   @override
   void dispose() {
     super.dispose();
-    control.clear();
+    control.clear(); //Clear Not Dispose for reuse
   }
 
   @override
@@ -64,18 +66,36 @@ class _SignatureState extends State<Signature> {
                 onPressed: () {
                   control.clear();
                 },
-                child: Text('Clear', style: TextStyle(letterSpacing: 1)),
+                child: Text(
+                  'Clear',
+                  style: TextStyle(letterSpacing: 1),
+                ),
               ),
               CupertinoButton(
                 color: AppTheme.lightGreen,
                 onPressed: () async {
-                  ByteData? bytes =
-                      await control.toImage(background: AppTheme.background);
-                  final result = await ImageGallerySaver.saveImage(
-                      bytes!.buffer.asUint8List(),
-                      name: "Signature");
+                  try {
+                    ByteData? bytes =
+                        await control.toImage(background: AppTheme.background);
+                    await ImageGallerySaver.saveImage(
+                        bytes!.buffer.asUint8List(),
+                        name: "Signature");
+                    showSnackBar(message: 'Saved Successfully');
+                  } catch (e) {
+                    Fluttertoast.showToast(
+                        msg: "Failed Saving your signature try again!",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: AppTheme.white,
+                        fontSize: 18.0);
+                  }
                 },
-                child: Text('SAVE', style: TextStyle(letterSpacing: 1)),
+                child: Text(
+                  'SAVE',
+                  style: TextStyle(letterSpacing: 1),
+                ),
               ),
             ],
           ),
