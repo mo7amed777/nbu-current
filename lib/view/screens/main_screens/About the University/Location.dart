@@ -33,15 +33,13 @@ class _LocationState extends State<Location> {
             ),
           ),
         },
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
+        onMapCreated: _controller.complete,
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: share,
-        label: Text('Share My Location!'),
+        label: Text('Share My Location'),
         icon: Icon(Icons.share_location),
       ),
     );

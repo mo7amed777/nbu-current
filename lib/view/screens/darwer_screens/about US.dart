@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/ContactUS.dart';
-import 'package:northern_border_university/view/screens/main_screens/Contact%20US/DoYouNeedHelp.dart';
 
 class AboutUS extends StatefulWidget {
   @override

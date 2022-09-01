@@ -83,13 +83,14 @@ class _SignatureState extends State<Signature> {
                     showSnackBar(message: 'Saved Successfully');
                   } catch (e) {
                     Fluttertoast.showToast(
-                        msg: "Failed Saving your signature try again!",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.red,
-                        textColor: AppTheme.white,
-                        fontSize: 18.0);
+                      msg: "Failed Saving your signature try again!",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.red,
+                      textColor: AppTheme.white,
+                      fontSize: 18.0,
+                    );
                   }
                 },
                 child: Text(

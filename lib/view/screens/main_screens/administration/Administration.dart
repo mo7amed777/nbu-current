@@ -82,9 +82,13 @@ class _AdministrationState extends State<Administration> {
                       right: 12.0,
                       bottom: 12.0,
                       child: InkWell(
-                        onTap: () => Get.to(Administrations()),
+                        onTap: () {
+                          _controller.pause();
+                          _chewieController.pause();
+                          Get.to(Administrations());
+                        },
                         child: Row(
-                          children: [
+                          children: const [
                             Text(
                               'view more',
                               style: TextStyle(

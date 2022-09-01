@@ -55,9 +55,10 @@ class LoginScreen extends StatelessWidget {
       loginAfterSignUp: false,
       loginProviders: [
         LoginProvider(
-          button: Buttons.linkedIn,
-          label: 'Sign in with LinkedIn',
+          button: Buttons.apple,
+          label: 'Sign in with Apple',
           callback: () async {
+            //return null meaning user signedIN else user can't signIn
             return null;
           },
           providerNeedsSignUpCallback: () {

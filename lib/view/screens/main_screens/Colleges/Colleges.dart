@@ -93,11 +93,6 @@ class _CollegesState extends State<Colleges> {
                                       onPressed: () {
                                         Get.back();
                                         switch (index) {
-                                          // 'Arar',
-                                          // 'Rafha',
-                                          // 'Turaif',
-                                          // 'Al-uwayqilah',
-                                          // 'All Colleges',
                                           case 0:
                                             colleges = arar;
                                             break;
