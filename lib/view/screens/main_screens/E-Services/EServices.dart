@@ -1,11 +1,14 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
-import 'package:northern_border_university/view/screens/main_screens/Administration/The%20University%20President.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/surveys.dart';
 import 'package:northern_border_university/view/screens/main_screens/E-Services/mjales/signature.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:http/http.dart' as http;
 
 class EServices extends StatefulWidget {
   const EServices({Key? key}) : super(key: key);
@@ -17,6 +20,7 @@ class EServices extends StatefulWidget {
 class _EServicesState extends State<EServices> {
   Map<String, String> services = {
     'BlackBoard': 'assets/images/magazine/interFace3.png',
+    'Surveys': 'assets/images/magazine/interFace3.png',
     'Admission and Registration (Students)':
         'assets/images/magazine/interFace3.png',
     'Users Identification': 'assets/images/magazine/interFace3.png',
@@ -53,6 +57,8 @@ class _EServicesState extends State<EServices> {
   };
   Map<String, String> searchList = {};
   bool notFound = false;
+
+  String userID = '3';
 
   @override
   Widget build(BuildContext context) {
@@ -192,21 +198,25 @@ class _EServicesState extends State<EServices> {
     );
     await article.getAllItems();
     String imgURL = await article.getItemImageURL(article.items[0]);
-    Get.back();
+
     switch (key) {
       //TODO: Replace with full switch cases of keys(Service Names) List
       case 'Majales':
         // Just for testing signature screen to draW & save own sign
+
         Get.to(Signature());
         break;
-      default:
-        Get.to(
-          TheUniversityPresident(
-            article: article,
-            imgURL: imgURL,
-            item: article.items[7],
-          ),
-        );
+      case 'Surveys':
+        getSurveys();
+        break;
     }
+  }
+
+  void getSurveys() async {
+    final http.Response response = await http
+        .get(Uri.parse("http://10.220.17.59/API/NBUSurvey/GetSurvey/$userID"));
+    List surveys = jsonDecode(response.body);
+    Get.back();
+    Get.to(Surveys(surveys: surveys));
   }
 }
