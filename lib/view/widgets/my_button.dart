@@ -18,7 +18,7 @@ class MyButton extends StatelessWidget {
                 AppTheme.green,
                 AppTheme.green,
               ])),
-          child: FlatButton(
+          child: TextButton(
             child: Text(
               label,
               style: TextStyle(

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/survey_question.dart';
 import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/questions_of_servey.dart';
@@ -20,42 +21,67 @@ class _SurveysState extends State<Surveys> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:
+          widget.surveys.isEmpty ? Color(0xFFFEEFDA) : AppTheme.background,
       body: Column(
         children: [
-          Padding(
-            padding:
-                EdgeInsets.only(top: MediaQuery.of(context).padding.top + 6),
-            child: Appbar(
-              title: 'surveys',
-              search: Icons.search,
-              onSearch: (val) {},
-            ),
-          ),
-          Expanded(
-            child: ListView(
-                children: widget.surveys.map((survey) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ExpandedTile(
-                  //trailing: Icon(Icons.arrow_forward_ios),
-                  mainTitle: survey['surveyPeriod']['survey']['surveyName'],
-                  title: survey['surveyPeriod']['survey']['surveyDescription'],
-                  TwoItemsRow: [
-                    survey['surveyPeriod']['startDate'],
-                    survey['surveyPeriod']['endDate'],
-                  ],
-                  onTap: () async {
-                    getSurveyQuestionsByID(
-                      surveyID: survey['surveyPeriod']['surveyId'].toString(),
-                      surveyName: survey['surveyPeriod']['survey']
-                          ['surveyName'],
-                      surveyPeriodID: survey['surveyPeriodId'],
-                      surveyPeriodTargetUserId: survey['id'],
-                    );
-                  },
+          widget.surveys.isEmpty
+              ? Container()
+              : Padding(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).padding.top + 6),
+                  child: Appbar(
+                    title: 'Surveys',
+                    search: Icons.search,
+                    onSearch: (val) {},
+                  ),
                 ),
-              );
-            }).toList()),
+          Expanded(
+            child: widget.surveys.isEmpty
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset('assets/images/media/no_survey.jpg'),
+                      ),
+                      SizedBox(height: 32),
+                      Text(
+                        'No Surveys Available !',
+                        style: TextStyle(
+                          color: AppTheme.nearlyBlack,
+                          fontSize: 25,
+                        ),
+                      ),
+                    ],
+                  )
+                : ListView(
+                    children: widget.surveys.map((survey) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ExpandedTile(
+                        //trailing: Icon(Icons.arrow_forward_ios),
+                        mainTitle: survey['surveyPeriod']['survey']
+                            ['surveyName'],
+                        title: survey['surveyPeriod']['survey']
+                            ['surveyDescription'],
+                        TwoItemsRow: [
+                          survey['surveyPeriod']['startDate'],
+                          survey['surveyPeriod']['endDate'],
+                        ],
+                        onTap: () async {
+                          getSurveyQuestionsByID(
+                            surveyID:
+                                survey['surveyPeriod']['surveyId'].toString(),
+                            surveyName: survey['surveyPeriod']['survey']
+                                ['surveyName'],
+                            surveyPeriodID: survey['surveyPeriodId'],
+                            surveyPeriodTargetUserId: survey['id'],
+                          );
+                        },
+                      ),
+                    );
+                  }).toList()),
           ),
         ],
       ),

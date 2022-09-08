@@ -203,7 +203,7 @@ class _EServicesState extends State<EServices> {
       //TODO: Replace with full switch cases of keys(Service Names) List
       case 'Majales':
         // Just for testing signature screen to draW & save own sign
-
+        Get.back();
         Get.to(Signature());
         break;
       case 'Surveys':

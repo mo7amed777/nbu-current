@@ -129,11 +129,13 @@ class _EditPageState extends State<EditPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  FlatButton(
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    color: AppTheme.nearlyBlack,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      backgroundColor: AppTheme.nearlyBlack,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
                     onPressed: () {},
                     child: Text("CANCEL",
                         style: TextStyle(
@@ -141,13 +143,15 @@ class _EditPageState extends State<EditPage> {
                             letterSpacing: 2.2,
                             color: AppTheme.white)),
                   ),
-                  RaisedButton(
+                  TextButton(
                     onPressed: () {},
-                    color: AppTheme.green,
-                    padding: EdgeInsets.symmetric(horizontal: 50),
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                    style: TextButton.styleFrom(
+                      backgroundColor: AppTheme.green,
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                    ),
                     child: Text(
                       "SAVE",
                       style: TextStyle(
