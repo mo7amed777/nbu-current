@@ -203,7 +203,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           label: 'Profile',
           interval: const Interval(0, aniInterval),
           callback: () {
-            Get.to(Profile());
+            Get.to(() => Profile());
           },
         ),
         _buildButton(
@@ -219,7 +219,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           label: 'My Services',
           interval: const Interval(step, aniInterval + step),
           callback: () {
-            Get.to(EServices());
+            Get.to(() => EServices());
           },
         ),
         _buildButton(
@@ -227,7 +227,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           label: 'E-Gate',
           interval: const Interval(step * 2, aniInterval + step * 2),
           callback: () {
-            Get.to(NavigationHomeScreen());
+            Get.to(() => NavigationHomeScreen());
           },
         ),
         _buildButton(
@@ -238,7 +238,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           label: 'Report',
           interval: const Interval(0, aniInterval),
           callback: () {
-            Get.to(ContactOurOffice());
+            Get.to(() => ContactOurOffice());
           },
         ),
         _buildButton(
@@ -246,7 +246,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           label: 'Contact US',
           interval: const Interval(step, aniInterval + step),
           callback: () {
-            Get.to(ContactUS());
+            Get.to(() => ContactUS());
           },
         ),
         _buildButton(
@@ -272,7 +272,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           label: 'Settings',
           interval: const Interval(step * 2, aniInterval + step * 2),
           callback: () {
-            Get.to(Settings());
+            Get.to(() => Settings());
           },
         ),
       ],

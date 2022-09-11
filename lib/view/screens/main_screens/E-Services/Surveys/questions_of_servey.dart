@@ -216,6 +216,8 @@ class QuestionsOfServeyState extends State<QuestionsOfServey> {
                   widget.surveyPeriodTargetUserId, // first id in api
               "SurveyQuestionId": questionID,
               "AnswerValue": ans.toString(),
+              "DeviceType":
+                  2, //DeviceType means user submitted this survey from Mobile Device Android & IOS
             });
           }
         } else {
@@ -227,6 +229,7 @@ class QuestionsOfServeyState extends State<QuestionsOfServey> {
                 widget.surveyPeriodTargetUserId, // first id in api
             "SurveyQuestionId": questionID,
             "AnswerValue": answer.toString(),
+            "DeviceType": 2,
           });
         }
       });

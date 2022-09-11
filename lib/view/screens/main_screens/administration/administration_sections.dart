@@ -131,41 +131,41 @@ class _AdministrationsState extends State<Administrations> {
     switch (key) {
       case 'The President':
         imgURL = await article.getItemImageURL(article.items[0]);
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[0]));
         break;
       case 'The Resume':
-        Get.to(ProfM_AlShihri());
+        Get.to(() => ProfM_AlShihri());
         break;
       case 'President Office':
-        Get.to(UniversityPresidentOffice());
+        Get.to(() => UniversityPresidentOffice());
         break;
       case 'Vice-President':
-        Get.to(VicePresidencies());
+        Get.to(() => VicePresidencies());
         break;
       case 'Deanship\'s':
-        // Get.to(Deanships());
+        // Get.to(() =>Deanships());
         imgURL = await article.getItemImageURL(article.items[0]);
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[0]));
         break;
       case 'Centers':
-        //Get.to(Centers());
+        //Get.to(() =>Centers());
         imgURL = await article.getItemImageURL(article.items[1]);
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[1]));
         break;
       case 'Administrations':
         imgURL = await article.getItemImageURL(article.items[10]);
 
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[2]));
         break;
       case 'Faculty Members':
-        // Get.to(FacultyMembers());
+        // Get.to(() =>FacultyMembers());
         imgURL = await article.getItemImageURL(article.items[8]);
 
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[5]));
         break;
     }

@@ -46,11 +46,11 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                       onTap: () async {
                         Article article = Article();
                         String imgURL = await article.getItemImageURL(item);
-                        Get.to(ArticleDetailScreen(
-                          article: article,
-                          imgURL: imgURL,
-                          item: item,
-                        ));
+                        Get.to(() => ArticleDetailScreen(
+                              article: article,
+                              imgURL: imgURL,
+                              item: item,
+                            ));
                       },
                     ),
                   ),

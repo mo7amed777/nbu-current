@@ -27,7 +27,7 @@ class _UniversityPresidentOfficeState extends State<UniversityPresidentOffice> {
             child: Appbar(
               title: 'University President Office',
               onIconPressed: () {
-                Get.to(OfficeMembers());
+                Get.to(() => OfficeMembers());
               },
               search: Icons.search,
               icon: FontAwesomeIcons.userFriends,
@@ -70,7 +70,7 @@ class _UniversityPresidentOfficeState extends State<UniversityPresidentOffice> {
                 bottom: 12.0,
                 child: InkWell(
                   onTap: () {
-                    Get.to(PresidentSubordinatingUnits());
+                    Get.to(() => PresidentSubordinatingUnits());
                   },
                   child: Row(
                     children: [

@@ -91,7 +91,7 @@ class _ContactOurOfficeState extends State<ContactOurOffice> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Get.to(ContactPresident());
+                          Get.to(() => ContactPresident());
                         },
                         child: Text('Contact The President',
                             style: TextStyle(fontSize: 16)),

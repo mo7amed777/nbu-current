@@ -34,7 +34,7 @@ class GiftedAcademyState extends State<GiftedAcademy> {
                 ),
               ),
               InkWell(
-                onTap: () => Get.to(Programs()),
+                onTap: () => Get.to(() => Programs()),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

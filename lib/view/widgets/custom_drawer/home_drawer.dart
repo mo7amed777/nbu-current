@@ -76,7 +76,7 @@ class HomeDrawerState extends State<HomeDrawer> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           InkWell(
-            onTap: () => Get.to(Profile()),
+            onTap: () => Get.to(() => Profile()),
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.only(top: 40.0),

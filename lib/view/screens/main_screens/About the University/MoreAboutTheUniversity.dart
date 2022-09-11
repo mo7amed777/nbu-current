@@ -136,31 +136,31 @@ class _MoreAboutTheUniversityState extends State<MoreAboutTheUniversity> {
 
     switch (key) {
       case 'Vision and Goals':
-        Get.to(VisionandGoals());
+        Get.to(() => VisionandGoals());
         break;
       case 'Strategic Plan':
-        Get.to(StratigicPlan());
+        Get.to(() => StratigicPlan());
         break;
       case 'Location':
-        Get.to(Location());
+        Get.to(() => Location());
         break;
       case 'Facts and Figures':
-        Get.to(FactsandFigures());
+        Get.to(() => FactsandFigures());
         break;
       case 'Guides':
-        Get.to(Guides());
+        Get.to(() => Guides());
         break;
       case 'Deanship\'s':
-        Get.to(Deanships());
+        Get.to(() => Deanships());
         break;
       case 'Annual Reports':
-        Get.to(AnnualReports());
+        Get.to(() => AnnualReports());
         break;
       case 'Contact US':
-        Get.to(ContactUS());
+        Get.to(() => ContactUS());
         break;
       case 'University Council':
-        Get.to(UniversityCouncil());
+        Get.to(() => UniversityCouncil());
         break;
     }
   }

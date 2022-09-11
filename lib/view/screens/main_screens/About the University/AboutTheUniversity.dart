@@ -60,7 +60,7 @@ class _AboutTheUniversityState extends State<AboutTheUniversity> {
                 right: 12.0,
                 bottom: 12.0,
                 child: InkWell(
-                  onTap: () => Get.to(MoreAboutTheUniversity()),
+                  onTap: () => Get.to(() => MoreAboutTheUniversity()),
                   child: Row(
                     children: [
                       Text(

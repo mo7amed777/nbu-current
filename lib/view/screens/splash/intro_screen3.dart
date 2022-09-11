@@ -134,7 +134,7 @@ class MoodDiaryVew extends StatelessWidget {
                   child: InkWell(
                     onTap: () {
                       //TODO : Navigate to Gate Home for Surfing without login
-                      Get.to(NavigationHomeScreen());
+                      Get.to(() => NavigationHomeScreen());
                     },
                     child: Container(
                       height: 58,

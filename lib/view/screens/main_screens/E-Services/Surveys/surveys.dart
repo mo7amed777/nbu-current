@@ -107,12 +107,12 @@ class _SurveysState extends State<Surveys> {
       questions.add(SurveyQuestion.fromJson(question));
     }
     Get.back();
-    Get.to(QuestionsOfServey(
-      surveyQuestions: questions,
-      surveyID: int.parse(surveyID),
-      surveyName: surveyName,
-      surveyPeriodID: surveyPeriodID,
-      surveyPeriodTargetUserId: surveyPeriodTargetUserId,
-    ));
+    Get.to(() => QuestionsOfServey(
+          surveyQuestions: questions,
+          surveyID: int.parse(surveyID),
+          surveyName: surveyName,
+          surveyPeriodID: surveyPeriodID,
+          surveyPeriodTargetUserId: surveyPeriodTargetUserId,
+        ));
   }
 }

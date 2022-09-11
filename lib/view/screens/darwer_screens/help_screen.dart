@@ -76,7 +76,7 @@ class _HelpScreenState extends State<HelpScreen> {
                         color: AppTheme.transparent,
                         child: InkWell(
                           onTap: () {
-                            Get.to(ContactOurOffice());
+                            Get.to(() => ContactOurOffice());
                           },
                           child: Center(
                             child: Padding(

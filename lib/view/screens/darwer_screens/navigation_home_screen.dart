@@ -80,7 +80,7 @@ class NavigationHomeScreenState extends State<NavigationHomeScreen> {
           setState(() {
             // check if user is logged in or not and navigate to appropriate screen
             drawerIndex = DrawerIndex.HOME;
-            Get.to(LoginScreen());
+            Get.to(() => LoginScreen());
           });
           break;
         case DrawerIndex.Testing: //TODO REMOVE THIS CASE IN PRODUCTION MODE

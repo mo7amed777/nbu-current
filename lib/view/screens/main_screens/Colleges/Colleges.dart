@@ -220,10 +220,10 @@ class _CollegesState extends State<Colleges> {
     //await article.getAllItems();
     //String imgURL = await article.getItemImageURL(article.items[0]);
     Get.back();
-    // Get.to(TheUniversityPresident(
+    // Get.to(() =>TheUniversityPresident(
     //     article: article, imgURL: imgURL, item: article.items[7]));
-    Get.to(CollegeDepartments(
-      college: key,
-    ));
+    Get.to(() => CollegeDepartments(
+          college: key,
+        ));
   }
 }

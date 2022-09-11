@@ -91,7 +91,7 @@ class _MagazineState extends State<Magazine> {
         ),
         CategoryListView(
           callBack: () {
-            Get.to(CourseInfoScreen());
+            Get.to(() => CourseInfoScreen());
           },
         ),
       ],
@@ -117,7 +117,7 @@ class _MagazineState extends State<Magazine> {
           Flexible(
             child: PopularCourseListView(
               callBack: () {
-                Get.to(CourseInfoScreen());
+                Get.to(() => CourseInfoScreen());
               },
             ),
           )

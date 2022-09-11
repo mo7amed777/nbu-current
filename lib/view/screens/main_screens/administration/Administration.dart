@@ -85,7 +85,7 @@ class _AdministrationState extends State<Administration> {
                         onTap: () {
                           _controller.pause();
                           _chewieController.pause();
-                          Get.to(Administrations());
+                          Get.to(() => Administrations());
                         },
                         child: Row(
                           children: const [

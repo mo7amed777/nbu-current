@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:video_player/video_player.dart';
 
-const VideoURL =
-    'https://beta.nbu.edu.sa/sites/default/files/2022-04/%D9%85%D9%86%20%D9%86%D8%AD%D9%86_1_0.mp4';
+const VideoURL = 'https://www.nbu.edu.sa/sites/default/files/2022-09/intro.mp4';
 
 class SplashView extends StatefulWidget {
   final AnimationController animationController;
@@ -57,7 +56,7 @@ class _SplashViewState extends State<SplashView> {
             },
             child: SizedBox.expand(
               child: FittedBox(
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 child: SizedBox(
                   width: _controller.value.size.width,
                   height: _controller.value.size.height,

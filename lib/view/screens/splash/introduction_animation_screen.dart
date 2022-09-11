@@ -113,6 +113,6 @@ class _IntroductionAnimationScreenState
   }
 
   void _signUpClick() {
-    Get.to(LoginScreen());
+    Get.to(() => LoginScreen());
   }
 }

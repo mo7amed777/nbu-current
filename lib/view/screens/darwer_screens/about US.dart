@@ -76,7 +76,7 @@ class _AboutUSState extends State<AboutUS> {
                         color: AppTheme.transparent,
                         child: InkWell(
                           onTap: () {
-                            Get.to(ContactUS());
+                            Get.to(() => ContactUS());
                           },
                           child: Center(
                             child: Row(

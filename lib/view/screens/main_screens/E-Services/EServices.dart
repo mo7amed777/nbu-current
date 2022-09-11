@@ -50,7 +50,7 @@ class _EServicesState extends State<EServices> {
     'Self-Service Portal': 'assets/images/magazine/interFace3.png',
     'SUPPORT-ME': 'assets/images/magazine/interFace3.png',
     'Majales': 'assets/images/magazine/interFace3.png',
-    'Training Programs at the Institute of Public Administration':
+    'Training Programs at Public Administration Institute':
         'assets/images/magazine/webInterFace.png',
     'Employee of the Year': 'assets/images/magazine/webInterFace.png',
     'E-Archiving': 'assets/images/magazine/interFace3.png',
@@ -202,9 +202,9 @@ class _EServicesState extends State<EServices> {
     switch (key) {
       //TODO: Replace with full switch cases of keys(Service Names) List
       case 'Majales':
-        // Just for testing signature screen to draW & save own sign
+        // Just for testing signature screen to draw & save own sign
         Get.back();
-        Get.to(Signature());
+        Get.to(Signature.new);
         break;
       case 'Surveys':
         getSurveys();
@@ -213,10 +213,13 @@ class _EServicesState extends State<EServices> {
   }
 
   void getSurveys() async {
+    //userID is the ID of Target User who have to see this Survey
+    //Replace with id which come from login api of signed user ex. userID = 3
+
     final http.Response response = await http
         .get(Uri.parse("http://10.220.17.59/API/NBUSurvey/GetSurvey/$userID"));
     List surveys = jsonDecode(response.body);
     Get.back();
-    Get.to(Surveys(surveys: surveys));
+    Get.to(() => Surveys(surveys: surveys));
   }
 }

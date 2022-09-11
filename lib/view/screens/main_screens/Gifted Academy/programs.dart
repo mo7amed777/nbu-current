@@ -127,35 +127,35 @@ class _ProgramsState extends State<Programs> {
     switch (key) {
       case 'Acceleration':
         imgURL = await article.getItemImageURL(article.items[0]);
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[0]));
         break;
       case 'Future Pioneers':
         imgURL = await article.getItemImageURL(article.items[1]);
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[1]));
         break;
       case 'Apprenticships':
         imgURL = await article.getItemImageURL(article.items[2]);
 
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[2]));
         break;
       case 'Dual Enrollment':
         imgURL = await article.getItemImageURL(article.items[3]);
 
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[3]));
         break;
       case 'Self-nomination':
         imgURL = await article.getItemImageURL(article.items[4]);
 
-        Get.to(SelfNomation());
+        Get.to(() => SelfNomation());
         break;
       case 'Vision & Mission':
         imgURL = await article.getItemImageURL(article.items[5]);
 
-        Get.to(TheUniversityPresident(
+        Get.to(() => TheUniversityPresident(
             article: article, imgURL: imgURL, item: article.items[5]));
         break;
     }

@@ -132,22 +132,22 @@ class _PresidentSubordinatingUnitsState
 
     switch (key) {
       case 'Advisors\' Office':
-        Get.to(AdvisorsOffice());
+        Get.to(() => AdvisorsOffice());
         break;
       case 'Project Management':
-        Get.to(ProjectManagementOffice());
+        Get.to(() => ProjectManagementOffice());
         break;
       case 'Self-generated Res.':
-        Get.to(SelfGeneratedResourcesMonitoringUnit());
+        Get.to(() => SelfGeneratedResourcesMonitoringUnit());
         break;
       case 'Risk Management':
-        Get.to(RiskManagementUnit());
+        Get.to(() => RiskManagementUnit());
         break;
       case 'General Admin':
-        Get.to(GeneralAdministration());
+        Get.to(() => GeneralAdministration());
         break;
       case 'Contact US':
-        Get.to(ContactOurOffice());
+        Get.to(() => ContactOurOffice());
         break;
     }
   }

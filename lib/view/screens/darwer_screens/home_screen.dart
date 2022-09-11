@@ -63,7 +63,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
                       if (isAppBadgeSupported) {
                         FlutterAppBadger.updateBadgeCount(1);
                       }
-                      Get.to(Settings());
+                      Get.to(() => Settings());
                     },
                   ),
                 ),

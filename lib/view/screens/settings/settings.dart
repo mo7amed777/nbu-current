@@ -69,7 +69,7 @@ class _SettingsState extends State<Settings> {
                     child: ListTile(
                       onTap: () {
                         //open edit profile
-                        Get.to(EditPage());
+                        Get.to(() => EditPage());
                       },
                       title: Text(
                         "Student Name",

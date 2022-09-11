@@ -143,9 +143,9 @@ class CenterNextButton extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () => Get.to(LoginScreen(
-                    key: Key('Sign UP'),
-                  )),
+                  onTap: () => Get.to(() => LoginScreen(
+                        key: Key('Sign UP'),
+                      )),
                   child: Text(
                     'Sign Up',
                     style: TextStyle(

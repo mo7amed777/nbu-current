@@ -31,12 +31,12 @@ class _NewsState extends State<News> {
             subtitle: '26 Sha’ban 1443 Hijri',
             image: 'assets/images/media/placeholder.jpg',
             onTap: () {
-              Get.to(NewsDetail(
-                title:
-                    'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
-                date: '26 Sha’ban 1443 Hijri',
-                image: 'assets/images/media/placeholder.jpg',
-              ));
+              Get.to(() => NewsDetail(
+                    title:
+                        'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
+                    date: '26 Sha’ban 1443 Hijri',
+                    image: 'assets/images/media/placeholder.jpg',
+                  ));
             },
           ),
           MediaCard(
@@ -45,12 +45,12 @@ class _NewsState extends State<News> {
             subtitle: '26 Sha’ban 1443 Hijri',
             image: 'assets/images/media/placeholder.jpg',
             onTap: () {
-              Get.to(NewsDetail(
-                title:
-                    'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
-                date: '26 Sha’ban 1443 Hijri',
-                image: 'assets/images/media/placeholder.jpg',
-              ));
+              Get.to(() => NewsDetail(
+                    title:
+                        'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
+                    date: '26 Sha’ban 1443 Hijri',
+                    image: 'assets/images/media/placeholder.jpg',
+                  ));
             },
           ),
           MediaCard(
@@ -59,12 +59,12 @@ class _NewsState extends State<News> {
             subtitle: '26 Sha’ban 1443 Hijri',
             image: 'assets/images/media/placeholder.jpg',
             onTap: () {
-              Get.to(NewsDetail(
-                title:
-                    'Information Technology Deanship obtained the ISO 9001-2015 certificate',
-                date: '26 Sha’ban 1443 Hijri',
-                image: 'assets/images/media/placeholder.jpg',
-              ));
+              Get.to(() => NewsDetail(
+                    title:
+                        'Information Technology Deanship obtained the ISO 9001-2015 certificate',
+                    date: '26 Sha’ban 1443 Hijri',
+                    image: 'assets/images/media/placeholder.jpg',
+                  ));
             },
           ),
           MediaCard(
@@ -73,12 +73,12 @@ class _NewsState extends State<News> {
             subtitle: '26 Sha’ban 1443 Hijri',
             image: 'assets/images/media/placeholder.jpg',
             onTap: () {
-              Get.to(NewsDetail(
-                title:
-                    'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
-                date: '26 Sha’ban 1443 Hijri',
-                image: 'assets/images/media/placeholder.jpg',
-              ));
+              Get.to(() => NewsDetail(
+                    title:
+                        'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
+                    date: '26 Sha’ban 1443 Hijri',
+                    image: 'assets/images/media/placeholder.jpg',
+                  ));
             },
           ),
           MediaCard(
@@ -87,12 +87,12 @@ class _NewsState extends State<News> {
             subtitle: '26 Sha’ban 1443 Hijri',
             image: 'assets/images/media/placeholder.jpg',
             onTap: () {
-              Get.to(NewsDetail(
-                title:
-                    'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
-                date: '26 Sha’ban 1443 Hijri',
-                image: 'assets/images/media/placeholder.jpg',
-              ));
+              Get.to(() => NewsDetail(
+                    title:
+                        'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
+                    date: '26 Sha’ban 1443 Hijri',
+                    image: 'assets/images/media/placeholder.jpg',
+                  ));
             },
           ),
           MediaCard(
@@ -101,12 +101,12 @@ class _NewsState extends State<News> {
             subtitle: '26 Sha’ban 1443 Hijri',
             image: 'assets/images/media/placeholder.jpg',
             onTap: () {
-              Get.to(NewsDetail(
-                title:
-                    'Information Technology Deanship obtained the ISO 9001-2015 certificate',
-                date: '26 Sha’ban 1443 Hijri',
-                image: 'assets/images/media/placeholder.jpg',
-              ));
+              Get.to(() => NewsDetail(
+                    title:
+                        'Information Technology Deanship obtained the ISO 9001-2015 certificate',
+                    date: '26 Sha’ban 1443 Hijri',
+                    image: 'assets/images/media/placeholder.jpg',
+                  ));
             },
           ),
           MediaCard(
@@ -115,12 +115,12 @@ class _NewsState extends State<News> {
             subtitle: '26 Sha’ban 1443 Hijri',
             image: 'assets/images/media/placeholder.jpg',
             onTap: () {
-              Get.to(NewsDetail(
-                title:
-                    'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
-                date: '26 Sha’ban 1443 Hijri',
-                image: 'assets/images/media/placeholder.jpg',
-              ));
+              Get.to(() => NewsDetail(
+                    title:
+                        'برعاية رئيس الجامعة نعلن أنطلاق البطولات الرياضية ضمن فعاليات المهرجان الرمضاني العاشر',
+                    date: '26 Sha’ban 1443 Hijri',
+                    image: 'assets/images/media/placeholder.jpg',
+                  ));
             },
           ),
         ],

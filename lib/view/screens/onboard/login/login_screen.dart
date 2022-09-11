@@ -56,6 +56,7 @@ class LoginScreen extends StatelessWidget {
       loginProviders: [
         LoginProvider(
           button: Buttons.apple,
+          animated: true,
           label: 'Sign in with Apple',
           callback: () async {
             //return null meaning user signedIN else user can't signIn

@@ -54,7 +54,7 @@ class Profile extends StatelessWidget {
                                             .titleLarge,
                                       ),
                                       InkWell(
-                                          onTap: () => Get.to(EditPage()),
+                                          onTap: () => Get.to(() => EditPage()),
                                           child: Icon(
                                             FontAwesomeIcons.edit,
                                             color: AppTheme.green,
