@@ -21,7 +21,7 @@ class _AdministrationState extends State<Administration> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(VideoURL);
+    _controller = VideoPlayerController.network(videoURL);
 
     _chewieController = ChewieController(
       videoPlayerController: _controller,
@@ -48,10 +48,11 @@ class _AdministrationState extends State<Administration> {
             padding:
                 EdgeInsets.only(top: MediaQuery.of(context).padding.top + 6),
             child: Appbar(
-                title: 'Administrations',
-                onSearch: (val) {},
-                search: Icons.search,
-                onIconPressed: () {}),
+              title: 'Administrations',
+              onSearch: (val) {},
+              search: Icons.search,
+              onIconPressed: () {},
+            ),
           ),
           Expanded(
             child: ListView(
@@ -85,7 +86,7 @@ class _AdministrationState extends State<Administration> {
                         onTap: () {
                           _controller.pause();
                           _chewieController.pause();
-                          Get.to(() => Administrations());
+                          Get.to(Administrations.new);
                         },
                         child: Row(
                           children: const [

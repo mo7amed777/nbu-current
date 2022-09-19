@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:video_player/video_player.dart';
 
-const VideoURL = 'https://www.nbu.edu.sa/sites/default/files/2022-09/intro.mp4';
+const videoURL =
+    'https://www.nbu.edu.sa/sites/default/files/2022-09/ND92identity.mp4';
 
 class SplashView extends StatefulWidget {
   final AnimationController animationController;
@@ -20,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(VideoURL)..setLooping(true);
+    _controller = VideoPlayerController.network(videoURL)..setLooping(true);
     _controller.initialize().then((_) {
       setState(() {
         _controller.play();

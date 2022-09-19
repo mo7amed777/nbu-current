@@ -88,11 +88,12 @@ class _SurveysState extends State<Surveys> {
     );
   }
 
-  void getSurveyQuestionsByID(
-      {required String surveyID,
-      required String surveyName,
-      required int surveyPeriodID,
-      required surveyPeriodTargetUserId}) async {
+  void getSurveyQuestionsByID({
+    required String surveyID,
+    required String surveyName,
+    required int surveyPeriodID,
+    required int surveyPeriodTargetUserId,
+  }) async {
     Get.dialog(
       Center(
         child: CircularProgressIndicator(),
