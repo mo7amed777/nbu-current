@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Location extends StatefulWidget {
@@ -39,7 +40,7 @@ class _LocationState extends State<Location> {
           FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: share,
-        label: Text('Share My Location'),
+        label: Text('share_location'.tr),
         icon: Icon(Icons.share_location),
       ),
     );
@@ -48,8 +49,8 @@ class _LocationState extends State<Location> {
   void share() async {
     await FlutterShare.share(
         title: 'NBU',
-        text: 'Northern Border University',
+        text: 'title'.tr,
         linkUrl: 'https://goo.gl/maps/ntBbsxx9fTD6se1W8',
-        chooserTitle: 'Share with');
+        chooserTitle: 'share_with'.tr);
   }
 }

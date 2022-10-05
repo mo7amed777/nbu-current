@@ -81,14 +81,10 @@ class _DashboardScreenState extends State<DashboardScreen>
   void didPushAfterTransition() => _loadingController!.forward();
 
   AppBar _buildAppBar(ThemeData theme) {
-    final signOutBtn = IconButton(
-      icon: const Icon(FontAwesomeIcons.rightFromBracket),
-      color: Color.fromARGB(160, 0, 0, 0),
-      onPressed: () => _goToLogin(context),
-    );
     final title = Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
+        textDirection: TextDirection.ltr,
         children: <Widget>[
           Hero(
             tag: 'NBU',
@@ -118,16 +114,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     );
 
     return AppBar(
-      leading: Container(),
-      actions: <Widget>[
-        FadeIn(
-          controller: _loadingController,
-          offset: .3,
-          curve: headerAniInterval,
-          fadeDirection: FadeDirection.endToStart,
-          child: signOutBtn,
-        ),
-      ],
+      automaticallyImplyLeading: false,
       title: title,
       backgroundColor: AppTheme.background,
       elevation: 0,
@@ -200,10 +187,10 @@ class _DashboardScreenState extends State<DashboardScreen>
           icon: const Icon(
             FontAwesomeIcons.user,
           ),
-          label: 'Profile',
+          label: 'profile'.tr,
           interval: const Interval(0, aniInterval),
           callback: () {
-            Get.to(() => Profile());
+            Get.to(Profile.new);
           },
         ),
         _buildButton(
@@ -216,18 +203,18 @@ class _DashboardScreenState extends State<DashboardScreen>
               size: 35,
             ),
           ),
-          label: 'My Services',
+          label: 'my_services'.tr,
           interval: const Interval(step, aniInterval + step),
           callback: () {
-            Get.to(() => EServices());
+            Get.to(EServices.new);
           },
         ),
         _buildButton(
           icon: const Icon(FontAwesomeIcons.home),
-          label: 'E-Gate',
+          label: 'portal'.tr,
           interval: const Interval(step * 2, aniInterval + step * 2),
           callback: () {
-            Get.to(() => NavigationHomeScreen());
+            Get.to(NavigationHomeScreen.new);
           },
         ),
         _buildButton(
@@ -235,44 +222,48 @@ class _DashboardScreenState extends State<DashboardScreen>
             Icons.report,
             size: 35,
           ),
-          label: 'Report',
+          label: 'report'.tr,
           interval: const Interval(0, aniInterval),
           callback: () {
-            Get.to(() => ContactOurOffice());
+            Get.to(ContactOurOffice.new);
           },
         ),
         _buildButton(
           icon: const Icon(FontAwesomeIcons.phoneFlip),
-          label: 'Contact US',
+          label: 'contact_us'.tr,
           interval: const Interval(step, aniInterval + step),
           callback: () {
-            Get.to(() => ContactUS());
+            Get.to(ContactUS.new);
           },
         ),
         _buildButton(
           icon: const Icon(FontAwesomeIcons.clockRotateLeft),
-          label: 'History',
+          label: 'history'.tr,
           interval: const Interval(step * 2, aniInterval + step * 2),
           callback: () {},
         ),
         _buildButton(
-          icon: const Icon(FontAwesomeIcons.ellipsis),
-          label: 'Other',
+          icon: const Icon(
+            FontAwesomeIcons.rightFromBracket,
+          ),
+          label: 'logout'.tr,
           interval: const Interval(0, aniInterval),
-          callback: () {},
+          callback: () {
+            _goToLogin(context);
+          },
         ),
         _buildButton(
           icon: const Icon(FontAwesomeIcons.magnifyingGlass, size: 20),
-          label: 'Search',
+          label: 'search'.tr,
           interval: const Interval(step, aniInterval + step),
           callback: () {},
         ),
         _buildButton(
           icon: const Icon(FontAwesomeIcons.sliders, size: 20),
-          label: 'Settings',
+          label: 'settings'.tr,
           interval: const Interval(step * 2, aniInterval + step * 2),
           callback: () {
-            Get.to(() => Settings());
+            Get.to(Settings.new);
           },
         ),
       ],
@@ -287,7 +278,7 @@ class _DashboardScreenState extends State<DashboardScreen>
       onWillPop: () => _goToLogin(context),
       child: SafeArea(
         child: Scaffold(
-          //appBar: _buildAppBar(theme),
+          appBar: _buildAppBar(theme),
           body: dashboardBody(theme),
         ),
       ),
@@ -302,10 +293,6 @@ class _DashboardScreenState extends State<DashboardScreen>
           children: <Widget>[
             Column(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 4.0),
-                  child: _buildAppBar(theme),
-                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.05,
                 ),

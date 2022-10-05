@@ -56,7 +56,7 @@ class MediaCenterListView extends StatelessWidget {
                               color: AppTheme.background,
                               child: Padding(
                                 padding: const EdgeInsets.only(
-                                    left: 16, top: 8, bottom: 8),
+                                    left: 16, top: 8, bottom: 8, right: 8),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,

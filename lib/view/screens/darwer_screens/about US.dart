@@ -36,7 +36,7 @@ class _AboutUSState extends State<AboutUS> {
               Container(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  'Who We Are?',
+                  'who_we_are'.tr,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -48,6 +48,7 @@ class _AboutUSState extends State<AboutUS> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
                 child: const Text(
+                  //Not translated it comes from NBU Portal API
                   "Northern Border University (NBU) is located in Arar, Saudi Arabia. It was founded in 2007.[1][2] It contains 16 colleges: 9 in Arar, 4 in Rafha, 2 in Turayf, and 1 in Al Uwayqilah.[3] It has a variety of majors in multiple levels, including bachelor's and master's degrees",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -82,11 +83,11 @@ class _AboutUSState extends State<AboutUS> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Padding(
                                   padding: EdgeInsets.all(4.0),
                                   child: Text(
-                                    'Contact US',
+                                    'contact_us'.tr,
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                       color: AppTheme.white,

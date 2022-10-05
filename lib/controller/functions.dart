@@ -23,7 +23,7 @@ void showSnackBar({required String message, bool err = false}) {
       margin: EdgeInsets.all(16),
       messageText: Center(
         child: Text(
-          message,
+          message.tr,
           style: TextStyle(
             color: AppTheme.white,
             fontSize: 18,

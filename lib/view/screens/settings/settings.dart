@@ -39,7 +39,7 @@ class _SettingsState extends State<Settings> {
           leading: IconButton(
               icon: Icon(Icons.arrow_back_ios), onPressed: (Get.back)),
           title: Text(
-            'Settings',
+            'settings'.tr,
             style: TextStyle(color: _dark ? AppTheme.white : AppTheme.green),
           ),
           actions: <Widget>[
@@ -69,7 +69,7 @@ class _SettingsState extends State<Settings> {
                     child: ListTile(
                       onTap: () {
                         //open edit profile
-                        Get.to(() => EditPage());
+                        Get.to(EditPage.new);
                       },
                       title: Text(
                         "Student Name",
@@ -102,7 +102,7 @@ class _SettingsState extends State<Settings> {
                             color:
                                 _dark ? AppTheme.nearlyWhite : AppTheme.green,
                           ),
-                          title: Text("Change Password"),
+                          title: Text("change_password".tr),
                           trailing: Icon(Icons.keyboard_arrow_right),
                           onTap: () {
                             //open change password
@@ -115,10 +115,15 @@ class _SettingsState extends State<Settings> {
                             color:
                                 _dark ? AppTheme.nearlyWhite : AppTheme.green,
                           ),
-                          title: Text("Change Language"),
+                          title: Text("change_language".tr),
                           trailing: Icon(Icons.keyboard_arrow_right),
                           onTap: () {
-                            //open change language
+                            if (Get.locale == Locale('en_US')) {
+                              Get.updateLocale(Locale('ar_SA'));
+                            } else {
+                              Get.updateLocale(Locale('en_US'));
+                            }
+                            setState(() {});
                           },
                         ),
                         _buildDivider(),
@@ -128,7 +133,7 @@ class _SettingsState extends State<Settings> {
                             color:
                                 _dark ? AppTheme.nearlyWhite : AppTheme.green,
                           ),
-                          title: Text("Change Location"),
+                          title: Text("change_location".tr),
                           trailing: Icon(Icons.keyboard_arrow_right),
                           onTap: () {
                             //open change location

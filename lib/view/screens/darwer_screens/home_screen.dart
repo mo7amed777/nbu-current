@@ -39,6 +39,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        textDirection: TextDirection.ltr,
         children: <Widget>[
           InkWell(
             splashColor: AppTheme.transparent,
@@ -49,12 +50,13 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
               FocusScope.of(context).requestFocus(FocusNode());
             },
             child: Column(
+              textDirection: TextDirection.ltr,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(
                       top: MediaQuery.of(context).padding.top + 6),
                   child: Appbar(
-                    title: 'Home',
+                    title: 'Home'.tr,
                     onSearch: () {},
                     icon: FontAwesomeIcons.edit,
                     onIconPressed: () async {
@@ -63,7 +65,7 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
                       if (isAppBadgeSupported) {
                         FlutterAppBadger.updateBadgeCount(1);
                       }
-                      Get.to(() => Settings());
+                      Get.to(Settings.new);
                     },
                   ),
                 ),
@@ -85,8 +87,8 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
                       animationController?.forward();
                       return MediaCenterListView(
                         data: {
-                          'title': homeList[index].title,
-                          'subTxt': homeList[index].subTxt,
+                          'title': homeList[index].title.tr,
+                          'subTxt': homeList[index].subTxt.tr,
                           'imagePath': homeList[index].imagePath,
                           'callback': homeList[index].callback,
                           'icon': homeList[index].icon,

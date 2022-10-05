@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   Container(
                     padding: const EdgeInsets.only(top: 8),
                     child: Text(
-                      'Your FeedBack',
+                      'your_feedback'.tr,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -47,8 +48,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   ),
                   Container(
                     padding: const EdgeInsets.all(16),
-                    child: const Text(
-                      'Give your valuable feedback to help us improve our app',
+                    child: Text(
+                      'give_your_feedback'.tr,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
@@ -89,7 +90,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                               child: Padding(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Text(
-                                  'Send',
+                                  'send'.tr,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     color: AppTheme.white,

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,6 +28,7 @@ class Profile extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Stack(
+                    textDirection: TextDirection.ltr,
                     children: <Widget>[
                       Container(
                         padding: EdgeInsets.all(16.0),
@@ -42,8 +45,7 @@ class Profile extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    textDirection: TextDirection.ltr,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
@@ -54,7 +56,7 @@ class Profile extends StatelessWidget {
                                             .titleLarge,
                                       ),
                                       InkWell(
-                                          onTap: () => Get.to(() => EditPage()),
+                                          onTap: () => Get.to(EditPage.new),
                                           child: Icon(
                                             FontAwesomeIcons.edit,
                                             color: AppTheme.green,
@@ -63,8 +65,8 @@ class Profile extends StatelessWidget {
                                   ),
                                   ListTile(
                                     contentPadding: EdgeInsets.all(0),
-                                    title: Text("Faculty of Medicine"),
-                                    subtitle: Text("Arar"),
+                                    title: Text('medicine'.tr),
+                                    subtitle: Text("arar".tr),
                                     textColor: AppTheme.lightText,
                                   ),
                                 ],
@@ -152,39 +154,39 @@ class Profile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: Column(
-                      children: const <Widget>[
+                      children: <Widget>[
                         ListTile(
-                          title: Text("User information"),
+                          title: Text("std_info".tr),
                           textColor: AppTheme.green,
                         ),
                         Divider(),
                         ListTile(
-                          title: Text("Email"),
+                          title: Text("email".tr),
                           subtitle: Text("student@gmail.com"),
                           leading: Icon(color: AppTheme.green, Icons.email),
                           textColor: AppTheme.lightText,
                         ),
                         ListTile(
-                          title: Text("Phone"),
+                          title: Text("phone".tr),
                           subtitle: Text("+966-5815225566"),
                           leading: Icon(color: AppTheme.green, Icons.phone),
                           textColor: AppTheme.lightText,
                         ),
                         ListTile(
-                          title: Text("Website"),
+                          title: Text("website".tr),
                           subtitle: Text("https://www.student_profile.com"),
                           leading: Icon(color: AppTheme.green, Icons.web),
                           textColor: AppTheme.lightText,
                         ),
                         ListTile(
-                          title: Text("About"),
+                          title: Text("about".tr),
                           subtitle: Text(
                               "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, illo repellendus quas beatae reprehenderit nemo, debitis explicabo officiis sit aut obcaecati iusto porro? Exercitationem illum consequuntur magnam eveniet delectus ab."),
                           leading: Icon(color: AppTheme.green, Icons.person),
                           textColor: AppTheme.lightText,
                         ),
                         ListTile(
-                          title: Text("Joined Date"),
+                          title: Text("joined_date".tr),
                           subtitle: Text("15 February 2019"),
                           leading: Icon(
                               color: AppTheme.green, Icons.calendar_view_day),

@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
@@ -74,7 +75,7 @@ class _AppbarState extends State<Appbar> {
                       durationInMilliSeconds: 300,
                       isSearchBoxOnRightSide: true,
                       enableKeyboardFocus: true,
-                      hintText: 'Search...',
+                      hintText: 'search'.tr,
                       onChanged: (val) => widget.onSearch!(val),
                       searchBoxWidth: widget.icon == null
                           ? MediaQuery.of(context).size.width - 2

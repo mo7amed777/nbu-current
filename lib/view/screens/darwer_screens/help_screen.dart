@@ -35,7 +35,7 @@ class _HelpScreenState extends State<HelpScreen> {
               Container(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  'How can we help you?',
+                  'how_we_help'.tr,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -45,8 +45,8 @@ class _HelpScreenState extends State<HelpScreen> {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 16),
-                child: const Text(
-                  'It looks like you are experiencing problems\nwith our sign up process. We are here to\nhelp so please get in touch with us',
+                child: Text(
+                  'login_problem_help'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -76,13 +76,13 @@ class _HelpScreenState extends State<HelpScreen> {
                         color: AppTheme.transparent,
                         child: InkWell(
                           onTap: () {
-                            Get.to(() => ContactOurOffice());
+                            Get.to(ContactOurOffice.new);
                           },
                           child: Center(
                             child: Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: Text(
-                                'Chat with Us',
+                                'chat_with_us'.tr,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: AppTheme.white,

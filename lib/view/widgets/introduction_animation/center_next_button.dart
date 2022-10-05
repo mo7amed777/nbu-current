@@ -97,9 +97,9 @@ class CenterNextButton extends StatelessWidget {
                           padding: EdgeInsets.only(left: 16.0, right: 16.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
+                            children: [
                               Text(
-                                'Login',
+                                'login'.tr,
                                 style: TextStyle(
                                   color: AppTheme.white,
                                   fontSize: 18,
@@ -119,8 +119,11 @@ class CenterNextButton extends StatelessWidget {
                           padding: EdgeInsets.all(16.0),
                           child: animationController.value >= 0.5
                               ? Icon(Icons.done, color: AppTheme.white)
-                              : Icon(Icons.arrow_forward_ios_rounded,
-                                  color: AppTheme.white),
+                              : Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  color: AppTheme.white,
+                                  textDirection: TextDirection.ltr,
+                                ),
                         ),
                       ),
               ),
@@ -135,7 +138,7 @@ class CenterNextButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Don\'t have an account? ',
+                  'dont_have_account'.tr,
                   style: TextStyle(
                     color: AppTheme.green,
                     fontSize: 14,
@@ -147,7 +150,7 @@ class CenterNextButton extends StatelessWidget {
                         key: Key('Sign UP'),
                       )),
                   child: Text(
-                    'Sign Up',
+                    'register'.tr,
                     style: TextStyle(
                       color: AppTheme.lightGreen,
                       fontSize: 16,
@@ -180,6 +183,7 @@ class CenterNextButton extends StatelessWidget {
         ? Container()
         : Row(
             mainAxisSize: MainAxisSize.min,
+            textDirection: TextDirection.ltr,
             children: [
               for (var i = 0; i < 4; i++)
                 Padding(

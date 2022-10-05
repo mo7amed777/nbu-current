@@ -105,10 +105,11 @@ class MoodDiaryVew extends StatelessWidget {
                         top: 8,
                       ),
                       child: Text(
-                        "Welcome to NBU just one step to get started",
+                        "welcome_txt".tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: AppTheme.lightText,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
@@ -134,13 +135,12 @@ class MoodDiaryVew extends StatelessWidget {
                   child: InkWell(
                     onTap: () {
                       //TODO : Navigate to Gate Home for Surfing without login
-                      Get.to(() => NavigationHomeScreen());
+                      Get.to(NavigationHomeScreen.new);
                     },
                     child: Container(
                       height: 58,
+                      width: MediaQuery.of(context).size.width * 0.6,
                       padding: EdgeInsets.only(
-                        left: 56.0,
-                        right: 56.0,
                         top: 16,
                         bottom: 16,
                       ),
@@ -148,11 +148,13 @@ class MoodDiaryVew extends StatelessWidget {
                         borderRadius: BorderRadius.circular(38.0),
                         color: AppTheme.green,
                       ),
-                      child: Text(
-                        "الـبـوابـة الجـامـعيـة",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: AppTheme.white,
+                      child: Center(
+                        child: Text(
+                          'portal'.tr,
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: AppTheme.white,
+                          ),
                         ),
                       ),
                     ),
@@ -167,9 +169,8 @@ class MoodDiaryVew extends StatelessWidget {
                     },
                     child: Container(
                       height: 58,
+                      width: MediaQuery.of(context).size.width * 0.6,
                       padding: EdgeInsets.only(
-                        left: 56.0,
-                        right: 56.0,
                         top: 16,
                         bottom: 16,
                       ),
@@ -177,11 +178,13 @@ class MoodDiaryVew extends StatelessWidget {
                         borderRadius: BorderRadius.circular(38.0),
                         color: AppTheme.green,
                       ),
-                      child: Text(
-                        "الخدمات الإلكترونية",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: AppTheme.white,
+                      child: Center(
+                        child: Text(
+                          'e-services'.tr,
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: AppTheme.white,
+                          ),
                         ),
                       ),
                     ),

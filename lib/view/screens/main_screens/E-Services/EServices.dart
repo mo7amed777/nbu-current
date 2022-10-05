@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
+import 'package:northern_border_university/controller/functions.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/surveys.dart';
 import 'package:northern_border_university/view/screens/main_screens/E-Services/mjales/signature.dart';
@@ -19,41 +20,41 @@ class EServices extends StatefulWidget {
 
 class _EServicesState extends State<EServices> {
   Map<String, String> services = {
-    'BlackBoard': 'assets/images/magazine/interFace3.png',
-    'Surveys': 'assets/images/magazine/interFace3.png',
-    'Admission and Registration (Students)':
+    'BlackBoard'.tr: 'assets/images/magazine/interFace3.png',
+    'Surveys'.tr: 'assets/images/magazine/interFace3.png',
+    'Admission and Registration (Students)'.tr:
         'assets/images/magazine/interFace3.png',
-    'Users Identification': 'assets/images/magazine/interFace3.png',
-    'Academic calendar': 'assets/images/magazine/interFace3.png',
-    'Student Housing': 'assets/images/magazine/webInterFace.png',
-    'Scolarships': 'assets/images/magazine/webInterFace.png',
-    'Free Software Programs': 'assets/images/magazine/interFace3.png',
-    'Creat a New Account': 'assets/images/magazine/interFace3.png',
-    'Testahel': 'assets/images/magazine/interFace3.png',
-    'Office 365': 'assets/images/magazine/interFace3.png',
-    'E-mails': 'assets/images/magazine/interFace3.png',
-    'Digital Library': 'assets/images/magazine/interFace3.png',
-    'Argos': 'assets/images/magazine/interFace3.png',
-    'Symphony Library System': 'assets/images/magazine/interFace3.png',
-    'Students Password Reset': 'assets/images/magazine/interFace3.png',
-    'Calculate Your GPA': 'assets/images/magazine/interFace3.png',
-    'Blackboard Students': 'assets/images/magazine/interFace3.png',
-    'Student Card Application': 'assets/images/magazine/interFace3.png',
-    'Admission and Registration (Faculty Members)':
+    'Academic calendar'.tr: 'assets/images/magazine/interFace3.png',
+    'Student Housing'.tr: 'assets/images/magazine/webInterFace.png',
+    'Scolarships'.tr: 'assets/images/magazine/webInterFace.png',
+    'E-Forms System'.tr: 'assets/images/magazine/interFace3.png',
+    'Employees Complaints'.tr: 'assets/images/magazine/interFace3.png',
+    'Testahel'.tr: 'assets/images/magazine/interFace3.png',
+    'Office 365'.tr: 'assets/images/magazine/interFace3.png',
+    'E-mails'.tr: 'assets/images/magazine/interFace3.png',
+    'Digital Library'.tr: 'assets/images/magazine/interFace3.png',
+    'Argos'.tr: 'assets/images/magazine/interFace3.png',
+    'Symphony Library System'.tr: 'assets/images/magazine/interFace3.png',
+    'Students Password Reset'.tr: 'assets/images/magazine/interFace3.png',
+    'Marafiq - Operation and Maintenance'.tr:
+        'assets/images/magazine/interFace3.png',
+    'Blackboard Students'.tr: 'assets/images/magazine/interFace3.png',
+    'Student Card Application'.tr: 'assets/images/magazine/interFace3.png',
+    'Admission and Registration (Faculty Members)'.tr:
         'assets/images/magazine/webInterFace.png',
-    'Research Management': 'assets/images/magazine/interFace3.png',
-    'Progress': 'assets/images/magazine/interFace3.png',
-    'Reset Password': 'assets/images/magazine/interFace3.png',
-    'Request a Computer': 'assets/images/magazine/interFace3.png',
-    'IP Phones': 'assets/images/magazine/interFace3.png',
-    'E-transactions (Barq)': 'assets/images/magazine/interFace3.png',
-    'Self-Service Portal': 'assets/images/magazine/interFace3.png',
-    'SUPPORT-ME': 'assets/images/magazine/interFace3.png',
-    'Majales': 'assets/images/magazine/interFace3.png',
-    'Training Programs at Public Administration Institute':
+    'Research Management'.tr: 'assets/images/magazine/interFace3.png',
+    'Progress'.tr: 'assets/images/magazine/interFace3.png',
+    'Employees Password Reset'.tr: 'assets/images/magazine/interFace3.png',
+    'Request a Computer'.tr: 'assets/images/magazine/interFace3.png',
+    'IP Phones'.tr: 'assets/images/magazine/interFace3.png',
+    'E-transactions (Barq)'.tr: 'assets/images/magazine/interFace3.png',
+    'Self-Service Portal'.tr: 'assets/images/magazine/interFace3.png',
+    'SUPPORT-ME'.tr: 'assets/images/magazine/interFace3.png',
+    'Majales'.tr: 'assets/images/magazine/interFace3.png',
+    'Training Programs at Public Administration Institute'.tr:
         'assets/images/magazine/webInterFace.png',
-    'Employee of the Year': 'assets/images/magazine/webInterFace.png',
-    'E-Archiving': 'assets/images/magazine/interFace3.png',
+    'Employee of the Year'.tr: 'assets/images/magazine/webInterFace.png',
+    'E-Archiving'.tr: 'assets/images/magazine/interFace3.png',
   };
   Map<String, String> searchList = {};
   bool notFound = false;
@@ -199,27 +200,29 @@ class _EServicesState extends State<EServices> {
     await article.getAllItems();
     String imgURL = await article.getItemImageURL(article.items[0]);
 
-    switch (key) {
-      //TODO: Replace with full switch cases of keys(Service Names) List
-      case 'Majales':
-        // Just for testing signature screen to draw & save own sign
-        Get.back();
-        Get.to(Signature.new);
-        break;
-      case 'Surveys':
-        getSurveys();
-        break;
+    if (key == 'Majales'.tr) {
+      Get.back();
+      Get.to(Signature.new);
+    } else if (key == 'Surveys'.tr) {
+      getSurveys();
+    } else {
+      Get.back();
+      showSnackBar(message: '.. Coming Soon');
     }
   }
 
   void getSurveys() async {
     //userID is the ID of Target User who have to see this Survey
     //Replace with id which come from login api of signed user ex. userID = 3
-
-    final http.Response response = await http
-        .get(Uri.parse("http://10.220.17.59/API/NBUSurvey/GetSurvey/$userID"));
-    List surveys = jsonDecode(response.body);
-    Get.back();
-    Get.to(() => Surveys(surveys: surveys));
+    try {
+      final http.Response response = await http.get(
+          Uri.parse("http://10.220.17.59/API/NBUSurvey/GetSurvey/$userID"));
+      List surveys = jsonDecode(response.body);
+      Get.back();
+      Get.to(() => Surveys(surveys: surveys));
+    } catch (e) {
+      Get.back();
+      showSnackBar(message: '!Error is happened', err: true);
+    }
   }
 }

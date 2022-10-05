@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:video_player/video_player.dart';
 
@@ -84,7 +85,7 @@ class _SplashViewState extends State<SplashView> {
                 ),
                 child: Center(
                   child: Text(
-                    "Get Started",
+                    "getStart".tr,
                     style: TextStyle(
                       fontSize: 18,
                       color: AppTheme.white,

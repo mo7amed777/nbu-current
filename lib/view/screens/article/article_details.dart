@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
@@ -40,7 +41,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Published at : ',
+                  'publish_at'.tr,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: AppTheme.lightText),
                 ),

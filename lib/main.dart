@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:northern_border_university/model/tr.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/media_center_screen.dart';
 import 'package:northern_border_university/view/screens/onboard/login/dashboard_screen.dart';
 import 'package:northern_border_university/view/screens/onboard/login/login_screen.dart';
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
     ));
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      locale: Get.locale ?? Get.deviceLocale,
+      translations: Translation(),
+      fallbackLocale: Locale('en'),
       theme: ThemeData(
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,

@@ -35,28 +35,28 @@ class HomeDrawerState extends State<HomeDrawer> {
     drawerList = <DrawerList>[
       DrawerList(
         index: DrawerIndex.HOME,
-        labelName: 'Home',
+        labelName: 'Home'.tr,
         icon: Icon(Icons.home),
       ),
       DrawerList(
         index: DrawerIndex.EServices,
-        labelName: 'E-Services',
+        labelName: 'e-services'.tr,
         icon: Icon(Icons.apps),
       ),
       DrawerList(
         index: DrawerIndex.Help,
-        labelName: 'Help',
+        labelName: 'Help'.tr,
         icon: Icon(Icons.help),
       ),
       DrawerList(
         index: DrawerIndex.FeedBack,
-        labelName: 'FeedBack',
+        labelName: 'FeedBack'.tr,
         isassetsImage: true,
         imageName: 'assets/images/media/supportIcon.png',
       ),
       DrawerList(
         index: DrawerIndex.About,
-        labelName: 'Contact Us',
+        labelName: 'contact_us'.tr,
         icon: Icon(Icons.info),
       ),
       DrawerList(
@@ -76,7 +76,7 @@ class HomeDrawerState extends State<HomeDrawer> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           InkWell(
-            onTap: () => Get.to(() => Profile()),
+            onTap: () => Get.to(Profile.new),
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.only(top: 40.0),
@@ -127,7 +127,7 @@ class HomeDrawerState extends State<HomeDrawer> {
                     Padding(
                       padding: const EdgeInsets.only(top: 8, left: 4),
                       child: Text(
-                        'Student Profile',
+                        'Student Profile'.tr,
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           color: AppTheme.green,
@@ -165,7 +165,7 @@ class HomeDrawerState extends State<HomeDrawer> {
             children: <Widget>[
               ListTile(
                 title: Text(
-                  'Sign Out',
+                  'logout'.tr,
                   style: TextStyle(
                     fontFamily: AppTheme.fontName,
                     fontWeight: FontWeight.w600,

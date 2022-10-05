@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -78,7 +79,7 @@ class WelcomeView extends StatelessWidget {
                   repeatForever: true,
                   animatedTexts: [
                     ScaleAnimatedText(
-                      "Welcome",
+                      "welcome".tr,
                       duration: Duration(milliseconds: 2000),
                       textStyle: TextStyle(
                           fontSize: 25.0, fontWeight: FontWeight.bold),
@@ -90,7 +91,7 @@ class WelcomeView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                 child: Text(
-                  'Join Now and get started with NBU',
+                  'join'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,

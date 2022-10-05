@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TopBackSkipView extends StatelessWidget {
   final AnimationController animationController;
@@ -55,6 +56,7 @@ class TopBackSkipView extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8, right: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              textDirection: TextDirection.ltr,
               children: [
                 // SlideTransition(
                 //   position: _backAnimation,
@@ -67,8 +69,9 @@ class TopBackSkipView extends StatelessWidget {
                 SlideTransition(
                   position: _skipAnimation,
                   child: IconButton(
+                    padding: EdgeInsets.all(4.0),
                     onPressed: onSkipClick,
-                    icon: Text('Skip'),
+                    icon: Text('Skip'.tr),
                   ),
                 ),
               ],

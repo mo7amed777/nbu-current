@@ -53,11 +53,21 @@ class LoginScreen extends StatelessWidget {
       onConfirmRecover: ((p0, p1) => _signupConfirm('Error')),
       onConfirmSignup: ((p0, p1) => _signupConfirm('Error')),
       loginAfterSignUp: false,
+      messages: LoginMessages(
+        userHint: 'user_hint'.tr,
+        passwordHint: 'password_hint'.tr,
+        confirmPasswordHint: 'confirm_hint'.tr,
+        forgotPasswordButton: 'forgot_password'.tr,
+        loginButton: 'login'.tr,
+        signupButton: 'register'.tr,
+        providersTitleFirst: 'or'.tr,
+        providersTitleSecond: 'or_login_with'.tr,
+      ),
       loginProviders: [
         LoginProvider(
           button: Buttons.apple,
           animated: true,
-          label: 'Sign in with Apple',
+          label: 'apple_sign'.tr,
           callback: () async {
             //return null meaning user signedIN else user can't signIn
             return null;
@@ -83,6 +93,7 @@ class LoginScreen extends StatelessWidget {
           },
         ),
       ],
+
       termsOfService: [
         TermOfService(
             id: 'notifications', mandatory: false, text: 'Notifications'),

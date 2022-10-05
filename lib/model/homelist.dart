@@ -30,7 +30,7 @@ class HomeList {
       icon: FontAwesomeIcons.users,
       callback: () async {
         try {
-          Get.to(() => Administration());
+          Get.to(Administration.new);
         } catch (e) {
           print(e);
         }
@@ -42,7 +42,7 @@ class HomeList {
       subTxt: 'Videos, Photos and Other',
       icon: FontAwesomeIcons.video,
       callback: () {
-        Get.to(() => MediaCenter());
+        Get.to(MediaCenter.new);
       },
     ),
     HomeList(
@@ -50,7 +50,7 @@ class HomeList {
       title: 'Colleges',
       subTxt: 'Arar, Rafha and other',
       callback: () {
-        Get.to(() => Colleges());
+        Get.to(Colleges.new);
       },
     ),
     HomeList(
@@ -59,12 +59,12 @@ class HomeList {
       subTxt: 'Science and Humanites Journals',
       icon: FontAwesomeIcons.journalWhills,
       callback: () {
-        Get.to(() => Magazine());
+        Get.to(Magazine.new);
       },
     ),
     HomeList(
       imagePath: 'assets/images/media/services.png',
-      title: 'E-Services',
+      title: 'e-services',
       subTxt: 'The University whole stuff services',
       icon: FontAwesomeIcons.servicestack,
       callback: () {
@@ -80,7 +80,7 @@ class HomeList {
       subTxt: 'Locaton, Contact Info and other',
       icon: FontAwesomeIcons.infoCircle,
       callback: () {
-        Get.to(() => AboutTheUniversity());
+        Get.to(AboutTheUniversity.new);
       },
     ),
     HomeList(
@@ -89,7 +89,7 @@ class HomeList {
       subTxt: 'exploring & attracting talented students',
       icon: FontAwesomeIcons.graduationCap,
       callback: () {
-        Get.to(() => GiftedAcademy());
+        Get.to(GiftedAcademy.new);
       },
     ),
   ];

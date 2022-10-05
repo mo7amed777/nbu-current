@@ -35,10 +35,10 @@ class _AboutTheUniversityState extends State<AboutTheUniversity> {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 4),
-                        child: Text('About the University',
+                        child: Text('about_university'.tr,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: AppTheme.green,
@@ -60,11 +60,11 @@ class _AboutTheUniversityState extends State<AboutTheUniversity> {
                 right: 12.0,
                 bottom: 12.0,
                 child: InkWell(
-                  onTap: () => Get.to(() => MoreAboutTheUniversity()),
+                  onTap: () => Get.to(MoreAboutTheUniversity.new),
                   child: Row(
                     children: [
                       Text(
-                        'view more',
+                        'view_more'.tr,
                         style: TextStyle(
                             color: AppTheme.lightGreen,
                             fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class _AboutTheUniversityState extends State<AboutTheUniversity> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16, top: 16),
-            child: Text('University\'s History',
+            child: Text('university_history'.tr,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: AppTheme.green,
