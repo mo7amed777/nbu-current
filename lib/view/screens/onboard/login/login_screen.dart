@@ -48,7 +48,7 @@ class LoginScreen extends StatelessWidget {
       ),
       logo: const AssetImage('assets/images/logo/logo.png'),
       logoTag: 'NBU-Logo',
-      titleTag: 'Northern Border University',
+      titleTag: 'title'.tr,
       navigateBackAfterRecovery: true,
       onConfirmRecover: ((p0, p1) => _signupConfirm('Error')),
       onConfirmSignup: ((p0, p1) => _signupConfirm('Error')),
@@ -95,22 +95,20 @@ class LoginScreen extends StatelessWidget {
       ],
 
       termsOfService: [
-        TermOfService(
-            id: 'notifications', mandatory: false, text: 'Notifications'),
+        TermOfService(id: 'notifications', mandatory: false, text: 'الإشعارات'),
         TermOfService(
           id: 'general-term',
           mandatory: true,
-          text: 'Term of services',
+          text: 'سياسة الإستخدام',
         ),
       ],
       additionalSignupFields: [
         const UserFormField(
-            keyName: 'Username', icon: Icon(FontAwesomeIcons.userLarge)),
-        const UserFormField(keyName: 'Name'),
-        const UserFormField(keyName: 'Surname'),
+            keyName: 'إسم المستخدم', icon: Icon(FontAwesomeIcons.userLarge)),
+        const UserFormField(keyName: 'الإسم بالكامل'),
         UserFormField(
           keyName: 'phone_number',
-          displayName: 'Phone Number',
+          displayName: 'رقم الهاتف',
           userType: LoginUserType.phone,
           fieldValidator: (value) {
             var phoneRegExp = RegExp(
@@ -118,7 +116,7 @@ class LoginScreen extends StatelessWidget {
             if (value != null &&
                 value.length < 7 &&
                 !phoneRegExp.hasMatch(value)) {
-              return "This isn't a valid phone number";
+              return "رقم الهاتف غير صحيح";
             }
             return null;
           },
@@ -127,13 +125,13 @@ class LoginScreen extends StatelessWidget {
       initialAuthMode: key == Key('Sign UP') ? AuthMode.signup : AuthMode.login,
       userValidator: (value) {
         if (!GetUtils.isEmail(value!)) {
-          return "Email Address not valid!";
+          return "البريد الإلكتروني غير صحيح";
         }
         return null;
       },
       passwordValidator: (value) {
         if (value!.isEmpty) {
-          return 'Password is empty';
+          return 'يجب إدخال كلمة المرور';
         }
         return null;
       },

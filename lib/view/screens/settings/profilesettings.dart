@@ -32,7 +32,7 @@ class _EditPageState extends State<EditPage> {
         backgroundColor: AppTheme.background,
         iconTheme: IconThemeData(color: AppTheme.green),
         title: Text(
-          "Edit Profile",
+          "Edit Profile".tr,
           style: TextStyle(
               fontSize: 25, fontWeight: FontWeight.w500, color: AppTheme.green),
         ),
@@ -106,7 +106,8 @@ class _EditPageState extends State<EditPage> {
                                 setState(() {
                                   showSnackBar(
                                       message:
-                                          'Profile photo updated successfully.');
+                                          'Profile photo updated successfully.'
+                                              .tr);
                                 });
                               }
                             },
@@ -122,10 +123,10 @@ class _EditPageState extends State<EditPage> {
               SizedBox(
                 height: 15,
               ),
-              buildTextField("Full Name", "Student Name", false),
-              buildTextField("E-mail", "student@gmail.com", false),
-              buildTextField("Password", "********", true),
-              buildTextField("Location", "Arar", false),
+              buildTextField("الإسم بالكامل", "إسم الطالب", false),
+              buildTextField("البريد الإلكتروني", "student@gmail.com", false),
+              buildTextField("كلمة المرور", "********", true),
+              buildTextField("الموقع", "عرعر", false),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -137,7 +138,7 @@ class _EditPageState extends State<EditPage> {
                           borderRadius: BorderRadius.circular(20)),
                     ),
                     onPressed: () {},
-                    child: Text("CANCEL",
+                    child: Text("CANCEL".tr,
                         style: TextStyle(
                             fontSize: 14,
                             letterSpacing: 2.2,
@@ -153,7 +154,7 @@ class _EditPageState extends State<EditPage> {
                       padding: EdgeInsets.symmetric(horizontal: 50),
                     ),
                     child: Text(
-                      "SAVE",
+                      "SAVE".tr,
                       style: TextStyle(
                           fontSize: 14,
                           letterSpacing: 2.2,

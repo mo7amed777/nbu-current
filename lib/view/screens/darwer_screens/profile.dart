@@ -50,7 +50,7 @@ class Profile extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        "Student Name",
+                                        "إسم الطالب",
                                         style: Theme.of(context)
                                             .textTheme
                                             .titleLarge,

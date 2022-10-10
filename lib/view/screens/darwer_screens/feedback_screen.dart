@@ -140,7 +140,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 controller: feedbackController,
                 onChanged: (String txt) {},
                 style: TextStyle(
-                  fontFamily: AppTheme.fontName,
+                  fontFamily: AppTheme.fontNameAR,
                   fontSize: 16,
                   color: AppTheme.green,
                 ),

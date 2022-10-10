@@ -72,7 +72,7 @@ class _SettingsState extends State<Settings> {
                         Get.to(EditPage.new);
                       },
                       title: Text(
-                        "Student Name",
+                        "إسم الطالب",
                         style: TextStyle(
                           color: AppTheme.white,
                           fontWeight: FontWeight.w500,
@@ -144,7 +144,7 @@ class _SettingsState extends State<Settings> {
                   ),
                   const SizedBox(height: 20.0),
                   Text(
-                    "Notification Settings",
+                    "Notification Settings".tr,
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -155,28 +155,14 @@ class _SettingsState extends State<Settings> {
                     activeColor: AppTheme.green,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
-                    title: Text("Received notification"),
-                    onChanged: (val) {},
-                  ),
-                  SwitchListTile(
-                    activeColor: AppTheme.green,
-                    contentPadding: const EdgeInsets.all(0),
-                    value: false,
-                    title: Text("Received newsletter"),
-                    onChanged: null,
-                  ),
-                  SwitchListTile(
-                    activeColor: AppTheme.green,
-                    contentPadding: const EdgeInsets.all(0),
-                    value: true,
-                    title: Text("Received Offer Notification"),
+                    title: Text("Received Notification".tr),
                     onChanged: (val) {},
                   ),
                   SwitchListTile(
                     activeColor: AppTheme.green,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
-                    title: Text("Received App Updates"),
+                    title: Text("Received App Updates".tr),
                     onChanged: null,
                   ),
                   const SizedBox(height: 60.0),

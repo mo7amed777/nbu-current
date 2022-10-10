@@ -18,14 +18,14 @@ class Administrations extends StatefulWidget {
 
 class _AdministrationsState extends State<Administrations> {
   Map<String, String> items = {
-    'The President': 'assets/images/magazine/webInterFace.png',
-    'The Resume': 'assets/images/magazine/webInterFace.png',
-    'President Office': 'assets/images/magazine/interFace3.png',
-    'Vice-President': 'assets/images/magazine/interFace3.png',
-    'Deanship\'s': 'assets/images/magazine/webInterFace.png',
-    'Centers': 'assets/images/magazine/webInterFace.png',
-    'Administrations': 'assets/images/magazine/interFace3.png',
-    'Faculty Members': 'assets/images/magazine/interFace3.png',
+    'The President'.tr: 'assets/images/magazine/webInterFace.png',
+    'The Resume'.tr: 'assets/images/magazine/webInterFace.png',
+    'President Office'.tr: 'assets/images/magazine/interFace3.png',
+    'Vice-President'.tr: 'assets/images/magazine/interFace3.png',
+    'Deanship\'s'.tr: 'assets/images/magazine/webInterFace.png',
+    'Centers'.tr: 'assets/images/magazine/webInterFace.png',
+    'Administrations'.tr: 'assets/images/magazine/interFace3.png',
+    'Faculty Members'.tr: 'assets/images/magazine/interFace3.png',
   };
   bool multiple = true;
   @override
@@ -37,7 +37,7 @@ class _AdministrationsState extends State<Administrations> {
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Appbar(
-                title: 'Administrations',
+                title: 'Administration'.tr,
                 onSearch: () {},
               ),
             ),
@@ -135,13 +135,13 @@ class _AdministrationsState extends State<Administrations> {
             article: article, imgURL: imgURL, item: article.items[0]));
         break;
       case 'The Resume':
-        Get.to(() => ProfM_AlShihri());
+        Get.to(ProfM_AlShihri.new);
         break;
       case 'President Office':
-        Get.to(() => UniversityPresidentOffice());
+        Get.to(UniversityPresidentOffice.new);
         break;
       case 'Vice-President':
-        Get.to(() => VicePresidencies());
+        Get.to(VicePresidencies.new);
         break;
       case 'Deanship\'s':
         // Get.to(() =>Deanships());

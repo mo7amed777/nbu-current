@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:northern_border_university/view/screens/main_screens/About%20the%20University/AboutTheUniversity.dart';
-import 'package:northern_border_university/view/screens/main_screens/Administration/Administration.dart';
+import 'package:northern_border_university/view/screens/main_screens/Administration/administration_sections.dart';
 import 'package:northern_border_university/view/screens/main_screens/Colleges/Colleges.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/view/screens/main_screens/Gifted%20Academy/gifted_academy.dart';
@@ -30,7 +30,7 @@ class HomeList {
       icon: FontAwesomeIcons.users,
       callback: () async {
         try {
-          Get.to(Administration.new);
+          Get.to(Administrations.new);
         } catch (e) {
           print(e);
         }
@@ -38,7 +38,7 @@ class HomeList {
     ),
     HomeList(
       imagePath: 'assets/images/media_center/Media_Centre.jpg',
-      title: 'Media Centre',
+      title: 'Media Center',
       subTxt: 'Videos, Photos and Other',
       icon: FontAwesomeIcons.video,
       callback: () {

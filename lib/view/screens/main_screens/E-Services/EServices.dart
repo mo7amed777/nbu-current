@@ -59,7 +59,7 @@ class _EServicesState extends State<EServices> {
   Map<String, String> searchList = {};
   bool notFound = false;
 
-  String userID = '3';
+  String userNID = '2465348205';
 
   @override
   Widget build(BuildContext context) {
@@ -215,8 +215,8 @@ class _EServicesState extends State<EServices> {
     //userID is the ID of Target User who have to see this Survey
     //Replace with id which come from login api of signed user ex. userID = 3
     try {
-      final http.Response response = await http.get(
-          Uri.parse("http://10.220.17.59/API/NBUSurvey/GetSurvey/$userID"));
+      final http.Response response = await http.get(Uri.parse(
+          "http://10.220.17.59/API/NBUSurvey/GetSurveyPeriod/$userNID"));
       List surveys = jsonDecode(response.body);
       Get.back();
       Get.to(() => Surveys(surveys: surveys));

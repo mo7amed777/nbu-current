@@ -1,35 +1,35 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/controller/functions.dart';
-import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/survey_question.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/survey_section.dart';
 import 'package:http/http.dart' as http;
 import 'package:northern_border_university/view/widgets/my_button.dart';
 
 // ignore: must_be_immutable
-class QuestionsOfServey extends StatefulWidget {
-  late List<SurveyQuestion> surveyQuestions;
-  late int surveyID, surveyPeriodID, surveyPeriodTargetUserId;
-  late String surveyName;
-  QuestionsOfServey({
-    required this.surveyQuestions,
+class SectionsOfServey extends StatefulWidget {
+  late List<SurveySection> surveySections;
+  late int surveyID, surveyPeriodID;
+  late String surveyName, surveyDescription;
+  SectionsOfServey({
+    required this.surveySections,
     required this.surveyID,
     required this.surveyName,
+    required this.surveyDescription,
     required this.surveyPeriodID,
-    required this.surveyPeriodTargetUserId,
   });
   @override
-  QuestionsOfServeyState createState() => QuestionsOfServeyState();
+  SectionsOfServeyState createState() => SectionsOfServeyState();
 }
 
-class QuestionsOfServeyState extends State<QuestionsOfServey> {
+class SectionsOfServeyState extends State<SectionsOfServey> {
   List<TextEditingController> controllers =
       List.generate(10, (index) => TextEditingController());
 
   List<String> missedTitles = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,76 +96,34 @@ class QuestionsOfServeyState extends State<QuestionsOfServey> {
             ],
           ),
           Expanded(
-            child: ListView(
-              children: widget.surveyQuestions.map(
-                (surveyQuestion) {
-                  switch (surveyQuestion.questionTypeID) {
-                    case "1":
-                      return buildQuestion(
-                        title: surveyQuestion.titleEN,
-                        isList: true,
-                        answersWidget: checkBoxlist(
-                            answers: surveyQuestion.answers,
-                            questionID: int.parse(surveyQuestion.questionID)),
-                      );
-                    case "2":
-                      return buildQuestion(
-                        title: surveyQuestion.titleEN,
-                        isList: true,
-                        answersWidget: radioButtonlist(
-                            answers: surveyQuestion.answers,
-                            questionID: int.parse(surveyQuestion.questionID)),
-                      );
-                    case "3":
-                      return buildQuestion(
-                        title: surveyQuestion.titleEN,
-                        isList: false,
-                        answersWidget: TextFormField(
-                          controller: controllers[
-                              widget.surveyQuestions.indexOf(surveyQuestion)],
-                          textInputAction: TextInputAction.done,
-                          maxLines: null,
-                          keyboardType: TextInputType.multiline,
-                          onFieldSubmitted: (value) {
-                            submit_answers.addAll({
-                              int.parse(surveyQuestion.questionID): value,
-                            });
-                          },
-                          decoration: InputDecoration(
-                            label: Text('Your answer here..'),
-                          ),
-                        ),
-                      );
-                    case "4":
-                      return buildQuestion(
-                        title: surveyQuestion.titleEN,
-                        isList: false,
-                        answersWidget: dropDownlist(
-                            answers: surveyQuestion.answers,
-                            questionID: int.parse(surveyQuestion.questionID)),
-                      );
-                    default:
-                      return Container();
-                  }
-                },
-              ).toList()
-                ..add(Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: MyButton(
-                      callback: () {
-                        //Every Answer is one except checkbox many answers
-                        //Map<int QuestionID,dynamic answer>
-                        //Example: {
-                        // 1 : also one id if radio or dropdown
-                        // 2 : string if input filed
-                        // 3 : list of ids if checkbox
-                        //}
-                        print(submit_answers.keys); //Questions ids
-                        print(submit_answers.values); // answers ids
-                        validate(surveyQuestions: widget.surveyQuestions);
-                      },
-                      label: 'Submit'),
-                )),
+            child: SingleChildScrollView(
+              child: Column(
+                children: widget.surveySections.map(
+                  (surveySection) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: _buildInnerWidget(surveySection),
+                    );
+                  },
+                ).toList()
+                  ..add(Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: MyButton(
+                        callback: () {
+                          //Every Answer is one except checkbox many answers
+                          //Map<int QuestionID,dynamic answer>
+                          //Example: {
+                          // 1 : also one id if radio or dropdown
+                          // 2 : string if input filed
+                          // 3 : list of ids if checkbox
+                          //}
+                          print(submit_answers.keys); //Questions ids
+                          print(submit_answers.values); // answers ids
+                          validate(surveySections: widget.surveySections);
+                        },
+                        label: 'Submit'),
+                  )),
+              ),
             ),
           ),
         ],
@@ -173,88 +131,94 @@ class QuestionsOfServeyState extends State<QuestionsOfServey> {
     );
   }
 
-  void validate({required List<SurveyQuestion> surveyQuestions}) async {
+  void validate({required List<SurveySection> surveySections}) async {
     setState(() {
       missedTitles.clear();
     });
-    if (surveyQuestions.length == submit_answers.keys.length) {
+    int full_length = 0;
+    for (var surveySection in surveySections) {
+      full_length += surveySection.questions.length;
+    }
+    if (full_length == submit_answers.keys.length) {
       for (int questionID in submit_answers.keys) {
         if (submit_answers[questionID] == null ||
             submit_answers[questionID] == '') {
           showSnackBar(message: 'You have to answer all Questions!', err: true);
-          for (var question in surveyQuestions) {
-            if (!missedTitles.contains(question.titleEN) &&
-                int.parse(question.questionID) == questionID) {
-              setState(() {
-                missedTitles.add(question.titleEN);
-              });
+          for (var section in surveySections) {
+            for (var question in section.questions) {
+              if (!missedTitles.contains(question.titleEN) &&
+                  int.parse(question.questionID) == questionID) {
+                setState(() {
+                  missedTitles.add(question.titleEN);
+                });
+              }
+              print(missedTitles);
             }
-            print(missedTitles);
+            return;
           }
-          return;
         } else {
-          for (var question in surveyQuestions) {
-            if (missedTitles.contains(question.titleEN) &&
-                int.parse(question.questionID) == questionID) {
-              setState(() {
-                missedTitles.remove(question.titleEN);
-              });
+          for (var section in surveySections) {
+            for (var question in section.questions) {
+              if (missedTitles.contains(question.titleEN) &&
+                  int.parse(question.questionID) == questionID) {
+                setState(() {
+                  missedTitles.remove(question.titleEN);
+                });
+              }
             }
           }
         }
-      }
-      //Post Survey Answers to API
-      List body = [];
-      submit_answers.forEach((questionID, answer) {
-        if (answer is List) {
-          for (var ans in answer) {
+        //Post Survey Answers to API
+        List body = [];
+        submit_answers.forEach((questionID, answer) {
+          if (answer is List) {
+            for (var ans in answer) {
+              body.add({
+                "Id": 0, // const 0
+                "SurveyId": widget.surveyID,
+                "SurveyPeriodId": widget.surveyPeriodID,
+                "SurveySectionId": questionID,
+                "AnswerValue": ans.toString(),
+                "DeviceType":
+                    2, //DeviceType means user submitted this survey from Mobile Device Android & IOS
+              });
+            }
+          } else {
             body.add({
               "Id": 0, // const 0
               "SurveyId": widget.surveyID,
               "SurveyPeriodId": widget.surveyPeriodID,
-              "SurveyPeriodTargetUserId":
-                  widget.surveyPeriodTargetUserId, // first id in api
-              "SurveyQuestionId": questionID,
-              "AnswerValue": ans.toString(),
-              "DeviceType":
-                  2, //DeviceType means user submitted this survey from Mobile Device Android & IOS
+              "SurveySectionId": questionID,
+              "AnswerValue": answer.toString(),
+              "DeviceType": 2,
             });
           }
+        });
+        print('Post Body : $body');
+        Map<String, String> headers = {'Content-Type': 'application/json'};
+        final http.Response response = await http.post(
+          Uri.parse("http://10.220.17.59/API/NBUSurvey/PostAnswer"),
+          body: jsonEncode(body),
+          headers: headers,
+        );
+        print(response.statusCode);
+        if (jsonDecode(response.body)) {
+          Get.back();
+          showSnackBar(message: 'Submitted Successfully');
         } else {
-          body.add({
-            "Id": 0, // const 0
-            "SurveyId": widget.surveyID,
-            "SurveyPeriodId": widget.surveyPeriodID,
-            "SurveyPeriodTargetUserId":
-                widget.surveyPeriodTargetUserId, // first id in api
-            "SurveyQuestionId": questionID,
-            "AnswerValue": answer.toString(),
-            "DeviceType": 2,
-          });
+          showSnackBar(message: 'Error while submitting survey!', err: true);
         }
-      });
-      print('Post Body : $body');
-      Map<String, String> headers = {'Content-Type': 'application/json'};
-      final http.Response response = await http.post(
-        Uri.parse("http://10.220.17.59/API/NBUSurvey/PostAnswer"),
-        body: jsonEncode(body),
-        headers: headers,
-      );
-      print(response.statusCode);
-      if (jsonDecode(response.body)) {
-        Get.back();
-        showSnackBar(message: 'Submitted Successfully');
-      } else {
-        showSnackBar(message: 'Error while submitting survey!', err: true);
       }
     } else {
       showSnackBar(message: 'You have to answer all Questions!', err: true);
-      for (var question in surveyQuestions) {
-        if (!submit_answers.containsKey(int.parse(question.questionID))) {
-          if (!missedTitles.contains(question.titleEN)) {
-            setState(() {
-              missedTitles.add(question.titleEN);
-            });
+      for (var section in surveySections) {
+        for (var question in section.questions) {
+          if (!submit_answers.containsKey(int.parse(question.questionID))) {
+            if (!missedTitles.contains(question.titleEN)) {
+              setState(() {
+                missedTitles.add(question.titleEN);
+              });
+            }
           }
         }
       }
@@ -374,6 +338,70 @@ class QuestionsOfServeyState extends State<QuestionsOfServey> {
         }),
         children: isList ? answersWidget : [answersWidget],
       ),
+    );
+  }
+
+  Widget _buildInnerWidget(SurveySection surveySection) {
+    return Stack(
+      children: [
+        Column(
+          children: surveySection.questions.map((question) {
+            switch (question['questionTypeId']) {
+              case 1:
+                return buildQuestion(
+                  title: question['title'],
+                  isList: true,
+                  answersWidget: checkBoxlist(
+                    answers: question['answers'],
+                    questionID: question['id'],
+                  ),
+                );
+              case 2:
+                return buildQuestion(
+                  title: question['title'],
+                  isList: true,
+                  answersWidget: radioButtonlist(
+                    answers: question['answers'],
+                    questionID: question['id'],
+                  ),
+                );
+              case 3:
+                return buildQuestion(
+                  title: question['title'],
+                  isList: false,
+                  answersWidget: TextFormField(
+                    controller:
+                        controllers[surveySection.questions.indexOf(question)],
+                    textInputAction: TextInputAction.done,
+                    maxLines: null,
+                    keyboardType: TextInputType.multiline,
+                    onFieldSubmitted: (value) {
+                      submit_answers.addAll({
+                        question['id']: value,
+                      });
+                    },
+                    decoration: InputDecoration(
+                      label: Text('Your answer here..'),
+                    ),
+                  ),
+                );
+              case 4:
+                return buildQuestion(
+                  title: question['title'],
+                  isList: false,
+                  answersWidget: dropDownlist(
+                    answers: question['answers'],
+                    questionID: question['id'],
+                  ),
+                );
+              default:
+                print(question);
+                return Container();
+            }
+          }).toList(),
+        ),
+        Center(child: Text(surveySection.name)),
+      ],
     );
   }
 }

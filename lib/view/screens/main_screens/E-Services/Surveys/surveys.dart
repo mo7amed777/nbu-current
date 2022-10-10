@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/model/article.dart';
-import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/survey_question.dart';
-import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/questions_of_servey.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/survey_section.dart';
+import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/sections_of_servey.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -61,22 +61,19 @@ class _SurveysState extends State<Surveys> {
                       padding: const EdgeInsets.all(8.0),
                       child: ExpandedTile(
                         //trailing: Icon(Icons.arrow_forward_ios),
-                        mainTitle: survey['surveyPeriod']['survey']
-                            ['surveyName'],
-                        title: survey['surveyPeriod']['survey']
-                            ['surveyDescription'],
+                        mainTitle: survey['survey']['surveyName'],
+                        title: survey['survey']['surveyDescription'],
                         TwoItemsRow: [
-                          survey['surveyPeriod']['startDate'],
-                          survey['surveyPeriod']['endDate'],
+                          survey['startDate'],
+                          survey['endDate'],
                         ],
                         onTap: () async {
                           getSurveyQuestionsByID(
-                            surveyID:
-                                survey['surveyPeriod']['surveyId'].toString(),
-                            surveyName: survey['surveyPeriod']['survey']
-                                ['surveyName'],
-                            surveyPeriodID: survey['surveyPeriodId'],
-                            surveyPeriodTargetUserId: survey['id'],
+                            surveyID: survey['surveyId'].toString(),
+                            surveyName: survey['survey']['surveyName'],
+                            surveyDescription: survey['survey']
+                                ['surveyDescription'],
+                            surveyPeriodID: survey['id'],
                           );
                         },
                       ),
@@ -91,8 +88,8 @@ class _SurveysState extends State<Surveys> {
   void getSurveyQuestionsByID({
     required String surveyID,
     required String surveyName,
+    required String surveyDescription,
     required int surveyPeriodID,
-    required int surveyPeriodTargetUserId,
   }) async {
     Get.dialog(
       Center(
@@ -100,20 +97,21 @@ class _SurveysState extends State<Surveys> {
       ),
       barrierDismissible: false,
     );
-    final http.Response response = await http.get(
-        Uri.parse("http://10.220.17.59/API/NBUSurvey/GetQuestion/$surveyID"));
-    List surveyQuestions = jsonDecode(response.body);
-    List<SurveyQuestion> questions = [];
-    for (var question in surveyQuestions) {
-      questions.add(SurveyQuestion.fromJson(question));
+    final http.Response response = await http.get(Uri.parse(
+        "http://10.220.17.59/API/NBUSurvey/GetSurvey?surveyId=$surveyID&PeriodId=$surveyPeriodID"));
+    dynamic surveyBody = jsonDecode(response.body);
+    List surveySections = surveyBody['sections'];
+    List<SurveySection> sections = [];
+    for (var section in surveySections) {
+      sections.add(SurveySection.fromJson(section));
     }
     Get.back();
-    Get.to(() => QuestionsOfServey(
-          surveyQuestions: questions,
+    Get.to(() => SectionsOfServey(
+          surveySections: sections,
           surveyID: int.parse(surveyID),
           surveyName: surveyName,
+          surveyDescription: surveyDescription,
           surveyPeriodID: surveyPeriodID,
-          surveyPeriodTargetUserId: surveyPeriodTargetUserId,
         ));
   }
 }

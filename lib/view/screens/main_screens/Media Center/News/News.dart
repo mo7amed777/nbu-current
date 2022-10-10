@@ -20,7 +20,7 @@ class _NewsState extends State<News> {
           Padding(
             padding: EdgeInsets.symmetric(vertical: 16),
             child: Appbar(
-              title: 'News',
+              title: 'News'.tr,
               search: Icons.search,
               onSearch: (val) {},
             ),

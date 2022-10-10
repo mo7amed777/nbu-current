@@ -42,7 +42,8 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         //TODO if lang is arabic, change the font family to the arabic font family  (NeoSans-AR) and change the direction to rtl in the app theme
 
-        fontFamily: AppTheme.fontName, //in arabic the font family is fontNameAR
+        fontFamily:
+            AppTheme.fontNameAR, //in arabic the font family is fontNameARAR
 
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)
             .copyWith(secondary: Colors.green),

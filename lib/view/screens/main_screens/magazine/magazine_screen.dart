@@ -202,7 +202,6 @@ class _MagazineState extends State<Magazine> {
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         child: TextFormField(
                           style: TextStyle(
-                            fontFamily: 'WorkSans',
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
@@ -253,7 +252,7 @@ class _MagazineState extends State<Magazine> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: const <Widget>[
                 Text(
                   'Choose your',
                   textAlign: TextAlign.left,

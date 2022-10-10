@@ -167,7 +167,7 @@ class HomeDrawerState extends State<HomeDrawer> {
                 title: Text(
                   'logout'.tr,
                   style: TextStyle(
-                    fontFamily: AppTheme.fontName,
+                    fontFamily: AppTheme.fontNameAR,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                     color: AppTheme.green,

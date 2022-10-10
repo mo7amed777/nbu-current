@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/calendar/calendar_popup_view.dart';
 import 'package:northern_border_university/view/screens/main_screens/Media%20Center/media_center/filter/filter_list.dart';
@@ -61,7 +62,7 @@ class MediaCenterState extends State<MediaCenter>
                   padding: EdgeInsets.only(
                       top: MediaQuery.of(context).padding.top + 6),
                   child: Appbar(
-                    title: 'Media Center',
+                    title: 'Media Center'.tr,
                     onSearch: () {},
                   ),
                 ),
@@ -306,7 +307,7 @@ class MediaCenterState extends State<MediaCenter>
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
+                        children: const <Widget>[
                           Text(
                             'Videos & Photos',
                             style: TextStyle(
@@ -314,7 +315,7 @@ class MediaCenterState extends State<MediaCenter>
                                 fontSize: 16,
                                 color: AppTheme.green),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 8,
                           ),
                           Text(
@@ -474,7 +475,7 @@ class MediaCenterState extends State<MediaCenter>
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8),
                       child: Row(
-                        children: <Widget>[
+                        children: const <Widget>[
                           Text(
                             'Filter',
                             style: TextStyle(
@@ -483,7 +484,7 @@ class MediaCenterState extends State<MediaCenter>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Icon(Icons.sort, color: AppTheme.green),
                           ),
                         ],
