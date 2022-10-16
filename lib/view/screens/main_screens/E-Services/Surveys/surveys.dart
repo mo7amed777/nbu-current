@@ -11,8 +11,9 @@ import 'package:northern_border_university/view/widgets/expandTile.dart';
 import 'package:http/http.dart' as http;
 
 class Surveys extends StatefulWidget {
-  const Surveys({required this.surveys});
+  const Surveys({required this.surveys, required this.userData});
   final List surveys;
+  final Map<String, dynamic> userData;
   @override
   State<Surveys> createState() => _SurveysState();
 }
@@ -22,7 +23,7 @@ class _SurveysState extends State<Surveys> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:
-          widget.surveys.isEmpty ? Color(0xFFFEEFDA) : AppTheme.background,
+          widget.surveys.isEmpty ? Color(0xFFFFF8EB) : AppTheme.background,
       body: Column(
         children: [
           widget.surveys.isEmpty
@@ -112,6 +113,7 @@ class _SurveysState extends State<Surveys> {
           surveyName: surveyName,
           surveyDescription: surveyDescription,
           surveyPeriodID: surveyPeriodID,
+          userData: widget.userData,
         ));
   }
 }

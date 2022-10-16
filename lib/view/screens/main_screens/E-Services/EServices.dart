@@ -58,8 +58,12 @@ class _EServicesState extends State<EServices> {
   };
   Map<String, String> searchList = {};
   bool notFound = false;
-
+  //TODO Change Static Data to Login API User Data
   String userNID = '2465348205';
+  int targetTypeId = 1;
+  int gender = 1;
+  String collegeCode = '84';
+  String sectionCode = '1772';
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +75,7 @@ class _EServicesState extends State<EServices> {
             Padding(
               padding: const EdgeInsets.only(bottom: 32.0),
               child: Appbar(
-                  title: 'E-Services',
+                  title: 'e-services'.tr,
                   search: Icons.search,
                   onSearch: (String val) {
                     // clear list on the begging of Search process ...
@@ -219,7 +223,13 @@ class _EServicesState extends State<EServices> {
           "http://10.220.17.59/API/NBUSurvey/GetSurveyPeriod/$userNID"));
       List surveys = jsonDecode(response.body);
       Get.back();
-      Get.to(() => Surveys(surveys: surveys));
+      Get.to(() => Surveys(surveys: surveys, userData: {
+            'NID': userNID,
+            'TargetTypeId': targetTypeId,
+            'Gender': gender,
+            'CollegeCode': collegeCode,
+            'SectionCode': sectionCode,
+          }));
     } catch (e) {
       Get.back();
       showSnackBar(message: '!Error is happened', err: true);

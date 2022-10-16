@@ -14,20 +14,26 @@ class SectionsOfServey extends StatefulWidget {
   late List<SurveySection> surveySections;
   late int surveyID, surveyPeriodID;
   late String surveyName, surveyDescription;
+  final Map<String, dynamic> userData;
   SectionsOfServey({
     required this.surveySections,
     required this.surveyID,
     required this.surveyName,
     required this.surveyDescription,
     required this.surveyPeriodID,
+    required this.userData,
   });
   @override
   SectionsOfServeyState createState() => SectionsOfServeyState();
 }
 
 class SectionsOfServeyState extends State<SectionsOfServey> {
-  List<TextEditingController> controllers =
-      List.generate(10, (index) => TextEditingController());
+  @override
+  void initState() {
+    super.initState();
+    //answersID = [];
+    submit_answers = {};
+  }
 
   List<String> missedTitles = [];
   @override
@@ -146,10 +152,10 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
           showSnackBar(message: 'You have to answer all Questions!', err: true);
           for (var section in surveySections) {
             for (var question in section.questions) {
-              if (!missedTitles.contains(question.titleEN) &&
-                  int.parse(question.questionID) == questionID) {
+              if (!missedTitles.contains(question['title']) &&
+                  question['id'] == questionID) {
                 setState(() {
-                  missedTitles.add(question.titleEN);
+                  missedTitles.add(question['title']);
                 });
               }
               print(missedTitles);
@@ -159,38 +165,40 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
         } else {
           for (var section in surveySections) {
             for (var question in section.questions) {
-              if (missedTitles.contains(question.titleEN) &&
-                  int.parse(question.questionID) == questionID) {
+              if (missedTitles.contains(question['title']) &&
+                  question['id'] == questionID) {
                 setState(() {
-                  missedTitles.remove(question.titleEN);
+                  missedTitles.remove(question['title']);
                 });
               }
             }
           }
         }
+        List<Map<String, dynamic>> answers = [];
         //Post Survey Answers to API
-        List body = [];
+        Map<String, dynamic> body = {
+          "SurveyId": widget.surveyID,
+          "SurveyPeriodId": widget.surveyPeriodID,
+          "NID": widget.userData['NID'],
+          'TargetTypeId': widget.userData['TargetTypeId'],
+          'Gender': widget.userData['Gender'],
+          'CollegeCode': widget.userData['CollegeCode'],
+          'SectionCode': widget.userData['SectionCode'],
+          "DeviceType": 2,
+          "UserAnswerDVM": answers,
+        };
         submit_answers.forEach((questionID, answer) {
           if (answer is List) {
             for (var ans in answer) {
-              body.add({
-                "Id": 0, // const 0
-                "SurveyId": widget.surveyID,
-                "SurveyPeriodId": widget.surveyPeriodID,
-                "SurveySectionId": questionID,
+              answers.add({
+                "SurveyQuestionId": questionID,
                 "AnswerValue": ans.toString(),
-                "DeviceType":
-                    2, //DeviceType means user submitted this survey from Mobile Device Android & IOS
               });
             }
           } else {
-            body.add({
-              "Id": 0, // const 0
-              "SurveyId": widget.surveyID,
-              "SurveyPeriodId": widget.surveyPeriodID,
-              "SurveySectionId": questionID,
+            answers.add({
+              "SurveyQuestionId": questionID,
               "AnswerValue": answer.toString(),
-              "DeviceType": 2,
             });
           }
         });
@@ -205,6 +213,7 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
         if (jsonDecode(response.body)) {
           Get.back();
           showSnackBar(message: 'Submitted Successfully');
+          return;
         } else {
           showSnackBar(message: 'Error while submitting survey!', err: true);
         }
@@ -213,10 +222,10 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
       showSnackBar(message: 'You have to answer all Questions!', err: true);
       for (var section in surveySections) {
         for (var question in section.questions) {
-          if (!submit_answers.containsKey(int.parse(question.questionID))) {
-            if (!missedTitles.contains(question.titleEN)) {
+          if (!submit_answers.containsKey(question['id'])) {
+            if (!missedTitles.contains(question['title'])) {
               setState(() {
-                missedTitles.add(question.titleEN);
+                missedTitles.add(question['title']);
               });
             }
           }
@@ -225,7 +234,6 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
     }
   }
 
-  Map<int, dynamic> submit_answers = {};
   String? dropDownAnswer;
   var ansr;
   Widget dropDownlist({required List answers, required int questionID}) {
@@ -256,36 +264,6 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
         },
       ),
     );
-  }
-
-  List<int> answersID = [];
-  List<bool> checkBoxAnswers = List.generate(10, (index) => false);
-  List<Widget> checkBoxlist({required List answers, required int questionID}) {
-    return answers
-        .map(
-          (answer) => CheckboxListTile(
-            value: checkBoxAnswers[answers.indexOf(answer)],
-            title: Text(answer['titleEn']),
-            onChanged: (value) {
-              if (value!) {
-                if (!answersID.contains(answer['id'])) {
-                  answersID.add(answer['id']);
-                }
-              } else {
-                if (answersID.contains(answer['id'])) {
-                  answersID.remove(answer['id']);
-                }
-              }
-              setState(() {
-                checkBoxAnswers[answers.indexOf(answer)] = value;
-              });
-              submit_answers.addAll({
-                questionID: answersID.isEmpty ? null : answersID,
-              });
-            },
-          ),
-        )
-        .toList();
   }
 
   String? radioAnswer;
@@ -349,13 +327,16 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
             switch (question['questionTypeId']) {
               case 1:
                 return buildQuestion(
-                  title: question['title'],
-                  isList: true,
-                  answersWidget: checkBoxlist(
-                    answers: question['answers'],
-                    questionID: question['id'],
-                  ),
-                );
+                    title: question['title'],
+                    isList: true,
+                    answersWidget: (question['answers'] as List)
+                        .map(
+                          (ans) => CheckBoxList(
+                            answer: ans,
+                            questionID: ans['surveyQuestionId'],
+                          ),
+                        )
+                        .toList());
               case 2:
                 return buildQuestion(
                   title: question['title'],
@@ -370,8 +351,6 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
                   title: question['title'],
                   isList: false,
                   answersWidget: TextFormField(
-                    controller:
-                        controllers[surveySection.questions.indexOf(question)],
                     textInputAction: TextInputAction.done,
                     maxLines: null,
                     keyboardType: TextInputType.multiline,
@@ -402,6 +381,48 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
         ),
         Center(child: Text(surveySection.name)),
       ],
+    );
+  }
+}
+
+Map<int, dynamic> submit_answers = {};
+
+class CheckBoxList extends StatefulWidget {
+  CheckBoxList({required this.answer, required this.questionID});
+  dynamic answer;
+  int questionID;
+  @override
+  State<CheckBoxList> createState() => _CheckBoxListState();
+}
+
+class _CheckBoxListState extends State<CheckBoxList> {
+  bool checked = false;
+  @override
+  Widget build(BuildContext context) {
+    return CheckboxListTile(
+      value: checked,
+      title: Text(widget.answer['title']),
+      onChanged: (value) {
+        if (value!) {
+          if (submit_answers[widget.questionID] == null) {
+            submit_answers.addAll({
+              widget.questionID: [],
+            });
+          }
+          submit_answers[widget.questionID].add(widget.answer['id']);
+        } else {
+          submit_answers[widget.questionID].remove(widget.answer['id']);
+          if (submit_answers[widget.questionID].isEmpty) {
+            submit_answers.remove(widget.questionID);
+          }
+        }
+        setState(() {
+          checked = value;
+        });
+
+        print('answersID: ${submit_answers[widget.questionID]}');
+        print('submit_answers: $submit_answers');
+      },
     );
   }
 }
