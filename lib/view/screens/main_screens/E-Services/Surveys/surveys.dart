@@ -33,8 +33,6 @@ class _SurveysState extends State<Surveys> {
                       top: MediaQuery.of(context).padding.top + 6),
                   child: Appbar(
                     title: 'Surveys',
-                    search: Icons.search,
-                    onSearch: (val) {},
                   ),
                 ),
           Expanded(

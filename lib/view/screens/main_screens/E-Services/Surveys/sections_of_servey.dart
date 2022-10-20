@@ -242,9 +242,9 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
         items: answers
             .map(
               (ans) => DropdownMenuItem<String>(
-                value: ans['titleEn'],
+                value: ans['title'],
                 child: Text(
-                  ans['titleEn'],
+                  ans['title'],
                 ),
                 onTap: () {
                   ansr = ans;
@@ -272,12 +272,12 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
     return answers
         .map(
           (answer) => RadioListTile<String>(
-            value: answer['titleEn'],
+            value: answer['title'],
             contentPadding: EdgeInsets.all(8.0),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.zero)),
             groupValue: radioAnswer,
-            title: Text(answer['titleEn']),
+            title: Text(answer['title']),
             onChanged: (String? value) {
               setState(() {
                 radioAnswer = value!;
@@ -416,6 +416,7 @@ class _CheckBoxListState extends State<CheckBoxList> {
             submit_answers.remove(widget.questionID);
           }
         }
+
         setState(() {
           checked = value;
         });

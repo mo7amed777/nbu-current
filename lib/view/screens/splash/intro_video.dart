@@ -4,7 +4,7 @@ import 'package:northern_border_university/controller/app_theme.dart';
 import 'package:video_player/video_player.dart';
 
 const videoURL =
-    'https://www.nbu.edu.sa/sites/default/files/2022-09/ND92identity.mp4';
+    'https://www.nbu.edu.sa/sites/default/files/2022-10/Home%20page%20nbu.mp4';
 
 class SplashView extends StatefulWidget {
   final AnimationController animationController;
