@@ -123,8 +123,8 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
                           // 2 : string if input filed
                           // 3 : list of ids if checkbox
                           //}
-                          print(submit_answers.keys); //Questions ids
-                          print(submit_answers.values); // answers ids
+                          //print(submit_answers.keys); //Questions ids
+                          //print(submit_answers.values); // answers ids
                           validate(surveySections: widget.surveySections);
                         },
                         label: 'Submit'),
@@ -158,7 +158,7 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
                   missedTitles.add(question['title']);
                 });
               }
-              print(missedTitles);
+              //print(missedTitles);
             }
             return;
           }
@@ -202,14 +202,14 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
             });
           }
         });
-        print('Post Body : $body');
+        //print('Post Body : $body');
         Map<String, String> headers = {'Content-Type': 'application/json'};
         final http.Response response = await http.post(
           Uri.parse("http://10.220.17.59/API/NBUSurvey/PostAnswer"),
           body: jsonEncode(body),
           headers: headers,
         );
-        print(response.statusCode);
+        //print(response.statusCode);
         if (jsonDecode(response.body)) {
           Get.back();
           showSnackBar(message: 'Submitted Successfully');
@@ -374,7 +374,7 @@ class SectionsOfServeyState extends State<SectionsOfServey> {
                   ),
                 );
               default:
-                print(question);
+                //print(question);
                 return Container();
             }
           }).toList(),
@@ -421,8 +421,8 @@ class _CheckBoxListState extends State<CheckBoxList> {
           checked = value;
         });
 
-        print('answersID: ${submit_answers[widget.questionID]}');
-        print('submit_answers: $submit_answers');
+        //print('answersID: ${submit_answers[widget.questionID]}');
+        //print('submit_answers: $submit_answers');
       },
     );
   }

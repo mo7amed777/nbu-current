@@ -39,7 +39,7 @@ class _IntroductionAnimationScreenState
 
   @override
   Widget build(BuildContext context) {
-    print(_animationController?.value);
+    //print(_animationController?.value);
     return Scaffold(
       backgroundColor: AppTheme.white,
       body: Stack(

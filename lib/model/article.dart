@@ -10,10 +10,10 @@ class Article {
   Future<void> getAllItems() async {
     final http.Response response = await http.get(
         Uri.parse("https://mobile-app-apis.nbu.edu.sa/jsonapi/node/article"));
-    print(response.body);
+    //print(response.body);
     final body = jsonDecode(response.body);
     items = body["data"];
-    print(items);
+    //print(items);
   }
 
   dynamic getItemFields(dynamic item) => {
@@ -41,7 +41,7 @@ class Article {
     final http.Response response = await http.get(Uri.parse(url));
     final body = jsonDecode(response.body);
     String imgURL = DOMAIN + body["data"]["attributes"]["uri"]["url"];
-    print(imgURL);
+    //print(imgURL);
     return imgURL;
   }
 }

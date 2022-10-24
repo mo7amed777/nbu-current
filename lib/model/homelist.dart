@@ -32,7 +32,7 @@ class HomeList {
         try {
           Get.to(Administrations.new);
         } catch (e) {
-          print(e);
+          //print(e);
         }
       },
     ),

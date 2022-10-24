@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:northern_border_university/controller/app_theme.dart';
-import 'package:northern_border_university/model/article.dart';
 import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/survey_section.dart';
 import 'package:northern_border_university/view/screens/main_screens/E-Services/Surveys/sections_of_servey.dart';
 import 'package:northern_border_university/view/widgets/appbar.dart';
